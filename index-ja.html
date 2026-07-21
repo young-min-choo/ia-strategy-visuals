@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IAシステム開発戦略 — ビジュアルロードマップ 2026–2029+</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, 'Segoe UI', Roboto, sans-serif;
+    background: #2b2b2b;
+    color: #1e1e1e;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .canvas {
+    width: 1123px;
+    background: #2b2b2b;
+    padding: 24px;
+  }
+
+  /* ===== SECTION FRAMES ===== */
+  .section-frame {
+    border-radius: 6px;
+    border: 3px solid #757575;
+    background: #ffffff;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .section-label {
+    position: absolute;
+    top: -12px;
+    left: 16px;
+    background: #2b2b2b;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 4px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ===== TITLE BLOCK ===== */
+  .title-block {
+    width: 100%;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, #1a237e, #283593, #3949ab);
+    border-radius: 6px;
+    margin-bottom: 24px;
+  }
+  .title-block h1 {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+  }
+  .title-block .subtitle {
+    color: #bbdefb;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 8px;
+  }
+  .title-block .meta {
+    color: #90caf9;
+    font-size: 12px;
+    margin-top: 4px;
+  }
+
+  /* ===== END GOAL BLOCK ===== */
+  .goal-section { padding: 24px 28px; }
+  .goal-section h2 {
+    font-size: 20px; font-weight: 800; color: #1a237e;
+    margin-bottom: 16px; border-bottom: 2px solid #1a237e; padding-bottom: 6px;
+  }
+  .goal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 18px;
+  }
+  .goal-card {
+    border-radius: 6px;
+    padding: 20px 18px;
+    color: #fff;
+    min-height: 180px;
+  }
+  .goal-card .icon { font-size: 32px; margin-bottom: 10px; }
+  .goal-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .goal-card p { font-size: 12px; line-height: 1.55; opacity: 0.95; }
+  .goal-card .year-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    background: rgba(255,255,255,0.25);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-top: 10px;
+  }
+  .goal-1 { background: linear-gradient(135deg, #4caf50, #2e7d32); }
+  .goal-2 { background: linear-gradient(135deg, #7b1fa2, #4a148c); }
+  .goal-3 { background: linear-gradient(135deg, #e65100, #bf360c); }
+
+  /* ===== ROADMAP SECTION ===== */
+  .roadmap-section { padding: 24px 28px; }
+  .roadmap-section h2 {
+    font-size: 20px; font-weight: 800; color: #1a237e;
+    margin-bottom: 6px; border-bottom: 2px solid #1a237e; padding-bottom: 6px;
+  }
+  .roadmap-section .desc { font-size: 12px; color: #616161; margin-bottom: 16px; }
+
+  /* Timeline header — 9 period columns + 1 label column */
+  .timeline-header {
+    display: grid;
+    grid-template-columns: 180px repeat(9, 1fr);
+    gap: 0;
+    border-bottom: 2px solid #ddd;
+  }
+  .timeline-header .label-col {
+    font-size: 11px; font-weight: 700; color: #424242;
+    padding: 8px 10px; display: flex; align-items: center;
+  }
+  .timeline-header .period-col {
+    font-size: 10px; text-align: center; padding: 8px 0;
+    color: #757575; font-weight: 600;
+    border-left: 1px solid #eee;
+  }
+  .timeline-header .period-col.year-marker {
+    border-left: 2px solid #999;
+    color: #1a237e;
+    font-weight: 700;
+  }
+
+  /* Category rows */
+  .cat-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    border-bottom: 1px solid #eee;
+  }
+  .cat-label {
+    padding: 10px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    border-right: 2px solid #ddd;
+  }
+  .cat-label .cat-badge {
+    width: 30px; height: 30px; border-radius: 5px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 800; color: #fff;
+    margin-right: 8px; flex-shrink: 0;
+  }
+  .cat-track {
+    position: relative;
+    min-height: 72px;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+  }
+
+  /* Project bars */
+  .project-bar {
+    border-radius: 5px;
+    padding: 5px 8px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    margin: 3px 2px;
+  }
+  .project-bar .pid { font-size: 9px; opacity: 0.8; font-weight: 600; }
+  .project-bar .pname { font-size: 10px; font-weight: 700; line-height: 1.25; }
+  .project-bar .pdep { font-size: 8px; opacity: 0.7; margin-top: 2px; }
+
+  /* Category colors */
+  .cat-ai-infra { background: #1565c0; }
+  .cat-reservation { background: #00838f; }
+  .cat-knowledge { background: #6a1b9a; }
+  .cat-architecture { background: #e65100; }
+  .cat-ai-first { background: #2e7d32; }
+  .cat-saas { background: #c62828; }
+
+  /* ===== DEPENDENCY CHAIN SECTION ===== */
+  .chain-section { padding: 24px 28px; }
+  .chain-section h2 {
+    font-size: 20px; font-weight: 800; color: #1a237e;
+    margin-bottom: 6px; border-bottom: 2px solid #1a237e; padding-bottom: 6px;
+  }
+  .chain-section .desc { font-size: 12px; color: #616161; margin-bottom: 16px; }
+
+  .chain-phase-label {
+    font-size: 13px; font-weight: 700; margin-bottom: 10px; margin-top: 14px;
+  }
+  .chain-flow {
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+    align-items: stretch;
+    margin-bottom: 8px;
+  }
+  .chain-node {
+    border-radius: 6px;
+    padding: 12px 10px;
+    min-width: 140px;
+    max-width: 175px;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+    flex: 1;
+  }
+  .chain-node .step { font-size: 9px; opacity: 0.7; font-weight: 600; }
+  .chain-node .name { font-size: 12px; font-weight: 700; margin: 3px 0; }
+  .chain-node .detail { font-size: 9px; opacity: 0.85; line-height: 1.35; }
+  .chain-arrow {
+    display: flex;
+    align-items: center;
+    color: #757575;
+    font-size: 18px;
+    padding: 0 5px;
+    flex-shrink: 0;
+  }
+
+  .chain-path-label { font-size: 12px; font-weight: 700; margin-bottom: 8px; }
+  .chain-convergence { text-align: center; font-size: 12px; color: #616161; margin-top: 10px; }
+
+  /* ===== DEPARTMENT BENEFIT MATRIX ===== */
+  .benefit-section { padding: 24px 28px; }
+  .benefit-section h2 {
+    font-size: 20px; font-weight: 800; color: #1a237e;
+    margin-bottom: 6px; border-bottom: 2px solid #1a237e; padding-bottom: 6px;
+  }
+  .benefit-section .desc { font-size: 12px; color: #616161; margin-bottom: 12px; }
+
+  .benefit-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10px;
+    table-layout: fixed;
+  }
+  .benefit-table th {
+    background: #1a237e;
+    color: #fff;
+    padding: 7px 5px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .benefit-table th:first-child { width: 140px; }
+  .benefit-table td {
+    padding: 6px 5px;
+    border-bottom: 1px solid #e0e0e0;
+    vertical-align: top;
+    line-height: 1.35;
+    word-wrap: break-word;
+  }
+  .benefit-table td:first-child {
+    font-weight: 700;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+  .benefit-table tr:nth-child(even) { background: #fafafa; }
+
+  .benefit-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    margin-right: 3px;
+    vertical-align: middle;
+  }
+  .dot-strong { background: #2e7d32; }
+  .dot-moderate { background: #f9a825; }
+  .dot-indirect { background: #90caf9; }
+  .dot-none { background: #e0e0e0; }
+
+  .benefit-text { font-size: 9px; color: #424242; }
+  .benefit-legend {
+    display: flex; gap: 18px; margin-bottom: 12px;
+    font-size: 11px; color: #616161;
+  }
+  .benefit-legend span { display: flex; align-items: center; gap: 5px; }
+
+  /* ===== LEGEND ===== */
+  .legend-bar {
+    display: flex; gap: 14px; flex-wrap: wrap;
+    padding: 12px 28px; background: #f5f5f5; border-radius: 5px;
+    margin-top: 12px;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 600; color: #424242;
+  }
+  .legend-swatch { width: 20px; height: 14px; border-radius: 3px; }
+
+  @media print {
+    @page { size: A4 landscape; }
+    .canvas { width: auto; background: #fff; padding: 10px; }
+    .section-frame { page-break-inside: avoid; }
+    body { background: #fff; }
+  }
+</style>
+</head>
+<body>
+<div class="canvas">
+
+<!-- ===== TITLE ===== -->
+<div class="title-block">
+  <h1>IAシステム開発戦略 — ビジュアルロードマップ 2026–2029+</h1>
+  <div class="subtitle">社内AIハーネス → 外部サービス + SaaS/BaaS製品ライン</div>
+  <div class="meta">6つの戦略カテゴリにわたる18プロジェクト · 全社向けプレゼン用</div>
+</div>
+
+<!-- ===== SECTION 1: END GOAL ===== -->
+<div class="section-frame">
+  <div class="section-label">セクション1 — 最終目標</div>
+  <div class="goal-section">
+    <h2>3年+のビジョン: ひとつのエンジニアリング基盤から2つの並行収益ルート</h2>
+    <div class="goal-grid">
+      <div class="goal-card goal-1">
+        <div class="icon">🤖</div>
+        <h3>AIハーネスサービス</h3>
+        <p>社内AIコードベース/データハーネスを開発 — ガバナンス、PRレビュー、スタッフアプリビルダー — その後、トレーニング/イネーブルメント付きの<strong>クライアント実装サービス</strong>としてパッケージ化。</p>
+        <div class="year-badge">収益化準備完了: 2028年下半期</div>
+      </div>
+      <div class="goal-card goal-2">
+        <div class="icon">📦</div>
+        <h3>SaaS / BaaS製品</h3>
+        <p>6つのアプリバックエンドを分離し、共有ハンドラーを構築、その後Corporate Bohr → Zan → Kikuichimonjiを<strong>マルチテナント型販売可能プラットフォーム</strong>としてSaaS化。</p>
+        <div class="year-badge">最初のMVP: 2028年下半期 · GTM: 2029+</div>
+      </div>
+      <div class="goal-card goal-3">
+        <div class="icon">🎓</div>
+        <h3>トレーニング & イネーブルメント</h3>
+        <p>AIハーネスの実装に<strong>ワークショップ、マネージャーブリーフィング、ガバナンスプレイブック</strong>を組み合わせ、クライアント組織がハーネスを導入・維持できるようにする。</p>
+        <div class="year-badge">パイロット: 2029+</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SECTION 2: ROADMAP TIMELINE ===== -->
+<div class="section-frame">
+  <div class="section-label">セクション2 — ロードマップ: 各プロジェクトの位置</div>
+  <div class="roadmap-section">
+    <h2>プロジェクトタイムライン & 依存関係 (2026 → 2029+)</h2>
+    <div class="desc">各バーはプロジェクトの活動期間を示す。同じカテゴリのバーは同じトラックを共有。バーのラベルは主要な依存関係を示す（→ = 依存、⊢ = ブロック）。</div>
+
+    <!-- 9 period columns -->
+    <div class="timeline-header">
+      <div class="label-col">プロジェクト / カテゴリ</div>
+      <div class="period-col year-marker">'26 H1<br><span style="font-size:8px;font-weight:400">6–8月</span></div>
+      <div class="period-col">'26 H2<br><span style="font-size:8px;font-weight:400">9–12月</span></div>
+      <div class="period-col year-marker">'27 H1<br><span style="font-size:8px;font-weight:400">1–6月</span></div>
+      <div class="period-col">'27 H2<br><span style="font-size:8px;font-weight:400">7–12月</span></div>
+      <div class="period-col year-marker">'28 H1</div>
+      <div class="period-col">'28 H2</div>
+      <div class="period-col year-marker">'29 H1</div>
+      <div class="period-col">'29 H2</div>
+      <div class="period-col">2029+</div>
+    </div>
+
+    <!-- Cat 1A: AI Infrastructure -->
+    <div class="cat-row">
+      <div class="cat-label">
+        <span class="cat-badge cat-ai-infra">1A</span>
+        AI基盤
+      </div>
+      <div class="cat-track">
+        <div class="project-bar cat-ai-infra" style="grid-column: 1 / 3; grid-row: 1;">
+          <div class="pid">AI-01</div>
+          <div class="pname">ローカルAI環境</div>
+          <div class="pdep">⊢ AI-02</div>
+        </div>
+        <div class="project-bar cat-ai-infra" style="grid-column: 1 / 3; grid-row: 2; opacity:0.85;">
+          <div class="pid">AI-02</div>
+          <div class="pname">OD動画自動化</div>
+          <div class="pdep">→ AI-01</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cat 1B: Reservation Migration -->
+    <div class="cat-row">
+      <div class="cat-label">
+        <span class="cat-badge cat-reservation">1B</span>
+        予約移行
+      </div>
+      <div class="cat-track">
+        <div class="project-bar cat-reservation" style="grid-column: 1 / 2; grid-row: 1;">
+          <div class="pid">IAHP-01</div>
+          <div class="pname">個人IAHP移行</div>
+          <div class="pdep">⊢ IAHP-02</div>
+        </div>
+        <div class="project-bar cat-reservation" style="grid-column: 2 / 3; grid-row: 1; opacity:0.85;">
+          <div class="pid">IAHP-02</div>
+          <div class="pname">法人IAHP移行</div>
+          <div class="pdep">→ IAHP-01</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cat 1C: Knowledge Platform -->
+    <div class="cat-row">
+      <div class="cat-label">
+        <span class="cat-badge cat-knowledge">1C</span>
+        ナレッジ
+      </div>
+      <div class="cat-track">
+        <div class="project-bar cat-knowledge" style="grid-column: 1 / 2; grid-row: 1;">
+          <div class="pid">IAGPT-02</div>
+          <div class="pname">Zendesk取り込み</div>
+          <div class="pdep">⊢ IAGPT-03</div>
+        </div>
+        <div class="project-bar cat-knowledge" style="grid-column: 2 / 3; grid-row: 1; opacity:0.85;">
+          <div class="pid">IAGPT-03</div>
+          <div class="pname">デジタルテキスト</div>
+          <div class="pdep">→ 02 · ⊢ 04</div>
+        </div>
+        <div class="project-bar cat-knowledge" style="grid-column: 2 / 4; grid-row: 2; opacity:0.75;">
+          <div class="pid">IAGPT-04</div>
+          <div class="pname">顧客向けAI（意思決定ゲート）</div>
+          <div class="pdep">→ 02 + 03</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cat 2A-C: Architecture -->
+    <div class="cat-row">
+      <div class="cat-label">
+        <span class="cat-badge cat-architecture">2A-C</span>
+        アーキテクチャ
+      </div>
+      <div class="cat-track">
+        <div class="project-bar cat-architecture" style="grid-column: 1 / 3; grid-row: 1;">
+          <div class="pid">ARCH-01</div>
+          <div class="pname">境界ディスカバリ</div>
+          <div class="pdep">⊢ PLAT-01, APP-SEP</div>
+        </div>
+        <div class="project-bar cat-architecture" style="grid-column: 2 / 7; grid-row: 2; opacity:0.85;">
+          <div class="pid">PLAT-01</div>
+          <div class="pname">共有ハンドラー（ファイル/コンテンツ/イベント/DB）</div>
+          <div class="pdep">→ ARCH-01 · ⊢ APP-SEP, TENANT</div>
+        </div>
+        <div class="project-bar cat-architecture" style="grid-column: 2 / 10; grid-row: 3; opacity:0.75;">
+          <div class="pid">APP-SEP-01</div>
+          <div class="pname">バックエンド分離（Corp Bohr → Zan → Corp IAHP → Ind IAHP → Kiku）</div>
+          <div class="pdep">→ ARCH-01, PLAT-01 · ⊢ 全SaaS</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cat 3A-D: AI-First Development -->
+    <div class="cat-row">
+      <div class="cat-label">
+        <span class="cat-badge cat-ai-first">3A-D</span>
+        AIファースト開発
+      </div>
+      <div class="cat-track">
+        <div class="project-bar cat-ai-first" style="grid-column: 2 / 4; grid-row: 1;">
+          <div class="pid">GOV-01</div>
+          <div class="pname">PRガバナンス基盤</div>
+          <div class="pdep">⊢ DEVAI, HARNESS</div>
+        </div>
+        <div class="project-bar cat-ai-first" style="grid-column: 3 / 7; grid-row: 2; opacity:0.85;">
+          <div class="pid">DEVAI-01</div>
+          <div class="pname">スタッフAIアプリビルダー</div>
+          <div class="pdep">→ GOV-01 · ⊢ HARNESS</div>
+        </div>
+        <div class="project-bar cat-ai-first" style="grid-column: 6 / 10; grid-row: 3; opacity:0.75;">
+          <div class="pid">HARNESS-01</div>
+          <div class="pname">AIハーネスサービスパッケージング</div>
+          <div class="pdep">→ GOV + DEVAI · ⊢ TRAIN</div>
+        </div>
+        <div class="project-bar cat-ai-first" style="grid-column: 9 / 10; grid-row: 4; opacity:0.65;">
+          <div class="pid">TRAIN-01</div>
+          <div class="pname">トレーニング/イネーブルメント</div>
+          <div class="pdep">→ HARNESS</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cat 4A-E: SaaS / BaaS -->
+    <div class="cat-row">
+      <div class="cat-label">
+        <span class="cat-badge cat-saas">4A-E</span>
+        SaaS / BaaS
+      </div>
+      <div class="cat-track">
+        <div class="project-bar cat-saas" style="grid-column: 5 / 9; grid-row: 1;">
+          <div class="pid">TENANT-01</div>
+          <div class="pname">SaaS基盤（マルチテナント）</div>
+          <div class="pdep">→ APP-SEP, PLAT-01</div>
+        </div>
+        <div class="project-bar cat-saas" style="grid-column: 6 / 10; grid-row: 2; opacity:0.85;">
+          <div class="pid">BOHRCORP-01</div>
+          <div class="pname">Corporate Bohr SaaS</div>
+          <div class="pdep">→ TENANT, APP-SEP</div>
+        </div>
+        <div class="project-bar cat-saas" style="grid-column: 9 / 10; grid-row: 3; opacity:0.75;">
+          <div class="pid">ZAN-01</div>
+          <div class="pname">Zan SaaS</div>
+          <div class="pdep">→ TENANT</div>
+        </div>
+        <div class="project-bar cat-saas" style="grid-column: 9 / 10; grid-row: 4; opacity:0.65;">
+          <div class="pid">KIKU-01</div>
+          <div class="pname">Kiku SaaS</div>
+          <div class="pdep">→ TENANT</div>
+        </div>
+        <div class="project-bar cat-saas" style="grid-column: 9 / 10; grid-row: 5; opacity:0.55;">
+          <div class="pid">MARKET-01</div>
+          <div class="pname">GTMパッケージング</div>
+          <div class="pdep">→ 全SaaS + HARNESS</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Legend -->
+    <div class="legend-bar">
+      <div class="legend-item"><div class="legend-swatch" style="background:#1565c0;"></div> 1A — AI基盤</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#00838f;"></div> 1B — 予約移行</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#6a1b9a;"></div> 1C — ナレッジプラットフォーム</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#e65100;"></div> 2A-C — アーキテクチャ</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#2e7d32;"></div> 3A-D — AIファースト開発</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#c62828;"></div> 4A-E — SaaS / BaaS</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SECTION 3: HOW EACH PROJECT MOVES US CLOSER ===== -->
+<div class="section-frame">
+  <div class="section-label">セクション3 — ゴールチェーン: 各プロジェクトがどう前進させるか</div>
+  <div class="chain-section">
+    <h2>依存チェーン: 基盤 → 社内能力 → 外部収益</h2>
+    <div class="desc">左から右に読む。各フェーズは次が依存する基盤を生み出す。チェーンは2つの収益ルートに分岐し、GTMで合流する。</div>
+
+    <!-- Phase 1 -->
+    <div class="chain-phase-label" style="color:#1a237e;">フェーズ1 — 基盤 & クイックウィン (2026)</div>
+    <div class="chain-flow">
+      <div class="chain-node cat-ai-infra">
+        <div class="step">STEP 1</div>
+        <div class="name">AI-01<br>ローカルAIハードウェア</div>
+        <div class="detail">再利用可能な計算環境。外部API依存なし。</div>
+      </div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-node cat-ai-infra" style="opacity:0.9;">
+        <div class="step">STEP 2</div>
+        <div class="name">AI-02<br>OD動画自動化</div>
+        <div class="detail">月6→24レッスン。ローカルHW上の初AIパイプライン。</div>
+      </div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-node cat-knowledge" style="opacity:0.9;">
+        <div class="step">STEP 3</div>
+        <div class="name">IAGPT-02→03→04<br>ナレッジプラットフォーム</div>
+        <div class="detail">Zendesk → デジタルテキスト → 顧客AI。</div>
+      </div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-node cat-reservation" style="opacity:0.9;">
+        <div class="step">STEP 4</div>
+        <div class="name">IAHP-01→02<br>予約移行</div>
+        <div class="detail">ソース管理フォーム。同一URL、低リスク。</div>
+      </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="chain-phase-label" style="color:#e65100;">フェーズ2 — アーキテクチャ & 分離 (2026–2029+)</div>
+    <div class="chain-flow">
+      <div class="chain-node cat-architecture">
+        <div class="step">STEP 5</div>
+        <div class="name">ARCH-01<br>境界ディスカバリ</div>
+        <div class="detail">6アプリ全体の依存・データフローをマッピング。</div>
+      </div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-node cat-architecture" style="opacity:0.9;">
+        <div class="step">STEP 6</div>
+        <div class="name">PLAT-01<br>共有ハンドラー</div>
+        <div class="detail">ファイル、コンテンツ、イベント、DBをサービス/契約として。</div>
+      </div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-node cat-architecture" style="opacity:0.8;">
+        <div class="step">STEP 7</div>
+        <div class="name">APP-SEP-01<br>バックエンド分離</div>
+        <div class="detail">6バックエンドを分離: CorpBohr→Zan→IAHP→Kiku。</div>
+      </div>
+    </div>
+
+    <!-- Phase 3: Two paths -->
+    <div class="chain-phase-label" style="color:#2e7d32;">フェーズ3 — 2つの並行収益ルート (2027–2029+)</div>
+    <div style="display:flex; gap:20px; flex-wrap:wrap;">
+      <!-- Path A -->
+      <div style="flex:1; min-width:500px;">
+        <div class="chain-path-label" style="color:#2e7d32;">ルートA: AIハーネスサービスライン</div>
+        <div class="chain-flow">
+          <div class="chain-node cat-ai-first">
+            <div class="step">8a</div>
+            <div class="name">GOV-01<br>PRガバナンス</div>
+            <div class="detail">レビューゲート、CI、CODEOWNERS。</div>
+          </div>
+          <div class="chain-arrow">→</div>
+          <div class="chain-node cat-ai-first" style="opacity:0.9;">
+            <div class="step">9a</div>
+            <div class="name">DEVAI-01<br>スタッフビルダー</div>
+            <div class="detail">非エンジニアがビルド → PRをレビュー。</div>
+          </div>
+          <div class="chain-arrow">→</div>
+          <div class="chain-node cat-ai-first" style="opacity:0.8;">
+            <div class="step">10a</div>
+            <div class="name">HARNESS-01<br>サービスパッケージ化</div>
+            <div class="detail">メソッド、テンプレート、プレイブックをパッケージ化。</div>
+          </div>
+          <div class="chain-arrow">→</div>
+          <div class="chain-node cat-ai-first" style="opacity:0.7;">
+            <div class="step">11a</div>
+            <div class="name">TRAIN-01<br>トレーニング</div>
+            <div class="detail">ワークショップ、ブリーフィング、プレイブック。</div>
+          </div>
+        </div>
+      </div>
+      <!-- Path B -->
+      <div style="flex:1; min-width:500px;">
+        <div class="chain-path-label" style="color:#c62828;">ルートB: SaaS / BaaS製品ライン</div>
+        <div class="chain-flow">
+          <div class="chain-node cat-saas">
+            <div class="step">8b</div>
+            <div class="name">TENANT-01<br>SaaS基盤</div>
+            <div class="detail">マルチテナント、認証/ロール、データ分離。</div>
+          </div>
+          <div class="chain-arrow">→</div>
+          <div class="chain-node cat-saas" style="opacity:0.9;">
+            <div class="step">9b</div>
+            <div class="name">BOHRCORP-01<br>Corp Bohr SaaS</div>
+            <div class="detail">最初のSaaS: LMS/顧客管理プラットフォーム。</div>
+          </div>
+          <div class="chain-arrow">→</div>
+          <div class="chain-node cat-saas" style="opacity:0.8;">
+            <div class="step">10b</div>
+            <div class="name">ZAN / KIKU<br>追加SaaS</div>
+            <div class="detail">ZanとKikuichimonjiに拡張。</div>
+          </div>
+          <div class="chain-arrow">→</div>
+          <div class="chain-node cat-saas" style="opacity:0.7;">
+            <div class="step">11b</div>
+            <div class="name">MARKET-01<br>GTMパッケージング</div>
+            <div class="detail">価格設定、オンボーディング、営業資料。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="chain-convergence">
+      ↑ 両ルートが合流: <strong>MARKET-01</strong>がSaaS製品 + AIハーネスパイロットを統合GTMオファーにパッケージ化。
+    </div>
+  </div>
+</div>
+
+<!-- ===== SECTION 4: DEPARTMENT BENEFIT MATRIX ===== -->
+<div class="section-frame">
+  <div class="section-label">セクション4 — 部門別メリット</div>
+  <div class="benefit-section">
+    <h2>各プロジェクトが各部門にもたらすメリット</h2>
+    <div class="desc">緑 = 強い/直接 · 黄 = 中程度 · 青 = 間接 · 灰 = 直接のメリットなし</div>
+
+    <div class="benefit-legend">
+      <span><span class="benefit-dot dot-strong"></span> 強い / 直接</span>
+      <span><span class="benefit-dot dot-moderate"></span> 中程度</span>
+      <span><span class="benefit-dot dot-indirect"></span> 間接</span>
+      <span><span class="benefit-dot dot-none"></span> 直接のメリットなし</span>
+    </div>
+
+    <table class="benefit-table">
+      <thead>
+        <tr>
+          <th>プロジェクト</th>
+          <th>システム開発</th>
+          <th>カリキュラム/講師</th>
+          <th>マーケティング/営業</th>
+          <th>サポート</th>
+          <th>運用</th>
+          <th>経営陣</th>
+          <th>トレーニング</th>
+          <th>デザイン</th>
+          <th>プロダクトオーナー</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="benefit-dot dot-strong"></span>AI-01 ローカルAI</td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>共有AI環境、個人のPC不要</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>カリキュラムAIのローカルテスト</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-indirect"></span>コンテンツ配信高速化</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-indirect"></span>将来のAI機能</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>外部計算コスト削減</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+        </tr>
+        <tr>
+          <td><span class="benefit-dot dot-strong"></span>AI-02 OD動画</td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>維持すべきパイプライン</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>月6→24レッスン、手作業削減</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>リード獲得コンテンツ増</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-indirect"></span>更新サイクル高速化</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>コンテンツ生産4倍</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+        </tr>
+        <tr>
+          <td><span class="benefit-dot dot-strong"></span>IAHP-01 個人移行</td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>ソース管理、レビュー、ロールバック</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>安定リードファネル、低リスク</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>安定した予約運用</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-indirect"></span>リスク削減</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>フォームデザインレビュー手順</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+        </tr>
+        <tr>
+          <td><span class="benefit-dot dot-moderate"></span>IAHP-02 法人</td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>ソース管理された法人フォーム</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>法人リード取り込み安定</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>法人問い合わせ権限明確化</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-indirect"></span>リスク削減</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+        </tr>
+        <tr>
+          <td><span class="benefit-dot dot-strong"></span>IAGPT-02 Zendesk</td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>IA管理のナレッジベース</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>IAGPTで承認済み回答を検索</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>ベンダー依存削減</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+        </tr>
+        <tr>
+          <td><span class="benefit-dot dot-strong"></span>IAGPT-03 デジタルテキスト</td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>再利用可能なナレッジパイプライン</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>カリキュラム資産をKBに</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>カリキュラムに基づく回答</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-indirect"></span>ナレッジ資産価値</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+        </tr>
+        <tr>
+          <td><span class="benefit-dot dot-moderate"></span>IAGPT-04 顧客AI</td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>構築すべき顧客AIチャネル</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>顧客サポートチャネル</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>繰り返し作業削減、エスカレーション</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>サポートコスト削減</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+        </tr>
+        <tr>
+          <td><span class="benefit-dot dot-moderate"></span>ARCH-01 境界</td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>明確な権限、リポジトリ、API</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-indirect"></span>クロスシステム回帰バグ減少</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>エビデンスベースの意思決定</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>明確なプロダクト境界</span></td>
+        </tr>
+        <tr>
+          <td><span class="benefit-dot dot-moderate"></span>PLAT-01 ハンドラー</td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>共有API、重複作業削減</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-indirect"></span>安定した共通動作</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>プラットフォーム再利用性</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>カスタマイズ容易化</span></td>
+        </tr>
+        <tr>
+          <td><span class="benefit-dot dot-moderate"></span>APP-SEP-01 分離</td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>アプリレベルの権限、デプロイ、インシデント</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-indirect"></span>プロダクト固有カスタマイズ</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-indirect"></span>プロダクト固有機能</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>クロスプロダクトリスク減少</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>販売可能なプロダクト</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>独立した権限</span></td>
+        </tr>
+        <tr>
+          <td><span class="benefit-dot dot-strong"></span>GOV-01 PRガバナンス</td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>スケーラブルなAI貢献、エンジニアリング管理</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-indirect"></span>将来の安全な貢献</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>品質/リスク管理</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>トレーニングカリキュラム資材</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+        </tr>
+        <tr>
+          <td><span class="benefit-dot dot-strong"></span>DEVAI-01 スタッフビルダー</td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>スタッフPRレビューワークフロー</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>エンジニアリング帯域なしでツール構築</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>マーケティングツールをローカル構築</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>サポートツールをローカル構築</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>運用ツールをローカル構築</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>社内開発キャパシティ↑</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>スタッフ向けトレーニング資材</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+        </tr>
+        <tr>
+          <td><span class="benefit-dot dot-moderate"></span>HARNESS-01 サービス</td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>再利用可能なメソッド、テンプレート</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>販売する新サービス</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>新たな収益ライン</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>サービスプロダクト定義</span></td>
+        </tr>
+        <tr>
+          <td><span class="benefit-dot dot-moderate"></span>TRAIN-01 トレーニング</td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>導入レッスンフィードバック</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>販売するトレーニングサービス</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>導入収益</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>コアサービス提供</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+        </tr>
+        <tr>
+          <td><span class="benefit-dot dot-moderate"></span>TENANT-01 SaaS基盤</td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>テナント、ロール、設定、分離</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-indirect"></span>販売可能なプラットフォーム基盤</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>一貫したテナント管理</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>一貫した設定モデル</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>SaaSプロダクト基盤</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>プロダクト設定フレームワーク</span></td>
+        </tr>
+        <tr>
+          <td><span class="benefit-dot dot-moderate"></span>BOHRCORP-01</td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>エンジニアリングすべきSaaSプロダクト</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>販売可能なLMS/CRMプラットフォーム</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>個別法人要望削減</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>外部プロダクト収益</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>プロダクト検証</span></td>
+        </tr>
+        <tr>
+          <td><span class="benefit-dot dot-moderate"></span>ZAN-01</td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>エンジニアリングすべきSaaS候補</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>潜在的な販売プロダクト</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>再利用可能な管理モジュール</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>収益オプション</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>プロダクトディスカバリ</span></td>
+        </tr>
+        <tr>
+          <td><span class="benefit-dot dot-moderate"></span>KIKU-01</td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>エンジニアリングすべきSaaS候補</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>潜在的な販売プロダクト</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>設定可能な管理プラットフォーム</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>収益オプション</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>プロダクトディスカバリ</span></td>
+        </tr>
+        <tr>
+          <td><span class="benefit-dot dot-moderate"></span>MARKET-01 GTM</td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>エンジニアリング共通パッケージ</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>価格設定、営業資料</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>サポートモデル定義</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>幅広いGTM収益</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>プロダクトパッケージング</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</div><!-- /canvas -->
+</body>
+</html>
