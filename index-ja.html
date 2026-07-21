@@ -302,6 +302,138 @@
   }
   .legend-swatch { width: 20px; height: 14px; border-radius: 3px; }
 
+  /* ===== HIRING SECTION ===== */
+  .hiring-section { padding: 24px 28px; }
+  .hiring-section h2 {
+    font-size: 20px; font-weight: 800; color: #1a237e;
+    margin-bottom: 6px; border-bottom: 2px solid #1a237e; padding-bottom: 6px;
+  }
+  .hiring-section .desc { font-size: 12px; color: #616161; margin-bottom: 16px; }
+
+  .hiring-timeline {
+    display: grid;
+    grid-template-columns: 180px repeat(9, 1fr);
+    gap: 0;
+    border-bottom: 2px solid #ddd;
+  }
+  .hiring-timeline .label-col {
+    font-size: 11px; font-weight: 700; color: #424242;
+    padding: 8px 10px; display: flex; align-items: center;
+  }
+  .hiring-timeline .period-col {
+    font-size: 10px; text-align: center; padding: 8px 0;
+    color: #757575; font-weight: 600;
+    border-left: 1px solid #eee;
+  }
+  .hiring-timeline .period-col.year-marker {
+    border-left: 2px solid #999;
+    color: #1a237e;
+    font-weight: 700;
+  }
+  .hiring-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    border-bottom: 1px solid #eee;
+  }
+  .hiring-row-label {
+    padding: 10px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    border-right: 2px solid #ddd;
+  }
+  .hiring-track {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    min-height: 52px;
+    align-items: center;
+  }
+  .hire-bar {
+    border-radius: 5px;
+    padding: 5px 8px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    margin: 3px 2px;
+    text-align: center;
+  }
+  .hire-bar .hire-when { font-size: 9px; opacity: 0.8; font-weight: 600; }
+  .hire-bar .hire-label { font-size: 11px; font-weight: 700; }
+  .hire-bar .hire-detail { font-size: 8px; opacity: 0.85; margin-top: 2px; }
+
+  .capacity-bar {
+    border-radius: 5px;
+    padding: 5px 8px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    margin: 3px 2px;
+    text-align: center;
+  }
+  .capacity-ok { background: #2e7d32; }
+  .capacity-tight { background: #f57c00; }
+  .capacity-critical { background: #c62828; }
+  .capacity-comfortable { background: #1565c0; }
+
+  .hire-1 { background: linear-gradient(135deg, #1565c0, #0d47a1); }
+  .hire-2 { background: linear-gradient(135deg, #00838f, #006064); }
+  .hire-3 { background: linear-gradient(135deg, #6a1b9a, #4a148c); }
+
+  .hiring-summary {
+    margin-top: 16px;
+    padding: 16px 20px;
+    background: #e8eaf6;
+    border-radius: 6px;
+    border-left: 4px solid #1a237e;
+  }
+  .hiring-summary h3 {
+    font-size: 14px; font-weight: 800; color: #1a237e;
+    margin-bottom: 10px;
+  }
+  .hiring-summary p {
+    font-size: 11px; color: #424242; line-height: 1.6; margin-bottom: 6px;
+  }
+  .hiring-summary ul {
+    font-size: 11px; color: #424242; line-height: 1.6;
+    padding-left: 20px; margin-bottom: 6px;
+  }
+  .hiring-summary .highlight {
+    font-weight: 700; color: #1a237e;
+  }
+
+  .hiring-profile {
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .hiring-profile-card {
+    background: #f5f5f5;
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+  .hiring-profile-card h4 {
+    font-size: 12px; font-weight: 700; color: #424242;
+    margin-bottom: 8px;
+  }
+  .hiring-profile-card ul {
+    font-size: 10px; color: #616161; line-height: 1.6;
+    padding-left: 16px;
+  }
+  .hiring-profile-card .do { color: #2e7d32; }
+  .hiring-profile-card .dont { color: #c62828; }
+
   @media print {
     @page { size: A4 landscape; }
     .canvas { width: auto; background: #fff; padding: 10px; }
@@ -921,6 +1053,123 @@
         </tr>
       </tbody>
     </table>
+  </div>
+</div>
+
+<!-- ===== SECTION 5: HIRING PLAN ===== -->
+<div class="section-frame">
+  <div class="section-label">セクション5 — 採用計画: いつ誰を</div>
+  <div class="hiring-section">
+    <h2>人員タイムライン — 18ヶ月間で3名を段階的に採用</h2>
+    <div class="desc">現状: 開発3名 + マネージャー1名。目標: 開発6名 + マネージャー1名。トレーニング負荷を考慮し1名ずつ段階的に採用。マネージャーは軽作業で0.5開発者相当を貢献。</div>
+
+    <!-- Period header -->
+    <div class="hiring-timeline">
+      <div class="label-col">採用 / キャパシティ</div>
+      <div class="period-col year-marker">'26 H1</div>
+      <div class="period-col">'26 H2</div>
+      <div class="period-col year-marker">'27 H1</div>
+      <div class="period-col">'27 H2</div>
+      <div class="period-col year-marker">'28 H1</div>
+      <div class="period-col">'28 H2</div>
+      <div class="period-col year-marker">'29 H1</div>
+      <div class="period-col">'29 H2</div>
+      <div class="period-col">2029+</div>
+    </div>
+
+    <!-- Hire markers row -->
+    <div class="hiring-row">
+      <div class="hiring-row-label">📅 採用</div>
+      <div class="hiring-track">
+        <div class="hire-bar hire-1" style="grid-column: 2 / 3;">
+          <div class="hire-when">2026年9月</div>
+          <div class="hire-label">採用 #1</div>
+          <div class="hire-detail">フルスタック開発者</div>
+        </div>
+        <div class="hire-bar hire-2" style="grid-column: 3 / 4;">
+          <div class="hire-when">2027年4月</div>
+          <div class="hire-label">採用 #2</div>
+          <div class="hire-detail">フルスタック開発者</div>
+        </div>
+        <div class="hire-bar hire-3" style="grid-column: 5 / 6;">
+          <div class="hire-when">2028年1月</div>
+          <div class="hire-label">採用 #3</div>
+          <div class="hire-detail">フルスタック開発者</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team size row -->
+    <div class="hiring-row">
+      <div class="hiring-row-label">👥 チーム規模</div>
+      <div class="hiring-track">
+        <div class="capacity-bar capacity-ok" style="grid-column: 1 / 3;">開発3名 + マネージャー1</div>
+        <div class="capacity-bar capacity-ok" style="grid-column: 3 / 5;">開発4名 + マネージャー1</div>
+        <div class="capacity-bar capacity-comfortable" style="grid-column: 5 / 7;">開発5名 + マネージャー1</div>
+        <div class="capacity-bar capacity-comfortable" style="grid-column: 7 / 10;">開発6名 + マネージャー1</div>
+      </div>
+    </div>
+
+    <!-- Dev-load vs capacity row -->
+    <div class="hiring-row">
+      <div class="hiring-row-label">📊 開発負荷 vs キャパシティ</div>
+      <div class="hiring-track">
+        <div class="capacity-bar capacity-ok" style="grid-column: 1 / 3;">
+          負荷2.2 vs 容量3.5<br><span style="font-size:8px;opacity:0.8">✅ OK</span>
+        </div>
+        <div class="capacity-bar capacity-critical" style="grid-column: 2 / 3;">
+          6.0 vs 4.5<br><span style="font-size:8px;opacity:0.8">🔴 採用しても厳しい</span>
+        </div>
+        <div class="capacity-bar capacity-ok" style="grid-column: 3 / 5;">
+          4.0 vs 4.5<br><span style="font-size:8px;opacity:0.8">✅ カバー</span>
+        </div>
+        <div class="capacity-bar capacity-ok" style="grid-column: 4 / 5;">
+          2.5 vs 4.5<br><span style="font-size:8px;opacity:0.8">✅ 余裕</span>
+        </div>
+        <div class="capacity-bar capacity-ok" style="grid-column: 5 / 6;">
+          4.0 vs 5.5<br><span style="font-size:8px;opacity:0.8">✅ カバー</span>
+        </div>
+        <div class="capacity-bar capacity-tight" style="grid-column: 6 / 7;">
+          5.0 vs 5.5<br><span style="font-size:8px;opacity:0.8">⚠ 厳しいがOK</span>
+        </div>
+        <div class="capacity-bar capacity-comfortable" style="grid-column: 7 / 10;">
+          3.5–4.0 vs 6.5<br><span style="font-size:8px;opacity:0.8">✅ 余裕</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="hiring-summary">
+      <h3>なぜこの3名、なぜこの時期か</h3>
+      <p><span class="highlight">採用 #1 — 2026年9月:</span> 26H2が崖。9つの同時プロジェクトで開発負荷が6.0に急増。この採用なしではPLAT-01またはAPP-SEP-01が開始前に停滞する。予約/ナレッジプラットフォーム作業を吸収し、シニア開発者をアーキテクチャプログラムに解放。</p>
+      <p><span class="highlight">採用 #2 — 2027年4月:</span> 27H1は重いプロジェクト3件（IAGPT-04、PLAT-01、APP-SEP-01）に加えDEVAI-01が立ち上がり。2人目の採用がガバナンス/スタッフビルダー支援を吸収し、既存開発者がバックエンド分離に集中できるように。</p>
+      <p><span class="highlight">採用 #3 — 2028年1月:</span> 28H2はTENANT-01とBOHRCORP-01が進行中のPLAT-01 + APP-SEP-01に追加。開発負荷が5.0に到達。3人目がSaaS基盤を担当し、チームが分離プログラムを継続。</p>
+      <p style="margin-top:10px;"><span class="highlight">なぜ1名ずつか:</span> マネージャーがトレーニングの大部分を担当。各採用には〜2ヶ月のラップアップが必要。段階的採用がスケジュールのランプアップパターンに一致し、トレーニング過負荷を防止。</p>
+
+      <div class="hiring-profile">
+        <div class="hiring-profile-card">
+          <h4>✅ 採用基準</h4>
+          <ul>
+            <li class="do">確かな開発基礎 — コードを読める、デバッグできる、テストを書ける</li>
+            <li class="do">Git/PRワークフローの理解（GOV-01がこの文化に依存）</li>
+            <li class="do">コミュニケーション力 — 部門間調整が多い</li>
+            <li class="do">学習意欲 — あなたのスタック、あなたの規約</li>
+            <li class="do">フルスタック対応 — バックエンド（Django/Go）+ フロントエンド（Vue）</li>
+            <li class="do">理想: 2-4年の経験、2ヶ月のラップアップ後に独立して作業可能</li>
+          </ul>
+        </div>
+        <div class="hiring-profile-card">
+          <h4>❌ 不要なスキル</h4>
+          <ul>
+            <li class="dont">AI/ML専門知識 — 社内で構築中</li>
+            <li class="dont">Kubernetes/マイクロサービス経験 — ARCH-01が定義</li>
+            <li class="dont">SaaSプラットフォーム経験 — TENANT-01は新規構築</li>
+            <li class="dont">シニアアーキテクト級 — アーキテクチャはマネージャーが設定</li>
+            <li class="dont">教育業界のドメイン専門知識 — 仕事で教えられる</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

@@ -302,6 +302,138 @@
   }
   .legend-swatch { width: 20px; height: 14px; border-radius: 3px; }
 
+  /* ===== HIRING SECTION ===== */
+  .hiring-section { padding: 24px 28px; }
+  .hiring-section h2 {
+    font-size: 20px; font-weight: 800; color: #1a237e;
+    margin-bottom: 6px; border-bottom: 2px solid #1a237e; padding-bottom: 6px;
+  }
+  .hiring-section .desc { font-size: 12px; color: #616161; margin-bottom: 16px; }
+
+  .hiring-timeline {
+    display: grid;
+    grid-template-columns: 180px repeat(9, 1fr);
+    gap: 0;
+    border-bottom: 2px solid #ddd;
+  }
+  .hiring-timeline .label-col {
+    font-size: 11px; font-weight: 700; color: #424242;
+    padding: 8px 10px; display: flex; align-items: center;
+  }
+  .hiring-timeline .period-col {
+    font-size: 10px; text-align: center; padding: 8px 0;
+    color: #757575; font-weight: 600;
+    border-left: 1px solid #eee;
+  }
+  .hiring-timeline .period-col.year-marker {
+    border-left: 2px solid #999;
+    color: #1a237e;
+    font-weight: 700;
+  }
+  .hiring-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    border-bottom: 1px solid #eee;
+  }
+  .hiring-row-label {
+    padding: 10px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    border-right: 2px solid #ddd;
+  }
+  .hiring-track {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    min-height: 52px;
+    align-items: center;
+  }
+  .hire-bar {
+    border-radius: 5px;
+    padding: 5px 8px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    margin: 3px 2px;
+    text-align: center;
+  }
+  .hire-bar .hire-when { font-size: 9px; opacity: 0.8; font-weight: 600; }
+  .hire-bar .hire-label { font-size: 11px; font-weight: 700; }
+  .hire-bar .hire-detail { font-size: 8px; opacity: 0.85; margin-top: 2px; }
+
+  .capacity-bar {
+    border-radius: 5px;
+    padding: 5px 8px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    margin: 3px 2px;
+    text-align: center;
+  }
+  .capacity-ok { background: #2e7d32; }
+  .capacity-tight { background: #f57c00; }
+  .capacity-critical { background: #c62828; }
+  .capacity-comfortable { background: #1565c0; }
+
+  .hire-1 { background: linear-gradient(135deg, #1565c0, #0d47a1); }
+  .hire-2 { background: linear-gradient(135deg, #00838f, #006064); }
+  .hire-3 { background: linear-gradient(135deg, #6a1b9a, #4a148c); }
+
+  .hiring-summary {
+    margin-top: 16px;
+    padding: 16px 20px;
+    background: #e8eaf6;
+    border-radius: 6px;
+    border-left: 4px solid #1a237e;
+  }
+  .hiring-summary h3 {
+    font-size: 14px; font-weight: 800; color: #1a237e;
+    margin-bottom: 10px;
+  }
+  .hiring-summary p {
+    font-size: 11px; color: #424242; line-height: 1.6; margin-bottom: 6px;
+  }
+  .hiring-summary ul {
+    font-size: 11px; color: #424242; line-height: 1.6;
+    padding-left: 20px; margin-bottom: 6px;
+  }
+  .hiring-summary .highlight {
+    font-weight: 700; color: #1a237e;
+  }
+
+  .hiring-profile {
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .hiring-profile-card {
+    background: #f5f5f5;
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+  .hiring-profile-card h4 {
+    font-size: 12px; font-weight: 700; color: #424242;
+    margin-bottom: 8px;
+  }
+  .hiring-profile-card ul {
+    font-size: 10px; color: #616161; line-height: 1.6;
+    padding-left: 16px;
+  }
+  .hiring-profile-card .do { color: #2e7d32; }
+  .hiring-profile-card .dont { color: #c62828; }
+
   @media print {
     @page { size: A4 landscape; }
     .canvas { width: auto; background: #fff; padding: 10px; }
@@ -921,6 +1053,123 @@
         </tr>
       </tbody>
     </table>
+  </div>
+</div>
+
+<!-- ===== SECTION 5: HIRING PLAN ===== -->
+<div class="section-frame">
+  <div class="section-label">5 — HIRING PLAN: When and Who</div>
+  <div class="hiring-section">
+    <h2>Staffing Timeline — 3 Hires Staggered Across 18 Months</h2>
+    <div class="desc">Current: 3 devs + 1 manager. Target: 6 devs + 1 manager. Hires staggered 1-at-a-time for training bandwidth. Capacity includes 0.5 dev-equivalent from manager for light tasks.</div>
+
+    <!-- Period header (same as roadmap) -->
+    <div class="hiring-timeline">
+      <div class="label-col">Hiring / Capacity</div>
+      <div class="period-col year-marker">'26 H1</div>
+      <div class="period-col">'26 H2</div>
+      <div class="period-col year-marker">'27 H1</div>
+      <div class="period-col">'27 H2</div>
+      <div class="period-col year-marker">'28 H1</div>
+      <div class="period-col">'28 H2</div>
+      <div class="period-col year-marker">'29 H1</div>
+      <div class="period-col">'29 H2</div>
+      <div class="period-col">2029+</div>
+    </div>
+
+    <!-- Hire markers row -->
+    <div class="hiring-row">
+      <div class="hiring-row-label">📅 Hires</div>
+      <div class="hiring-track">
+        <div class="hire-bar hire-1" style="grid-column: 2 / 3;">
+          <div class="hire-when">Sep 2026</div>
+          <div class="hire-label">Hire #1</div>
+          <div class="hire-detail">Full-stack dev</div>
+        </div>
+        <div class="hire-bar hire-2" style="grid-column: 3 / 4;">
+          <div class="hire-when">Apr 2027</div>
+          <div class="hire-label">Hire #2</div>
+          <div class="hire-detail">Full-stack dev</div>
+        </div>
+        <div class="hire-bar hire-3" style="grid-column: 5 / 6;">
+          <div class="hire-when">Jan 2028</div>
+          <div class="hire-label">Hire #3</div>
+          <div class="hire-detail">Full-stack dev</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team size row -->
+    <div class="hiring-row">
+      <div class="hiring-row-label">👥 Team size</div>
+      <div class="hiring-track">
+        <div class="capacity-bar capacity-ok" style="grid-column: 1 / 3;">3 devs + 1 mgr</div>
+        <div class="capacity-bar capacity-ok" style="grid-column: 3 / 5;">4 devs + 1 mgr</div>
+        <div class="capacity-bar capacity-comfortable" style="grid-column: 5 / 7;">5 devs + 1 mgr</div>
+        <div class="capacity-bar capacity-comfortable" style="grid-column: 7 / 10;">6 devs + 1 mgr</div>
+      </div>
+    </div>
+
+    <!-- Dev-load vs capacity row -->
+    <div class="hiring-row">
+      <div class="hiring-row-label">📊 Dev-load vs capacity</div>
+      <div class="hiring-track">
+        <div class="capacity-bar capacity-ok" style="grid-column: 1 / 3;">
+          2.2 load vs 3.5 cap<br><span style="font-size:8px;opacity:0.8">✅ OK</span>
+        </div>
+        <div class="capacity-bar capacity-critical" style="grid-column: 2 / 3;">
+          6.0 vs 4.5<br><span style="font-size:8px;opacity:0.8">🔴 TIGHT even with hire</span>
+        </div>
+        <div class="capacity-bar capacity-ok" style="grid-column: 3 / 5;">
+          4.0 vs 4.5<br><span style="font-size:8px;opacity:0.8">✅ Covered</span>
+        </div>
+        <div class="capacity-bar capacity-ok" style="grid-column: 4 / 5;">
+          2.5 vs 4.5<br><span style="font-size:8px;opacity:0.8">✅ Comfortable</span>
+        </div>
+        <div class="capacity-bar capacity-ok" style="grid-column: 5 / 6;">
+          4.0 vs 5.5<br><span style="font-size:8px;opacity:0.8">✅ Covered</span>
+        </div>
+        <div class="capacity-bar capacity-tight" style="grid-column: 6 / 7;">
+          5.0 vs 5.5<br><span style="font-size:8px;opacity:0.8">⚠ Tight but OK</span>
+        </div>
+        <div class="capacity-bar capacity-comfortable" style="grid-column: 7 / 10;">
+          3.5–4.0 vs 6.5<br><span style="font-size:8px;opacity:0.8">✅ Comfortable</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="hiring-summary">
+      <h3>Why These 3 Hires, Why These Dates</h3>
+      <p><span class="highlight">Hire #1 — Sep 2026:</span> 26H2 is the cliff. 9 concurrent projects spike dev-load to 6.0. Without this hire, PLAT-01 or APP-SEP-01 will stall before they start. This hire absorbs reservation/knowledge platform work, freeing senior devs for the architecture program.</p>
+      <p><span class="highlight">Hire #2 — Apr 2027:</span> 27H1 has 3 heavy projects (IAGPT-04, PLAT-01, APP-SEP-01) plus DEVAI-01 ramping up. Second hire absorbs governance/staff-builder support so existing devs stay focused on backend separation.</p>
+      <p><span class="highlight">Hire #3 — Jan 2028:</span> 28H2 adds TENANT-01 and BOHRCORP-01 on top of ongoing PLAT-01 + APP-SEP-01. Dev-load hits 5.0. Third hire takes on SaaS foundation while the team continues separation.</p>
+      <p style="margin-top:10px;"><span class="highlight">Why 1-at-a-time:</span> Manager does most training. Each hire needs ~2 months ramp-up. Staggering matches the schedule's ramp-up pattern and prevents training overload.</p>
+
+      <div class="hiring-profile">
+        <div class="hiring-profile-card">
+          <h4>✅ What to look for</h4>
+          <ul>
+            <li class="do">Solid dev fundamentals — can read code, debug, write tests</li>
+            <li class="do">Git/PR workflow literacy (GOV-01 depends on this)</li>
+            <li class="do">Communication skills — cross-dept coordination is heavy</li>
+            <li class="do">Willingness to learn — your stack, your conventions</li>
+            <li class="do">Full-stack capable — backend (Django/Go) + some frontend (Vue)</li>
+            <li class="do">Ideal: 2-4 years experience, independent after 2-month ramp</li>
+          </ul>
+        </div>
+        <div class="hiring-profile-card">
+          <h4>❌ What's NOT required</h4>
+          <ul>
+            <li class="dont">AI/ML expertise — you're building that in-house</li>
+            <li class="dont">Kubernetes/microservices experience — ARCH-01 defines this</li>
+            <li class="dont">SaaS platform experience — TENANT-01 is greenfield</li>
+            <li class="dont">Senior architect-level — you (manager) set architecture</li>
+            <li class="dont">Domain expertise in education — teachable on the job</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
