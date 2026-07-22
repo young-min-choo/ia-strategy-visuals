@@ -608,37 +608,49 @@
     <div class="arch-sub-frame">
       <div class="arch-label">BEFORE — 現在のアーキテクチャ</div>
       <div class="arch-diagram">
-        <!-- Two-column layout: Bohr Ind on left, 5 apps on right, shared DB at bottom -->
-        <div style="display: flex; gap: 60px; justify-content: center; align-items: flex-start;">
+        <!-- Grid: 3 rows (apps, backends, database) x 2 cols (Bohr Ind, shared apps) -->
+        <div style="display: grid; grid-template-columns: 130px 400px; grid-template-rows: auto auto auto auto auto; justify-content: center; align-items: end; gap: 0;">
 
-          <!-- Left: Bohr Ind (separated) -->
-          <div style="display: flex; flex-direction: column; align-items: center; width: 130px;">
+          <!-- Row 1: App boxes -->
+          <div style="display: flex; flex-direction: column; align-items: center; padding-bottom: 4px;">
             <div class="arch-box app app-separated" style="width: 120px;">Bohr Ind<br><span style="font-size:7px;font-weight:600;">(独自Goバックエンド ✓)</span></div>
-            <div style="height: 8px;"></div>
-            <div style="font-size: 10px; font-weight: 700; color: #2e7d32;">Bohr Ind (分離済み)</div>
-            <div style="font-size: 16px; color: #757575; line-height: 1.5;">↓</div>
+          </div>
+          <div style="display: flex; gap: 4px; justify-content: center; padding-bottom: 4px;">
+            <div class="arch-box app" style="width: 72px; font-size: 9px;">Bohr Corp</div>
+            <div class="arch-box app" style="width: 72px; font-size: 9px;">Ind IAHP</div>
+            <div class="arch-box app" style="width: 72px; font-size: 9px;">Corp IAHP</div>
+            <div class="arch-box app" style="width: 72px; font-size: 9px;">Zan</div>
+            <div class="arch-box app" style="width: 72px; font-size: 9px;">Kiku</div>
+          </div>
+
+          <!-- Row 2: Labels + arrows — fixed height to keep both columns aligned -->
+          <div style="display: flex; flex-direction: column; align-items: center; height: 48px; justify-content: flex-start;">
+            <div style="font-size: 10px; font-weight: 700; color: #2e7d32; padding-bottom: 2px;">Bohr Ind (分離済み)</div>
+            <div style="font-size: 16px; color: #757575; line-height: 1.2;">↓</div>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center; height: 48px; justify-content: flex-start;">
+            <div style="font-size: 10px; font-weight: 700; color: #e65100; padding-bottom: 2px;">5アプリ (共有バックエンド)</div>
+            <div style="font-size: 16px; color: #757575; line-height: 1.2;">↓ ↓ ↓ ↓ ↓</div>
+            <div style="font-size: 8px; color: #757575;">リクエスト</div>
+          </div>
+
+          <!-- Row 3: 50px gap + Backend boxes -->
+          <div style="display: flex; flex-direction: column; align-items: center;">
             <div style="height: 50px;"></div>
             <div class="arch-box backend-go" style="width: 120px;">Bohr Ind<br>バックエンド (Go)</div>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center;">
+            <div style="height: 50px;"></div>
+            <div class="arch-box monolith-shared" style="width: 200px;">member/backend (共有)</div>
+          </div>
+
+          <!-- Row 4: 50px gap + arrows to shared DB -->
+          <div style="display: flex; flex-direction: column; align-items: center;">
             <div style="height: 50px;"></div>
             <div style="font-size: 20px; color: #757575; line-height: 1.5;">↘</div>
             <div style="height: 50px;"></div>
           </div>
-
-          <!-- Right: 5 shared apps -->
-          <div style="display: flex; flex-direction: column; align-items: center; width: 400px;">
-            <div style="display: flex; gap: 4px; justify-content: center;">
-              <div class="arch-box app" style="width: 72px; font-size: 9px;">Bohr Corp</div>
-              <div class="arch-box app" style="width: 72px; font-size: 9px;">Ind IAHP</div>
-              <div class="arch-box app" style="width: 72px; font-size: 9px;">Corp IAHP</div>
-              <div class="arch-box app" style="width: 72px; font-size: 9px;">Zan</div>
-              <div class="arch-box app" style="width: 72px; font-size: 9px;">Kiku</div>
-            </div>
-            <div style="height: 8px;"></div>
-            <div style="font-size: 10px; font-weight: 700; color: #e65100;">5アプリ (共有バックエンド)</div>
-            <div style="font-size: 16px; color: #757575; line-height: 1.5;">↓ ↓ ↓ ↓ ↓</div>
-            <div style="font-size: 8px; color: #757575;">リクエスト</div>
-            <div style="height: 50px;"></div>
-            <div class="arch-box monolith-shared" style="width: 200px;">member/backend (共有)</div>
+          <div style="display: flex; flex-direction: column; align-items: center;">
             <div style="height: 50px;"></div>
             <div style="font-size: 20px; color: #757575; line-height: 1.5;">↙</div>
             <div style="height: 50px;"></div>
