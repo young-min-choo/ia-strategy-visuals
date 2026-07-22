@@ -472,6 +472,28 @@
   .arch-map-card h4 { font-size: 12px; font-weight: 700; margin-bottom: 6px; }
   .arch-map-card div { font-size: 10px; color: #424242; line-height: 1.5; }
 
+  /* ===== ISSUE / SOLUTION TABLES ===== */
+  .issue-table { width: 100%; border-collapse: collapse; font-size: 11px; margin-top: 16px; }
+  .issue-table th { background: #c62828; color: #fff; padding: 8px 10px; text-align: left; font-weight: 700; font-size: 11px; }
+  .issue-table td { padding: 8px 10px; border-bottom: 1px solid #e0e0e0; vertical-align: top; line-height: 1.4; font-size: 10px; }
+  .issue-table tr:nth-child(even) { background: #fafafa; }
+  .issue-table td:first-child { font-weight: 700; color: #c62828; width: 30%; }
+  .issue-table td:nth-child(2) { color: #424242; }
+
+  .solution-table { width: 100%; border-collapse: collapse; font-size: 11px; margin-top: 16px; }
+  .solution-table th { background: #2e7d32; color: #fff; padding: 8px 10px; text-align: left; font-weight: 700; font-size: 11px; }
+  .solution-table td { padding: 8px 10px; border-bottom: 1px solid #e0e0e0; vertical-align: top; line-height: 1.4; font-size: 10px; }
+  .solution-table tr:nth-child(even) { background: #fafafa; }
+  .solution-table td:first-child { font-weight: 700; color: #c62828; width: 25%; }
+  .solution-table td:nth-child(2) { font-weight: 700; color: #2e7d32; width: 20%; }
+  .solution-table td:nth-child(3) { color: #424242; }
+
+  .dept-summary { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+  .dept-card { background: #f5f5f5; border-radius: 6px; padding: 14px 16px; border-left: 4px solid #1a237e; }
+  .dept-card h4 { font-size: 12px; font-weight: 700; color: #1a237e; margin-bottom: 8px; }
+  .dept-card ul { font-size: 10px; color: #424242; line-height: 1.5; padding-left: 16px; }
+  .dept-card li { margin-bottom: 4px; }
+
   @media print {
     @page { size: A4 landscape; }
     .canvas { width: auto; background: #fff; padding: 10px; }
@@ -490,228 +512,12 @@
   <div class="meta">18 projects across 6 strategic categories · Prepared for company-wide presentation</div>
 </div>
 
-<!-- ===== SECTION 1: END GOAL ===== -->
+<!-- ===== SECTION 1: CURRENT SITUATION ===== -->
 <div class="section-frame">
-  <div class="section-label">1 — END GOAL</div>
-  <div class="goal-section">
-    <h2>The 3-Year+ Vision: Two Parallel Revenue Paths from One Engineering Foundation</h2>
-    <div class="goal-grid">
-      <div class="goal-card goal-1">
-        <div class="icon">🤖</div>
-        <h3>AI Harness Service</h3>
-        <p>Develop an in-house AI codebase/data harness — governance, PR review, staff app builder — then package it as a <strong>client implementation service</strong> with training/enablement.</p>
-        <div class="year-badge">Revenue-ready: H2 2028</div>
-      </div>
-      <div class="goal-card goal-2">
-        <div class="icon">📦</div>
-        <h3>SaaS / BaaS Products</h3>
-        <p>Separate all six app backends, build shared handlers, then SaaSify Corporate Bohr → Zan → Kikuichimonji as <strong>multi-tenant sellable platforms</strong>.</p>
-        <div class="year-badge">First MVP: H2 2028 · GTM: 2029+</div>
-      </div>
-      <div class="goal-card goal-3">
-        <div class="icon">🎓</div>
-        <h3>Training & Enablement</h3>
-        <p>Pair the AI Harness implementation with <strong>workshops, manager briefings, and governance playbooks</strong> so client organizations can adopt and sustain the harness.</p>
-        <div class="year-badge">Pilot: 2029+</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ===== SECTION 2: ROADMAP TIMELINE ===== -->
-<div class="section-frame">
-  <div class="section-label">2 — ROADMAP: Where Each Project Sits</div>
-  <div class="roadmap-section">
-    <h2>Project Timeline & Dependencies (2026 → 2029+)</h2>
-    <div class="desc">Each bar shows the project's active period. Bars within the same category share a track. Labels on bars show key dependencies (→ = depends on, ⊢ = blocks).</div>
-
-    <!-- 9 period columns -->
-    <div class="timeline-header">
-      <div class="label-col">Project / Category</div>
-      <div class="period-col year-marker">'26 H1<br><span style="font-size:8px;font-weight:400">Jun–Aug</span></div>
-      <div class="period-col">'26 H2<br><span style="font-size:8px;font-weight:400">Sep–Dec</span></div>
-      <div class="period-col year-marker">'27 H1<br><span style="font-size:8px;font-weight:400">Jan–Jun</span></div>
-      <div class="period-col">'27 H2<br><span style="font-size:8px;font-weight:400">Jul–Dec</span></div>
-      <div class="period-col year-marker">'28 H1</div>
-      <div class="period-col">'28 H2</div>
-      <div class="period-col year-marker">'29 H1</div>
-      <div class="period-col">'29 H2</div>
-      <div class="period-col">2029+</div>
-    </div>
-
-    <!-- Cat 1A: AI Infrastructure -->
-    <div class="cat-row">
-      <div class="cat-label">
-        <span class="cat-badge cat-ai-infra">1A</span>
-        AI Infra
-      </div>
-      <div class="cat-track">
-        <div class="project-bar cat-ai-infra" style="grid-column: 1 / 3; grid-row: 1;">
-          <div class="pid">AI-01</div>
-          <div class="pname">Local AI Environment</div>
-          <div class="pdep">⊢ AI-02</div>
-        </div>
-        <div class="project-bar cat-ai-infra" style="grid-column: 1 / 3; grid-row: 2; opacity:0.85;">
-          <div class="pid">AI-02</div>
-          <div class="pname">OD Video Automation</div>
-          <div class="pdep">→ AI-01</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Cat 1B: Reservation Migration -->
-    <div class="cat-row">
-      <div class="cat-label">
-        <span class="cat-badge cat-reservation">1B</span>
-        Reservation
-      </div>
-      <div class="cat-track">
-        <div class="project-bar cat-reservation" style="grid-column: 1 / 2; grid-row: 1;">
-          <div class="pid">IAHP-01</div>
-          <div class="pname">Ind IAHP Migration</div>
-          <div class="pdep">⊢ IAHP-02</div>
-        </div>
-        <div class="project-bar cat-reservation" style="grid-column: 2 / 3; grid-row: 1; opacity:0.85;">
-          <div class="pid">IAHP-02</div>
-          <div class="pname">Corp IAHP Migration</div>
-          <div class="pdep">→ IAHP-01</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Cat 1C: Knowledge Platform -->
-    <div class="cat-row">
-      <div class="cat-label">
-        <span class="cat-badge cat-knowledge">1C</span>
-        Knowledge
-      </div>
-      <div class="cat-track">
-        <div class="project-bar cat-knowledge" style="grid-column: 1 / 2; grid-row: 1;">
-          <div class="pid">IAGPT-02</div>
-          <div class="pname">Zendesk Ingestion</div>
-          <div class="pdep">⊢ IAGPT-03</div>
-        </div>
-        <div class="project-bar cat-knowledge" style="grid-column: 2 / 3; grid-row: 1; opacity:0.85;">
-          <div class="pid">IAGPT-03</div>
-          <div class="pname">Digital Text</div>
-          <div class="pdep">→ 02 · ⊢ 04</div>
-        </div>
-        <div class="project-bar cat-knowledge" style="grid-column: 2 / 4; grid-row: 2; opacity:0.75;">
-          <div class="pid">IAGPT-04</div>
-          <div class="pname">Customer-facing AI (Decision Gate)</div>
-          <div class="pdep">→ 02 + 03</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Cat 2A-C: Architecture -->
-    <div class="cat-row">
-      <div class="cat-label">
-        <span class="cat-badge cat-architecture">2A-C</span>
-        Architecture
-      </div>
-      <div class="cat-track">
-        <div class="project-bar cat-architecture" style="grid-column: 1 / 3; grid-row: 1;">
-          <div class="pid">ARCH-01</div>
-          <div class="pname">Boundary Discovery</div>
-          <div class="pdep">⊢ PLAT-01, APP-SEP</div>
-        </div>
-        <div class="project-bar cat-architecture" style="grid-column: 2 / 7; grid-row: 2; opacity:0.85;">
-          <div class="pid">PLAT-01</div>
-          <div class="pname">Shared Handlers (File / Content / Event / DB)</div>
-          <div class="pdep">→ ARCH-01 · ⊢ APP-SEP, TENANT</div>
-        </div>
-        <div class="project-bar cat-architecture" style="grid-column: 2 / 10; grid-row: 3; opacity:0.75;">
-          <div class="pid">APP-SEP-01</div>
-          <div class="pname">Backend Separation (Corp Bohr → Zan → Corp IAHP → Ind IAHP → Kiku)</div>
-          <div class="pdep">→ ARCH-01, PLAT-01 · ⊢ all SaaS</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Cat 3A-D: AI-First Development -->
-    <div class="cat-row">
-      <div class="cat-label">
-        <span class="cat-badge cat-ai-first">3A-D</span>
-        AI-First Dev
-      </div>
-      <div class="cat-track">
-        <div class="project-bar cat-ai-first" style="grid-column: 2 / 4; grid-row: 1;">
-          <div class="pid">GOV-01</div>
-          <div class="pname">PR Governance Foundation</div>
-          <div class="pdep">⊢ DEVAI, HARNESS</div>
-        </div>
-        <div class="project-bar cat-ai-first" style="grid-column: 3 / 7; grid-row: 2; opacity:0.85;">
-          <div class="pid">DEVAI-01</div>
-          <div class="pname">Staff AI App Builder</div>
-          <div class="pdep">→ GOV-01 · ⊢ HARNESS</div>
-        </div>
-        <div class="project-bar cat-ai-first" style="grid-column: 6 / 10; grid-row: 3; opacity:0.75;">
-          <div class="pid">HARNESS-01</div>
-          <div class="pname">AI Harness Service Packaging</div>
-          <div class="pdep">→ GOV + DEVAI · ⊢ TRAIN</div>
-        </div>
-        <div class="project-bar cat-ai-first" style="grid-column: 9 / 10; grid-row: 4; opacity:0.65;">
-          <div class="pid">TRAIN-01</div>
-          <div class="pname">Teaching / Enablement</div>
-          <div class="pdep">→ HARNESS</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Cat 4A-E: SaaS / BaaS -->
-    <div class="cat-row">
-      <div class="cat-label">
-        <span class="cat-badge cat-saas">4A-E</span>
-        SaaS / BaaS
-      </div>
-      <div class="cat-track">
-        <div class="project-bar cat-saas" style="grid-column: 5 / 9; grid-row: 1;">
-          <div class="pid">TENANT-01</div>
-          <div class="pname">SaaS Foundation (Multi-tenant)</div>
-          <div class="pdep">→ APP-SEP, PLAT-01</div>
-        </div>
-        <div class="project-bar cat-saas" style="grid-column: 6 / 10; grid-row: 2; opacity:0.85;">
-          <div class="pid">BOHRCORP-01</div>
-          <div class="pname">Corporate Bohr SaaS</div>
-          <div class="pdep">→ TENANT, APP-SEP</div>
-        </div>
-        <div class="project-bar cat-saas" style="grid-column: 9 / 10; grid-row: 3; opacity:0.75;">
-          <div class="pid">ZAN-01</div>
-          <div class="pname">Zan SaaS</div>
-          <div class="pdep">→ TENANT</div>
-        </div>
-        <div class="project-bar cat-saas" style="grid-column: 9 / 10; grid-row: 4; opacity:0.65;">
-          <div class="pid">KIKU-01</div>
-          <div class="pname">Kiku SaaS</div>
-          <div class="pdep">→ TENANT</div>
-        </div>
-        <div class="project-bar cat-saas" style="grid-column: 9 / 10; grid-row: 5; opacity:0.55;">
-          <div class="pid">MARKET-01</div>
-          <div class="pname">GTM Packaging</div>
-          <div class="pdep">→ all SaaS + HARNESS</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Legend -->
-    <div class="legend-bar">
-      <div class="legend-item"><div class="legend-swatch" style="background:#1565c0;"></div> 1A — AI Infrastructure</div>
-      <div class="legend-item"><div class="legend-swatch" style="background:#00838f;"></div> 1B — Reservation Migration</div>
-      <div class="legend-item"><div class="legend-swatch" style="background:#6a1b9a;"></div> 1C — Knowledge Platform</div>
-      <div class="legend-item"><div class="legend-swatch" style="background:#e65100;"></div> 2A-C — Architecture</div>
-      <div class="legend-item"><div class="legend-swatch" style="background:#2e7d32;"></div> 3A-D — AI-First Development</div>
-      <div class="legend-item"><div class="legend-swatch" style="background:#c62828;"></div> 4A-E — SaaS / BaaS</div>
-    </div>
-  </div>
-</div>
-
-<!-- ===== SECTION 3: SYSTEM ARCHITECTURE ===== -->
-<div class="section-frame">
-  <div class="section-label">3 — SYSTEM ARCHITECTURE: What Changes</div>
+  <div class="section-label">1 — CURRENT SITUATION</div>
   <div class="arch-section">
-    <h2>Before & After: From Monolith to Separated Services + Knowledge Platform</h2>
-    <div class="desc">The current system has all apps sharing one backend and one database. The target separates each app, adds shared handlers, builds a knowledge/AI layer alongside, and wraps everything in a multi-tenant SaaS layer (2028+). Colored tags show which project builds each part.</div>
+    <h2>The Current System: One Shared Backend, No Source Control, No AI Capability</h2>
+    <div class="desc">Today all six applications share a single backend and a single database. Reservation forms live in production only. Support knowledge is locked in Zendesk. There is no local AI infrastructure and no multi-tenant/SaaS foundation.</div>
 
     <!-- BEFORE -->
     <div class="arch-sub-frame">
@@ -736,6 +542,54 @@
         <div class="arch-box db">Database</div>
       </div>
     </div>
+
+    <h3 style="font-size:14px; font-weight:700; color:#c62828; margin-top:20px; margin-bottom:8px;">Key Issues with the Current System</h3>
+    <table class="issue-table">
+      <thead>
+        <tr><th>Problem</th><th>Impact</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>All apps share one backend</td><td>One bug affects everything. Can't deploy independently. Can't scale one product without touching all.</td></tr>
+        <tr><td>No source control on reservation forms</td><td>Production-only risk. No rollback. Marketing/Design can't review changes safely.</td></tr>
+        <tr><td>Support knowledge is vendor-hosted (Zendesk)</td><td>Can't reuse in AI workflows. Vendor dependency. Can't ground answers in our own curriculum.</td></tr>
+        <tr><td>OD video production is 10h per lesson</td><td>Capacity ~6/month vs desired ~24. Manual bottleneck limits curriculum refresh speed.</td></tr>
+        <tr><td>No local AI capability</td><td>Every AI workload depends on external APIs or personal machines. No staff-built tools. No customer-facing AI.</td></tr>
+        <tr><td>No SaaS/multi-tenant foundation</td><td>Can't sell products as platforms. Every customer-specific request is a one-off fork.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== SECTION 2: THE IDEAL SITUATION ===== -->
+<div class="section-frame">
+  <div class="section-label">2 — THE IDEAL SITUATION</div>
+  <div class="goal-section">
+<h2>The 3-Year+ Vision: Two Parallel Revenue Paths from One Engineering Foundation</h2>
+    <div class="goal-grid">
+      <div class="goal-card goal-1">
+        <div class="icon">🤖</div>
+        <h3>AI Harness Service</h3>
+        <p>Develop an in-house AI codebase/data harness — governance, PR review, staff app builder — then package it as a <strong>client implementation service</strong> with training/enablement.</p>
+        <div class="year-badge">Revenue-ready: H2 2028</div>
+      </div>
+      <div class="goal-card goal-2">
+        <div class="icon">📦</div>
+        <h3>SaaS / BaaS Products</h3>
+        <p>Separate all six app backends, build shared handlers, then SaaSify Corporate Bohr → Zan → Kikuichimonji as <strong>multi-tenant sellable platforms</strong>.</p>
+        <div class="year-badge">First MVP: H2 2028 · GTM: 2029+</div>
+      </div>
+      <div class="goal-card goal-3">
+        <div class="icon">🎓</div>
+        <h3>Training & Enablement</h3>
+        <p>Pair the AI Harness implementation with <strong>workshops, manager briefings, and governance playbooks</strong> so client organizations can adopt and sustain the harness.</p>
+        <div class="year-badge">Pilot: 2029+</div>
+      </div>
+    </div>
+  
+  </div>
+  <div class="arch-section">
+    <h2>Target Architecture: Separated Services + Knowledge Platform + SaaS Layer</h2>
+    <div class="desc">The target separates each app, adds shared handlers, builds a knowledge/AI layer alongside, and wraps everything in a multi-tenant SaaS layer (2028+). Colored tags show which project builds each part.</div>
 
     <!-- AFTER -->
     <div class="arch-sub-frame">
@@ -870,138 +724,88 @@
         <div>• <strong>KIKU-01</strong> — Kikuichimonji as third SaaS candidate</div>
       </div>
     </div>
+
+    <h3 style="font-size:14px; font-weight:700; color:#2e7d32; margin-top:20px; margin-bottom:8px;">How Each Issue Gets Solved</h3>
+    <table class="solution-table">
+      <thead>
+        <tr><th>Problem</th><th>Solved by</th><th>How</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Shared backend</td><td>APP-SEP-01, PLAT-01</td><td>Each app gets its own backend + shared handlers. Independent deployment, incidents, ownership.</td></tr>
+        <tr><td>Reservation form risk</td><td>IAHP-01, IAHP-02</td><td>Forms move to source control. Review, rollback, safe design changes.</td></tr>
+        <tr><td>Vendor-hosted knowledge</td><td>IAGPT-02, IAGPT-03</td><td>Support + curriculum knowledge moves into IA-controlled knowledge base.</td></tr>
+        <tr><td>OD video bottleneck</td><td>AI-01, AI-02</td><td>Local AI hardware + automated OD pipeline. 6→24 lessons/month.</td></tr>
+        <tr><td>No local AI / staff tools</td><td>AI-01, DEVAI-01, GOV-01</td><td>Local hardware + staff app builder + PR governance. Staff build tools, engineers review.</td></tr>
+        <tr><td>No SaaS foundation</td><td>TENANT-01, BOHRCORP-01, ZAN-01, KIKU-01</td><td>Multi-tenant model + per-product SaaSification. Sellable platforms, not one-off forks.</td></tr>
+      </tbody>
+    </table>
   </div>
 </div>
 
-<!-- ===== SECTION 4: HOW EACH PROJECT MOVES US CLOSER ===== -->
+<!-- ===== SECTION 3: BENEFITS TO THE COMPANY & DEPARTMENTS ===== -->
 <div class="section-frame">
-  <div class="section-label">4 — GOAL CHAIN: How Each Project Moves Us Forward</div>
-  <div class="chain-section">
-    <h2>Dependency Chain: Foundation → Internal Capability → External Revenue</h2>
-    <div class="desc">Read left to right. Each phase produces the foundation that the next depends on. The chain splits into two revenue paths that converge at GTM.</div>
-
-    <!-- Phase 1 -->
-    <div class="chain-phase-label" style="color:#1a237e;">PHASE 1 — Foundation & Quick Wins (2026)</div>
-    <div class="chain-flow">
-      <div class="chain-node cat-ai-infra">
-        <div class="step">STEP 1</div>
-        <div class="name">AI-01<br>Local AI Hardware</div>
-        <div class="detail">Reusable compute env. No external API dependency.</div>
-      </div>
-      <div class="chain-arrow">→</div>
-      <div class="chain-node cat-ai-infra" style="opacity:0.9;">
-        <div class="step">STEP 2</div>
-        <div class="name">AI-02<br>OD Video Auto.</div>
-        <div class="detail">6→24 lessons/mo. First AI pipeline on local hw.</div>
-      </div>
-      <div class="chain-arrow">→</div>
-      <div class="chain-node cat-knowledge" style="opacity:0.9;">
-        <div class="step">STEP 3</div>
-        <div class="name">IAGPT-02→03→04<br>Knowledge Platform</div>
-        <div class="detail">Zendesk → Digital Text → Customer AI.</div>
-      </div>
-      <div class="chain-arrow">→</div>
-      <div class="chain-node cat-reservation" style="opacity:0.9;">
-        <div class="step">STEP 4</div>
-        <div class="name">IAHP-01→02<br>Reservation Mig.</div>
-        <div class="detail">Source-controlled forms. Same URLs, less risk.</div>
-      </div>
-    </div>
-
-    <!-- Phase 2 -->
-    <div class="chain-phase-label" style="color:#e65100;">PHASE 2 — Architecture & Separation (2026–2029+)</div>
-    <div class="chain-flow">
-      <div class="chain-node cat-architecture">
-        <div class="step">STEP 5</div>
-        <div class="name">ARCH-01<br>Boundary Discovery</div>
-        <div class="detail">Map all 6 apps, shared deps, data flows.</div>
-      </div>
-      <div class="chain-arrow">→</div>
-      <div class="chain-node cat-architecture" style="opacity:0.9;">
-        <div class="step">STEP 6</div>
-        <div class="name">PLAT-01<br>Shared Handlers</div>
-        <div class="detail">Files, Content, Event, DB as services/contracts.</div>
-      </div>
-      <div class="chain-arrow">→</div>
-      <div class="chain-node cat-architecture" style="opacity:0.8;">
-        <div class="step">STEP 7</div>
-        <div class="name">APP-SEP-01<br>Backend Separation</div>
-        <div class="detail">Separate 6 backends: CorpBohr→Zan→IAHP→Kiku.</div>
-      </div>
-    </div>
-
-    <!-- Phase 3: Two paths -->
-    <div class="chain-phase-label" style="color:#2e7d32;">PHASE 3 — Two Parallel Revenue Paths (2027–2029+)</div>
-    <div style="display:flex; gap:20px; flex-wrap:wrap;">
-      <!-- Path A -->
-      <div style="flex:1; min-width:500px;">
-        <div class="chain-path-label" style="color:#2e7d32;">PATH A: AI Harness Service Line</div>
-        <div class="chain-flow">
-          <div class="chain-node cat-ai-first">
-            <div class="step">8a</div>
-            <div class="name">GOV-01<br>PR Governance</div>
-            <div class="detail">Review gates, CI, CODEOWNERS.</div>
-          </div>
-          <div class="chain-arrow">→</div>
-          <div class="chain-node cat-ai-first" style="opacity:0.9;">
-            <div class="step">9a</div>
-            <div class="name">DEVAI-01<br>Staff Builder</div>
-            <div class="detail">Non-engineers build → PRs for review.</div>
-          </div>
-          <div class="chain-arrow">→</div>
-          <div class="chain-node cat-ai-first" style="opacity:0.8;">
-            <div class="step">10a</div>
-            <div class="name">HARNESS-01<br>Service Pack.</div>
-            <div class="detail">Package method, templates, playbook.</div>
-          </div>
-          <div class="chain-arrow">→</div>
-          <div class="chain-node cat-ai-first" style="opacity:0.7;">
-            <div class="step">11a</div>
-            <div class="name">TRAIN-01<br>Teaching</div>
-            <div class="detail">Workshops, briefings, playbooks.</div>
-          </div>
-        </div>
-      </div>
-      <!-- Path B -->
-      <div style="flex:1; min-width:500px;">
-        <div class="chain-path-label" style="color:#c62828;">PATH B: SaaS / BaaS Product Line</div>
-        <div class="chain-flow">
-          <div class="chain-node cat-saas">
-            <div class="step">8b</div>
-            <div class="name">TENANT-01<br>SaaS Foundation</div>
-            <div class="detail">Multi-tenant, auth/roles, data isolation.</div>
-          </div>
-          <div class="chain-arrow">→</div>
-          <div class="chain-node cat-saas" style="opacity:0.9;">
-            <div class="step">9b</div>
-            <div class="name">BOHRCORP-01<br>Corp Bohr SaaS</div>
-            <div class="detail">First SaaS: LMS/customer mgmt platform.</div>
-          </div>
-          <div class="chain-arrow">→</div>
-          <div class="chain-node cat-saas" style="opacity:0.8;">
-            <div class="step">10b</div>
-            <div class="name">ZAN / KIKU<br>More SaaS</div>
-            <div class="detail">Expand to Zan and Kikuichimonji.</div>
-          </div>
-          <div class="chain-arrow">→</div>
-          <div class="chain-node cat-saas" style="opacity:0.7;">
-            <div class="step">11b</div>
-            <div class="name">MARKET-01<br>GTM Packaging</div>
-            <div class="detail">Pricing, onboarding, sales materials.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="chain-convergence">
-      ↑ Both paths converge: <strong>MARKET-01</strong> packages SaaS products + AI Harness pilots into unified go-to-market offers.
-    </div>
-  </div>
-</div>
-
-<!-- ===== SECTION 4: DEPARTMENT BENEFIT MATRIX ===== -->
-<div class="section-frame">
-  <div class="section-label">5 — DEPARTMENT BENEFITS</div>
+  <div class="section-label">3 — BENEFITS TO THE COMPANY & DEPARTMENTS</div>
   <div class="benefit-section">
+    <h2>What Each Department Gets in the Ideal Situation</h2>
+    <div class="desc">Summary of benefits per department in the target state.</div>
+
+    <h3 style="font-size:14px; font-weight:700; color:#1a237e; margin-bottom:12px;">In the ideal situation, each department gets:</h3>
+    <div class="dept-summary">
+      <div class="dept-card">
+        <h4>System Development</h4>
+        <ul>
+          <li>Clear app boundaries, ownership, independent deployment</li>
+          <li>Shared APIs — less duplicate work</li>
+          <li>Scalable AI contributions with governance</li>
+          <li>Reusable methods, templates, case studies for client service</li>
+        </ul>
+      </div>
+      <div class="dept-card">
+        <h4>Curriculum / Instructors</h4>
+        <ul>
+          <li>6→24 OD lessons/month — less manual video work</li>
+          <li>Local AI testing environment</li>
+          <li>Curriculum assets in searchable knowledge base</li>
+          <li>Staff can build tools without engineering bandwidth</li>
+        </ul>
+      </div>
+      <div class="dept-card">
+        <h4>Marketing / Sales</h4>
+        <ul>
+          <li>Reliable lead funnel — less production risk</li>
+          <li>More content for lead generation</li>
+          <li>New services to sell (AI Harness + SaaS products)</li>
+          <li>Pricing, onboarding, and sales materials packaged</li>
+        </ul>
+      </div>
+      <div class="dept-card">
+        <h4>Support</h4>
+        <ul>
+          <li>Search approved answers in IAGPT — no more vendor dependency</li>
+          <li>Grounded answers from curriculum, not ad hoc</li>
+          <li>Less repetitive load — escalation to staff when AI can't answer</li>
+          <li>Build support tools locally with AI</li>
+        </ul>
+      </div>
+      <div class="dept-card">
+        <h4>Operations</h4>
+        <ul>
+          <li>Stable reservation operations — source-controlled forms</li>
+          <li>Clearer corporate inquiry ownership</li>
+          <li>Less cross-product risk — one bug doesn't break everything</li>
+          <li>Configurable admin platform (long-term)</li>
+        </ul>
+      </div>
+      <div class="dept-card">
+        <h4>Management</h4>
+        <ul>
+          <li>New revenue lines: AI Harness service + SaaS products</li>
+          <li>Evidence-based architecture decisions, not guesses</li>
+          <li>Quality/risk control on AI-assisted development</li>
+          <li>Clear staffing plan — 3 hires staggered over 18 months</li>
+        </ul>
+      </div>
+    </div>
     <h2>What Each Project Does for Each Department</h2>
     <div class="desc">Green = strong/direct · Yellow = moderate · Blue = indirect · Gray = no direct benefit</div>
 
@@ -1258,14 +1062,329 @@
         </tr>
       </tbody>
     </table>
+  
+  </div>
+</div>
+
+<!-- ===== SECTION 4: HOW EACH PROJECT GETS US THERE ===== -->
+<div class="section-frame">
+  <div class="section-label">4 — HOW EACH PROJECT GETS US THERE</div>
+  <div class="roadmap-section">
+    <h3 style="font-size:14px; font-weight:700; color:#1a237e; margin-bottom:8px;">4a — Timeline: When Each Project Happens</h3>
+<h2>Project Timeline & Dependencies (2026 → 2029+)</h2>
+    <div class="desc">Each bar shows the project's active period. Bars within the same category share a track. Labels on bars show key dependencies (→ = depends on, ⊢ = blocks).</div>
+
+    <!-- 9 period columns -->
+    <div class="timeline-header">
+      <div class="label-col">Project / Category</div>
+      <div class="period-col year-marker">'26 H1<br><span style="font-size:8px;font-weight:400">Jun–Aug</span></div>
+      <div class="period-col">'26 H2<br><span style="font-size:8px;font-weight:400">Sep–Dec</span></div>
+      <div class="period-col year-marker">'27 H1<br><span style="font-size:8px;font-weight:400">Jan–Jun</span></div>
+      <div class="period-col">'27 H2<br><span style="font-size:8px;font-weight:400">Jul–Dec</span></div>
+      <div class="period-col year-marker">'28 H1</div>
+      <div class="period-col">'28 H2</div>
+      <div class="period-col year-marker">'29 H1</div>
+      <div class="period-col">'29 H2</div>
+      <div class="period-col">2029+</div>
+    </div>
+
+    <!-- Cat 1A: AI Infrastructure -->
+    <div class="cat-row">
+      <div class="cat-label">
+        <span class="cat-badge cat-ai-infra">1A</span>
+        AI Infra
+      </div>
+      <div class="cat-track">
+        <div class="project-bar cat-ai-infra" style="grid-column: 1 / 3; grid-row: 1;">
+          <div class="pid">AI-01</div>
+          <div class="pname">Local AI Environment</div>
+          <div class="pdep">⊢ AI-02</div>
+        </div>
+        <div class="project-bar cat-ai-infra" style="grid-column: 1 / 3; grid-row: 2; opacity:0.85;">
+          <div class="pid">AI-02</div>
+          <div class="pname">OD Video Automation</div>
+          <div class="pdep">→ AI-01</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cat 1B: Reservation Migration -->
+    <div class="cat-row">
+      <div class="cat-label">
+        <span class="cat-badge cat-reservation">1B</span>
+        Reservation
+      </div>
+      <div class="cat-track">
+        <div class="project-bar cat-reservation" style="grid-column: 1 / 2; grid-row: 1;">
+          <div class="pid">IAHP-01</div>
+          <div class="pname">Ind IAHP Migration</div>
+          <div class="pdep">⊢ IAHP-02</div>
+        </div>
+        <div class="project-bar cat-reservation" style="grid-column: 2 / 3; grid-row: 1; opacity:0.85;">
+          <div class="pid">IAHP-02</div>
+          <div class="pname">Corp IAHP Migration</div>
+          <div class="pdep">→ IAHP-01</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cat 1C: Knowledge Platform -->
+    <div class="cat-row">
+      <div class="cat-label">
+        <span class="cat-badge cat-knowledge">1C</span>
+        Knowledge
+      </div>
+      <div class="cat-track">
+        <div class="project-bar cat-knowledge" style="grid-column: 1 / 2; grid-row: 1;">
+          <div class="pid">IAGPT-02</div>
+          <div class="pname">Zendesk Ingestion</div>
+          <div class="pdep">⊢ IAGPT-03</div>
+        </div>
+        <div class="project-bar cat-knowledge" style="grid-column: 2 / 3; grid-row: 1; opacity:0.85;">
+          <div class="pid">IAGPT-03</div>
+          <div class="pname">Digital Text</div>
+          <div class="pdep">→ 02 · ⊢ 04</div>
+        </div>
+        <div class="project-bar cat-knowledge" style="grid-column: 2 / 4; grid-row: 2; opacity:0.75;">
+          <div class="pid">IAGPT-04</div>
+          <div class="pname">Customer-facing AI (Decision Gate)</div>
+          <div class="pdep">→ 02 + 03</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cat 2A-C: Architecture -->
+    <div class="cat-row">
+      <div class="cat-label">
+        <span class="cat-badge cat-architecture">2A-C</span>
+        Architecture
+      </div>
+      <div class="cat-track">
+        <div class="project-bar cat-architecture" style="grid-column: 1 / 3; grid-row: 1;">
+          <div class="pid">ARCH-01</div>
+          <div class="pname">Boundary Discovery</div>
+          <div class="pdep">⊢ PLAT-01, APP-SEP</div>
+        </div>
+        <div class="project-bar cat-architecture" style="grid-column: 2 / 7; grid-row: 2; opacity:0.85;">
+          <div class="pid">PLAT-01</div>
+          <div class="pname">Shared Handlers (File / Content / Event / DB)</div>
+          <div class="pdep">→ ARCH-01 · ⊢ APP-SEP, TENANT</div>
+        </div>
+        <div class="project-bar cat-architecture" style="grid-column: 2 / 10; grid-row: 3; opacity:0.75;">
+          <div class="pid">APP-SEP-01</div>
+          <div class="pname">Backend Separation (Corp Bohr → Zan → Corp IAHP → Ind IAHP → Kiku)</div>
+          <div class="pdep">→ ARCH-01, PLAT-01 · ⊢ all SaaS</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cat 3A-D: AI-First Development -->
+    <div class="cat-row">
+      <div class="cat-label">
+        <span class="cat-badge cat-ai-first">3A-D</span>
+        AI-First Dev
+      </div>
+      <div class="cat-track">
+        <div class="project-bar cat-ai-first" style="grid-column: 2 / 4; grid-row: 1;">
+          <div class="pid">GOV-01</div>
+          <div class="pname">PR Governance Foundation</div>
+          <div class="pdep">⊢ DEVAI, HARNESS</div>
+        </div>
+        <div class="project-bar cat-ai-first" style="grid-column: 3 / 7; grid-row: 2; opacity:0.85;">
+          <div class="pid">DEVAI-01</div>
+          <div class="pname">Staff AI App Builder</div>
+          <div class="pdep">→ GOV-01 · ⊢ HARNESS</div>
+        </div>
+        <div class="project-bar cat-ai-first" style="grid-column: 6 / 10; grid-row: 3; opacity:0.75;">
+          <div class="pid">HARNESS-01</div>
+          <div class="pname">AI Harness Service Packaging</div>
+          <div class="pdep">→ GOV + DEVAI · ⊢ TRAIN</div>
+        </div>
+        <div class="project-bar cat-ai-first" style="grid-column: 9 / 10; grid-row: 4; opacity:0.65;">
+          <div class="pid">TRAIN-01</div>
+          <div class="pname">Teaching / Enablement</div>
+          <div class="pdep">→ HARNESS</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cat 4A-E: SaaS / BaaS -->
+    <div class="cat-row">
+      <div class="cat-label">
+        <span class="cat-badge cat-saas">4A-E</span>
+        SaaS / BaaS
+      </div>
+      <div class="cat-track">
+        <div class="project-bar cat-saas" style="grid-column: 5 / 9; grid-row: 1;">
+          <div class="pid">TENANT-01</div>
+          <div class="pname">SaaS Foundation (Multi-tenant)</div>
+          <div class="pdep">→ APP-SEP, PLAT-01</div>
+        </div>
+        <div class="project-bar cat-saas" style="grid-column: 6 / 10; grid-row: 2; opacity:0.85;">
+          <div class="pid">BOHRCORP-01</div>
+          <div class="pname">Corporate Bohr SaaS</div>
+          <div class="pdep">→ TENANT, APP-SEP</div>
+        </div>
+        <div class="project-bar cat-saas" style="grid-column: 9 / 10; grid-row: 3; opacity:0.75;">
+          <div class="pid">ZAN-01</div>
+          <div class="pname">Zan SaaS</div>
+          <div class="pdep">→ TENANT</div>
+        </div>
+        <div class="project-bar cat-saas" style="grid-column: 9 / 10; grid-row: 4; opacity:0.65;">
+          <div class="pid">KIKU-01</div>
+          <div class="pname">Kiku SaaS</div>
+          <div class="pdep">→ TENANT</div>
+        </div>
+        <div class="project-bar cat-saas" style="grid-column: 9 / 10; grid-row: 5; opacity:0.55;">
+          <div class="pid">MARKET-01</div>
+          <div class="pname">GTM Packaging</div>
+          <div class="pdep">→ all SaaS + HARNESS</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Legend -->
+    <div class="legend-bar">
+      <div class="legend-item"><div class="legend-swatch" style="background:#1565c0;"></div> 1A — AI Infrastructure</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#00838f;"></div> 1B — Reservation Migration</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#6a1b9a;"></div> 1C — Knowledge Platform</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#e65100;"></div> 2A-C — Architecture</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#2e7d32;"></div> 3A-D — AI-First Development</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#c62828;"></div> 4A-E — SaaS / BaaS</div>
+    </div>
+  
+  </div>
+
+<div class="chain-section">
+    <div style="border-top: 2px dashed #e0e0e0; margin: 24px 0;"></div>
+    <h3 style="font-size:14px; font-weight:700; color:#1a237e; margin-bottom:8px;">4b — Dependency Chain: How Projects Connect</h3>
+<h2>Dependency Chain: Foundation → Internal Capability → External Revenue</h2>
+    <div class="desc">Read left to right. Each phase produces the foundation that the next depends on. The chain splits into two revenue paths that converge at GTM.</div>
+
+    <!-- Phase 1 -->
+    <div class="chain-phase-label" style="color:#1a237e;">PHASE 1 — Foundation & Quick Wins (2026)</div>
+    <div class="chain-flow">
+      <div class="chain-node cat-ai-infra">
+        <div class="step">STEP 1</div>
+        <div class="name">AI-01<br>Local AI Hardware</div>
+        <div class="detail">Reusable compute env. No external API dependency.</div>
+      </div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-node cat-ai-infra" style="opacity:0.9;">
+        <div class="step">STEP 2</div>
+        <div class="name">AI-02<br>OD Video Auto.</div>
+        <div class="detail">6→24 lessons/mo. First AI pipeline on local hw.</div>
+      </div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-node cat-knowledge" style="opacity:0.9;">
+        <div class="step">STEP 3</div>
+        <div class="name">IAGPT-02→03→04<br>Knowledge Platform</div>
+        <div class="detail">Zendesk → Digital Text → Customer AI.</div>
+      </div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-node cat-reservation" style="opacity:0.9;">
+        <div class="step">STEP 4</div>
+        <div class="name">IAHP-01→02<br>Reservation Mig.</div>
+        <div class="detail">Source-controlled forms. Same URLs, less risk.</div>
+      </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="chain-phase-label" style="color:#e65100;">PHASE 2 — Architecture & Separation (2026–2029+)</div>
+    <div class="chain-flow">
+      <div class="chain-node cat-architecture">
+        <div class="step">STEP 5</div>
+        <div class="name">ARCH-01<br>Boundary Discovery</div>
+        <div class="detail">Map all 6 apps, shared deps, data flows.</div>
+      </div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-node cat-architecture" style="opacity:0.9;">
+        <div class="step">STEP 6</div>
+        <div class="name">PLAT-01<br>Shared Handlers</div>
+        <div class="detail">Files, Content, Event, DB as services/contracts.</div>
+      </div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-node cat-architecture" style="opacity:0.8;">
+        <div class="step">STEP 7</div>
+        <div class="name">APP-SEP-01<br>Backend Separation</div>
+        <div class="detail">Separate 6 backends: CorpBohr→Zan→IAHP→Kiku.</div>
+      </div>
+    </div>
+
+    <!-- Phase 3: Two paths -->
+    <div class="chain-phase-label" style="color:#2e7d32;">PHASE 3 — Two Parallel Revenue Paths (2027–2029+)</div>
+    <div style="display:flex; gap:20px; flex-wrap:wrap;">
+      <!-- Path A -->
+      <div style="flex:1; min-width:500px;">
+        <div class="chain-path-label" style="color:#2e7d32;">PATH A: AI Harness Service Line</div>
+        <div class="chain-flow">
+          <div class="chain-node cat-ai-first">
+            <div class="step">8a</div>
+            <div class="name">GOV-01<br>PR Governance</div>
+            <div class="detail">Review gates, CI, CODEOWNERS.</div>
+          </div>
+          <div class="chain-arrow">→</div>
+          <div class="chain-node cat-ai-first" style="opacity:0.9;">
+            <div class="step">9a</div>
+            <div class="name">DEVAI-01<br>Staff Builder</div>
+            <div class="detail">Non-engineers build → PRs for review.</div>
+          </div>
+          <div class="chain-arrow">→</div>
+          <div class="chain-node cat-ai-first" style="opacity:0.8;">
+            <div class="step">10a</div>
+            <div class="name">HARNESS-01<br>Service Pack.</div>
+            <div class="detail">Package method, templates, playbook.</div>
+          </div>
+          <div class="chain-arrow">→</div>
+          <div class="chain-node cat-ai-first" style="opacity:0.7;">
+            <div class="step">11a</div>
+            <div class="name">TRAIN-01<br>Teaching</div>
+            <div class="detail">Workshops, briefings, playbooks.</div>
+          </div>
+        </div>
+      </div>
+      <!-- Path B -->
+      <div style="flex:1; min-width:500px;">
+        <div class="chain-path-label" style="color:#c62828;">PATH B: SaaS / BaaS Product Line</div>
+        <div class="chain-flow">
+          <div class="chain-node cat-saas">
+            <div class="step">8b</div>
+            <div class="name">TENANT-01<br>SaaS Foundation</div>
+            <div class="detail">Multi-tenant, auth/roles, data isolation.</div>
+          </div>
+          <div class="chain-arrow">→</div>
+          <div class="chain-node cat-saas" style="opacity:0.9;">
+            <div class="step">9b</div>
+            <div class="name">BOHRCORP-01<br>Corp Bohr SaaS</div>
+            <div class="detail">First SaaS: LMS/customer mgmt platform.</div>
+          </div>
+          <div class="chain-arrow">→</div>
+          <div class="chain-node cat-saas" style="opacity:0.8;">
+            <div class="step">10b</div>
+            <div class="name">ZAN / KIKU<br>More SaaS</div>
+            <div class="detail">Expand to Zan and Kikuichimonji.</div>
+          </div>
+          <div class="chain-arrow">→</div>
+          <div class="chain-node cat-saas" style="opacity:0.7;">
+            <div class="step">11b</div>
+            <div class="name">MARKET-01<br>GTM Packaging</div>
+            <div class="detail">Pricing, onboarding, sales materials.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="chain-convergence">
+      ↑ Both paths converge: <strong>MARKET-01</strong> packages SaaS products + AI Harness pilots into unified go-to-market offers.
+    </div>
+  
   </div>
 </div>
 
 <!-- ===== SECTION 5: HIRING PLAN ===== -->
 <div class="section-frame">
-  <div class="section-label">6 — HIRING PLAN: When and Who</div>
+  <div class="section-label">5 — HIRING PLAN: When and Who</div>
   <div class="hiring-section">
-    <h2>Staffing Plan — 3 Hires Staggered Across 18 Months</h2>
+<h2>Staffing Plan — 3 Hires Staggered Across 18 Months</h2>
     <div class="desc">Current team: 3 developers + 1 manager (training/management, not coding). Target: 6 developers + 1 manager. Hires staggered 1-at-a-time for training bandwidth. <strong>4 project starts pushed from Dec 2026 → Jan 2027</strong> to match the pace of hiring.</div>
 
     <!-- Period header (same as roadmap) -->
@@ -1376,6 +1495,7 @@
         </div>
       </div>
     </div>
+  
   </div>
 </div>
 
