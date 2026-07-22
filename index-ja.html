@@ -553,6 +553,31 @@
   .cust-feature-list ul { padding-left: 18px; }
   .cust-feature-list li { margin-bottom: 4px; }
 
+  /* ===== NEW: Bohr Ind separated + breakeven + methodology ===== */
+  .arch-box.app-separated { border-color: #2e7d32; background: #e8f5e9; color: #2e7d32; }
+  .arch-box.backend-go { width: 140px; height: 50px; background: #e8f5e9; border-color: #2e7d32; }
+  .arch-box.monolith-shared { width: 240px; height: 55px; background: #fff3e0; border-color: #ff9800; }
+  .arch-before-split { display: flex; gap: 40px; justify-content: center; align-items: flex-start; width: 100%; }
+  .arch-before-col { display: flex; flex-direction: column; align-items: center; gap: 0; flex: 1; }
+  .arch-before-col-label { font-size: 10px; font-weight: 700; color: #616161; margin-bottom: 6px; }
+  .arch-app-group { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
+  .arch-app-group .arch-box.app { width: 100px; height: 44px; font-size: 9px; }
+  .arch-box.app-separated-inline { border-color: #2e7d32; background: #e8f5e9; color: #2e7d32; width: 100px; height: 44px; font-size: 9px; }
+
+  .breakeven-callout { margin-top: 12px; padding: 14px 20px; background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-radius: 6px; border-left: 4px solid #2e7d32; }
+  .breakeven-callout strong { font-size: 13px; color: #2e7d32; }
+  .breakeven-callout p { font-size: 11px; color: #424242; margin-top: 6px; line-height: 1.6; }
+  .method-section { margin-top: 20px; }
+  .method-section h3 { font-size: 14px; font-weight: 700; color: #1a237e; margin-bottom: 8px; }
+  .method-note { font-size: 10px; color: #616161; margin-top: 6px; font-style: italic; }
+
+  /* AI Harness use-case boxes */
+  .harness-usecase-row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .harness-usecase-box { border: 2px solid #2e7d32; border-radius: 6px; padding: 8px 10px; text-align: center; font-size: 8px; font-weight: 700; background: #e8f5e9; color: #2e7d32; width: 120px; line-height: 1.4; }
+  .harness-central-box { border: 3px solid #1a237e; border-radius: 8px; padding: 10px 16px; text-align: center; font-size: 10px; font-weight: 700; background: #e8eaf6; color: #1a237e; }
+  .harness-subtitle { font-size: 8px; font-weight: 600; color: #424242; margin-top: 2px; }
+  .harness-footer { font-size: 8px; color: #616161; text-align: center; margin-top: 4px; line-height: 1.5; max-width: 400px; }
+
   @media print {
     @page { size: A4 landscape; }
     .canvas { width: auto; background: #fff; padding: 10px; }
@@ -568,37 +593,57 @@
 <div class="title-block">
   <h1>IAシステム開発戦略 — ビジュアルロードマップ 2026–2029+</h1>
   <div class="subtitle">社内AIハーネス → 外部サービス + SaaS/BaaS製品ライン</div>
-  <div class="meta">6つの戦略カテゴリにわたる18プロジェクト · 全社向けプレゼン用</div>
+  <div class="meta">6つの戦略カテゴリにわたる17プロジェクト · 全社向けプレゼン用</div>
 </div>
 
 <!-- ===== SECTION 1: CURRENT SITUATION ===== -->
 <div class="section-frame">
   <div class="section-label">1 — 現状</div>
   <div class="arch-section">
-    <h2>現在のシステム: 1つの共有バックエンド、ソース管理なし、AI能力なし</h2>
-    <div class="desc">現在、6つのアプリすべてが1つのバックエンドと1つのデータベースを共有。予約フォームは本番環境のみ。サポートナレッジはZendeskにロックイン。ローカルAI基盤もマルチテナント/SaaS基盤もない。</div>
+    <h2>現在のシステム: 1つの共有バックエンド（5アプリ）、Bohr Indは分離済み、AI能力なし</h2>
+    <div class="desc">Bohr Individualは分離済み（Goバックエンド、2025年）。残り5アプリは1つのバックエンドとデータベースを共有。予約フォームは本番環境のみ。サポートナレッジはZendeskにロックイン。ローカルAI基盤もマルチテナント/SaaS基盤もない。</div>
 
     <!-- BEFORE -->
     <div class="arch-sub-frame">
       <div class="arch-label">BEFORE — 現在のアーキテクチャ</div>
       <div class="arch-diagram">
         <div class="arch-layer tight">
-          <div class="arch-box app">Bohr Ind</div>
+          <div class="arch-box app app-separated">Bohr Ind<br><span style="font-size:7px;font-weight:600;">(独自Goバックエンド ✓)</span></div>
           <div class="arch-box app">Bohr Corp</div>
           <div class="arch-box app">Ind IAHP</div>
           <div class="arch-box app">Corp IAHP</div>
           <div class="arch-box app">Zan</div>
           <div class="arch-box app">Kikuichimonji</div>
         </div>
-        <div class="arch-arrow">↓ ↓ ↓ ↓ ↓ ↓</div>
-        <div class="arch-arrow-label">リクエスト</div>
-        <div class="arch-vspace"></div>
-        <div class="arch-box monolith">member/backend (共有)</div>
-        <div class="arch-vspace"></div>
-        <div class="arch-arrow">↓</div>
-        <div class="arch-arrow-label">データ保存/取得</div>
-        <div class="arch-vspace"></div>
-        <div class="arch-box db">データベース</div>
+
+        <!-- Two paths: Bohr Ind separate, other 5 shared -->
+        <div class="arch-before-split" style="margin-top: 10px;">
+          <!-- Left column: Bohr Ind -->
+          <div class="arch-before-col">
+            <div class="arch-before-col-label" style="color:#2e7d32;">Bohr Ind (分離済み)</div>
+            <div class="arch-arrow">↓</div>
+            <div class="arch-vspace"></div>
+            <div class="arch-box backend-go">Bohr Ind<br>バックエンド (Go)</div>
+            <div class="arch-vspace"></div>
+            <div class="arch-arrow">↓</div>
+            <div class="arch-vspace"></div>
+            <div class="arch-box db">データベース</div>
+          </div>
+
+          <!-- Right column: 5 shared apps -->
+          <div class="arch-before-col">
+            <div class="arch-before-col-label" style="color:#e65100;">5アプリ (共有バックエンド)</div>
+            <div class="arch-arrow">↓ ↓ ↓ ↓ ↓</div>
+            <div class="arch-arrow-label">リクエスト</div>
+            <div class="arch-vspace"></div>
+            <div class="arch-box monolith-shared">member/backend (共有)</div>
+            <div class="arch-vspace"></div>
+            <div class="arch-arrow">↓</div>
+            <div class="arch-arrow-label">データ保存/取得</div>
+            <div class="arch-vspace"></div>
+            <div class="arch-box db">データベース</div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -608,7 +653,7 @@
         <tr><th>問題</th><th>影響</th></tr>
       </thead>
       <tbody>
-        <tr><td>全アプリが1つのバックエンドを共有</td><td>1つのバグが全体に影響。独立デプロイ不可。1つの製品のスケールに全体が関与。</td></tr>
+        <tr><td>5アプリが依然1つのバックエンドを共有</td><td>1つのバグが全体に影響。独立デプロイ不可。（Bohr IndはGoバックエンドで分離済み。）</td></tr>
         <tr><td>予約フォームにソース管理なし</td><td>本番環境のみのリスク。ロールバック不可。マーケティング/デザインが安全にレビューできない。</td></tr>
         <tr><td>サポートナレッジがベンダーホスト（Zendesk）</td><td>AIワークフローで再利用不可。ベンダー依存。自社カリキュラムに基づいた回答ができない。</td></tr>
         <tr><td>OD動画制作が1レッスン10時間</td><td>月~6本 vs 目標~24本。手作業のボトルネックがカリキュラム更新速度を制限。</td></tr>
@@ -634,7 +679,7 @@
       <div class="goal-card goal-2">
         <div class="icon">📦</div>
         <h3>SaaS / BaaS製品</h3>
-        <p>6つのアプリバックエンドを分離し、共有ハンドラーを構築、その後Corporate Bohr → Zan → Kikuichimonjiを<strong>マルチテナント型販売可能プラットフォーム</strong>としてSaaS化。</p>
+        <p>6つのアプリバックエンドを分離し、共有ハンドラーを構築、その後Zan → Kikuichimonjiを<strong>マルチテナント型販売可能プラットフォーム</strong>としてSaaS化。</p>
         <div class="year-badge">最初のMVP: 2028年下半期 · GTM: 2029+</div>
       </div>
       <div class="goal-card goal-3">
@@ -734,9 +779,8 @@
         <!-- SaaS layer (dashed) -->
         <div class="arch-dashed-box">
           <div class="arch-dashed-label">マルチテナントSaaSレイヤー（2028+追加）</div>
-          <div class="arch-layer" style="gap: 10px;">
+          <div class="arch-layer" style="gap: 14px;">
             <div class="arch-col"><div class="arch-box" style="width: 95px; height: 38px; border-color: #c62828; background: #ffebee; font-size: 8px;">テナントモデル<br>認証/ロール</div><div class="project-tag tag-tenant" style="font-size: 7px;">TENANT-01</div></div>
-            <div class="arch-col"><div class="arch-box" style="width: 95px; height: 38px; border-color: #c62828; background: #ffebee; font-size: 8px;">Corp Bohr<br>SaaS</div><div class="project-tag tag-saas" style="font-size: 7px;">BOHRCORP-01</div></div>
             <div class="arch-col"><div class="arch-box" style="width: 95px; height: 38px; border-color: #c62828; background: #ffebee; font-size: 8px;">Zan<br>SaaS</div><div class="project-tag tag-saas" style="font-size: 7px;">ZAN-01</div></div>
             <div class="arch-col"><div class="arch-box" style="width: 95px; height: 38px; border-color: #c62828; background: #ffebee; font-size: 8px;">Kiku<br>SaaS</div><div class="project-tag tag-saas" style="font-size: 7px;">KIKU-01</div></div>
           </div>
@@ -760,7 +804,7 @@
         <h4 style="color:#e65100;">アーキテクチャ & 分離</h4>
         <div>• <strong>ARCH-01</strong> — 境界を定義（この図が出力）</div>
         <div>• <strong>PLAT-01</strong> — 共有ハンドラーレイヤーを構築（コンテンツ、イベント、ファイル、DB）</div>
-        <div>• <strong>APP-SEP-01</strong> — 各アプリバックエンドを分離（Corp Bohr → Zan → ...）</div>
+        <div>• <strong>APP-SEP-01</strong> — 各アプリバックエンドを分離（Zan → ...）</div>
       </div>
       <div class="arch-map-card">
         <h4 style="color:#00838f;">予約移行</h4>
@@ -778,9 +822,8 @@
       <div class="arch-map-card">
         <h4 style="color:#c62828;">SaaS / BaaS (2028+)</h4>
         <div>• <strong>TENANT-01</strong> — マルチテナントモデル、認証、データ分離</div>
-        <div>• <strong>BOHRCORP-01</strong> — Corp Bohrを最初のSaaSプロダクトとして</div>
-        <div>• <strong>ZAN-01</strong> — Zanを2番目のSaaS候補として</div>
-        <div>• <strong>KIKU-01</strong> — Kikuichimonjiを3番目のSaaS候補として</div>
+        <div>• <strong>ZAN-01</strong> — Zanを最初のSaaS候補として</div>
+        <div>• <strong>KIKU-01</strong> — Kikuichimonjiを2番目のSaaS候補として</div>
       </div>
     </div>
 
@@ -795,7 +838,7 @@
         <tr><td>ベンダーホストのナレッジ</td><td>IAGPT-02, IAGPT-03</td><td>サポート + カリキュラムナレッジをIA管理のナレッジベースに移行。</td></tr>
         <tr><td>OD動画ボトルネック</td><td>AI-01, AI-02</td><td>ローカルAIハードウェア + 自動ODパイプライン。月6→24レッスン。</td></tr>
         <tr><td>ローカルAI/スタッフツールなし</td><td>AI-01, DEVAI-01, GOV-01</td><td>ローカルハードウェア + スタッフアプリビルダー + PRガバナンス。スタッフがビルド、エンジニアがレビュー。</td></tr>
-        <tr><td>SaaS基盤なし</td><td>TENANT-01, BOHRCORP-01, ZAN-01, KIKU-01</td><td>マルチテナントモデル + 製品別SaaS化。売れるプラットフォーム、個別フォークではない。</td></tr>
+        <tr><td>SaaS基盤なし</td><td>TENANT-01, ZAN-01, KIKU-01</td><td>マルチテナントモデル + 製品別SaaS化。売れるプラットフォーム、個別フォークではない。</td></tr>
       </tbody>
     </table>
   </div>
@@ -1072,19 +1115,7 @@
           <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>プロダクト設定フレームワーク</span></td>
         </tr>
         <tr>
-          <td><span class="benefit-dot dot-moderate"></span>BOHRCORP-01</td>
-          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>エンジニアリングすべきSaaSプロダクト</span></td>
-          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
-          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>販売可能なLMS/CRMプラットフォーム</span></td>
-          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
-          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>個別法人要望削減</span></td>
-          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>外部プロダクト収益</span></td>
-          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
-          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
-          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>プロダクト検証</span></td>
-        </tr>
-        <tr>
-          <td><span class="benefit-dot dot-moderate"></span>ZAN-01</td>
+          <td><span class="benefit-dot dot-moderate"></span>ZAN-01 (1st SaaS)</td>
           <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>エンジニアリングすべきSaaS候補</span></td>
           <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
           <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>潜在的な販売プロダクト</span></td>
@@ -1096,7 +1127,7 @@
           <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>プロダクトディスカバリ</span></td>
         </tr>
         <tr>
-          <td><span class="benefit-dot dot-moderate"></span>KIKU-01</td>
+          <td><span class="benefit-dot dot-moderate"></span>KIKU-01 (2nd SaaS)</td>
           <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>エンジニアリングすべきSaaS候補</span></td>
           <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
           <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>潜在的な販売プロダクト</span></td>
@@ -1231,7 +1262,7 @@
         </div>
         <div class="project-bar cat-architecture" style="grid-column: 2 / 10; grid-row: 3; opacity:0.75;">
           <div class="pid">APP-SEP-01</div>
-          <div class="pname">バックエンド分離（Corp Bohr → Zan → Corp IAHP → Ind IAHP → Kiku）</div>
+          <div class="pname">バックエンド分離（Zan → Corp IAHP → Ind IAHP → Kiku）</div>
           <div class="pdep">→ ARCH-01, PLAT-01 · ⊢ 全SaaS</div>
         </div>
       </div>
@@ -1279,22 +1310,17 @@
           <div class="pname">SaaS基盤（マルチテナント）</div>
           <div class="pdep">→ APP-SEP, PLAT-01</div>
         </div>
-        <div class="project-bar cat-saas" style="grid-column: 6 / 10; grid-row: 2; opacity:0.85;">
-          <div class="pid">BOHRCORP-01</div>
-          <div class="pname">Corporate Bohr SaaS</div>
-          <div class="pdep">→ TENANT, APP-SEP</div>
-        </div>
-        <div class="project-bar cat-saas" style="grid-column: 9 / 10; grid-row: 3; opacity:0.75;">
+        <div class="project-bar cat-saas" style="grid-column: 9 / 10; grid-row: 2; opacity:0.85;">
           <div class="pid">ZAN-01</div>
           <div class="pname">Zan SaaS</div>
           <div class="pdep">→ TENANT</div>
         </div>
-        <div class="project-bar cat-saas" style="grid-column: 9 / 10; grid-row: 4; opacity:0.65;">
+        <div class="project-bar cat-saas" style="grid-column: 9 / 10; grid-row: 3; opacity:0.75;">
           <div class="pid">KIKU-01</div>
           <div class="pname">Kiku SaaS</div>
           <div class="pdep">→ TENANT</div>
         </div>
-        <div class="project-bar cat-saas" style="grid-column: 9 / 10; grid-row: 5; opacity:0.55;">
+        <div class="project-bar cat-saas" style="grid-column: 9 / 10; grid-row: 4; opacity:0.55;">
           <div class="pid">MARKET-01</div>
           <div class="pname">GTMパッケージング</div>
           <div class="pdep">→ 全SaaS + HARNESS</div>
@@ -1354,7 +1380,7 @@
       <div class="chain-node cat-architecture">
         <div class="step">STEP 5</div>
         <div class="name">ARCH-01<br>境界ディスカバリ</div>
-        <div class="detail">6アプリ全体の依存・データフローをマッピング。</div>
+        <div class="detail">5アプリの依存・データフローをマッピング。</div>
       </div>
       <div class="chain-arrow">→</div>
       <div class="chain-node cat-architecture" style="opacity:0.9;">
@@ -1366,7 +1392,7 @@
       <div class="chain-node cat-architecture" style="opacity:0.8;">
         <div class="step">STEP 7</div>
         <div class="name">APP-SEP-01<br>バックエンド分離</div>
-        <div class="detail">6バックエンドを分離: CorpBohr→Zan→IAHP→Kiku。</div>
+        <div class="detail">5バックエンドを分離: Zan→IAHP→Kiku。</div>
       </div>
     </div>
 
@@ -1412,12 +1438,6 @@
             <div class="detail">マルチテナント、認証/ロール、データ分離。</div>
           </div>
           <div class="chain-arrow">→</div>
-          <div class="chain-node cat-saas" style="opacity:0.9;">
-            <div class="step">9b</div>
-            <div class="name">BOHRCORP-01<br>Corp Bohr SaaS</div>
-            <div class="detail">最初のSaaS: LMS/顧客管理プラットフォーム。</div>
-          </div>
-          <div class="chain-arrow">→</div>
           <div class="chain-node cat-saas" style="opacity:0.8;">
             <div class="step">10b</div>
             <div class="name">ZAN / KIKU<br>追加SaaS</div>
@@ -1450,32 +1470,30 @@
       <!-- AI Harness -->
       <div class="cust-card harness">
         <h3>🤖 AIハーネスサービス</h3>
-        <p>クライアントは当社のAI開発メソッド + ツール + ガバナンスをレンタル。各部門に代表者が配置され、ハーネスを使用してクライアントのデータで部門固有のAIアプリを構築。</p>
+        <p>ChatGPTやClaudeのようなAIツールの、チューニング済みプライベート版 — クライアントの自社データ上で構築、自社インフラで実行、ガバナンスコントロール付き。社内の全員が同じプロダクトを使用、それぞれのニーズに合わせて。</p>
         <div class="cust-diagram">
-          <div class="cust-dept-row">
-            <div class="cust-dept-box client">営業<br>代表</div>
-            <div class="cust-dept-box client">マーケティング<br>代表</div>
-            <div class="cust-dept-box client">サポート<br>代表</div>
-            <div class="cust-dept-box client">運用<br>代表</div>
+          <div class="harness-usecase-row">
+            <div class="harness-usecase-box">営業<br><span style="font-weight:400;font-size:7px;">提案書作成、顧客データ分析、見積もり生成</span></div>
+            <div class="harness-usecase-box">サポート<br><span style="font-weight:400;font-size:7px;">承認済み回答の検索、返信ドラフト、スタッフにエスカレーション</span></div>
           </div>
-          <div class="cust-arrow">↓ 各部門がハーネスを使用 ↓</div>
-          <div class="cust-dept-row">
-            <div class="cust-app-box harness">営業AI<br>アプリ</div>
-            <div class="cust-app-box harness">マーケティングAI<br>アプリ</div>
-            <div class="cust-app-box harness">サポートAI<br>アプリ</div>
-            <div class="cust-app-box harness">運用AI<br>アプリ</div>
+          <div class="cust-arrow">↓ ↓</div>
+          <div class="harness-central-box">AIハーネス<div class="harness-subtitle">企業データ + AI + ガバナンス</div></div>
+          <div class="cust-arrow">↓ ↑</div>
+          <div class="harness-usecase-row">
+            <div class="harness-usecase-box">運用<br><span style="font-weight:400;font-size:7px;">ワークフロー自動化、スケジュール管理、レポート生成</span></div>
+            <div class="harness-usecase-box">経営陣<br><span style="font-weight:400;font-size:7px;">分析、サマリー、意思決定支援</span></div>
           </div>
-          <div class="cust-arrow">↓ すべて駆動するのは ↓</div>
-          <div class="cust-central">AIハーネス（コードベース + データ + ガバナンス + PRレビュー）</div>
+          <div class="harness-footer">企業データ（ドキュメント、ポリシー、サポート履歴、カリキュラム、営業データ）+ ローカルAIハードウェア + PRガバナンスで駆動</div>
         </div>
         <div class="cust-feature-list">
-          <strong>クライアントができること:</strong>
+          <strong>クライアントが得るもの:</strong>
           <ul>
-            <li>各部門が自社データでAI支援ツールを構築</li>
-            <li>非エンジニアスタッフがアプリ作成 → PR → エンジニアがレビュー</li>
-            <li>アプリは部門別ページまたは統合ポータル</li>
-            <li>ガバナンスが品質を保証: レビューゲート、CI、権限ルール</li>
-            <li>トレーニング含む: ワークショップ、マネージャーブリーフィング、プレイブック</li>
+            <li>全員が同じAIプロダクトを使用 — 各部門がそれぞれのニーズに合わせて</li>
+            <li>公開AIツールより優位: 企業データに基づく、プライバシー管理、ガバナンス内蔵</li>
+            <li>企業が持つデータをそのまま使用 — 特別なデータ準備不要</li>
+            <li>ChatGPT/Claude/Geminiのチューニング済み、使いやすい版として機能</li>
+            <li>企業管理のハードウェアで実行 — データは組織外に出ない</li>
+            <li>トレーニング含む: ワークショップ、マネージャーブリーフィング、ガバナンスプレイブック</li>
           </ul>
         </div>
       </div>
@@ -1483,7 +1501,7 @@
       <!-- SaaS -->
       <div class="cust-card saas">
         <h3>📦 SaaS / BaaSプロダクト</h3>
-        <p>クライアントはカスタマイズ可能なLMS / 顧客管理プラットフォームを取得 — 社内アプリ（Corporate Bohr、Zan、Kikuichimonji）をベースにした完成済みプロダクト、組織に合わせて設定。</p>
+        <p>クライアントはカスタマイズ可能なLMS / 顧客管理プラットフォームを取得 — 社内アプリ（Zan、Kikuichimonji）をベースにした完成済みプロダクト、組織に合わせて設定。</p>
         <div class="cust-diagram">
           <div class="cust-dept-row">
             <div class="cust-dept-box client">クライアント<br>企業</div>
@@ -1511,7 +1529,7 @@
     </div>
 
     <div class="cust-feature-list" style="background: #f5f5f5; padding: 14px 18px; border-radius: 6px; border-left: 4px solid #1a237e;">
-      <strong style="color: #1a237e;">主な違い:</strong> AIハーネス = クライアントが当社のメソッドで自社AIツールを構築することを学ぶ。SaaS = クライアントが当社の完成プロダクトを使用。どちらも同じ社内エンジニアリング作業から生まれる — ハーネスは能力、SaaSはプロダクト。
+      <strong style="color: #1a237e;">主な違い:</strong> AIハーネス = クライアント全社向けのプライベートチューニング済みAIツール。SaaS = すぐ使えるCRM/運用プラットフォーム。どちらも同じ社内エンジニアリング作業から生まれる。
     </div>
   </div>
 </div>
@@ -1566,6 +1584,15 @@
       </tbody>
     </table>
 
+    <div class="breakeven-callout">
+      <strong>📈 損益分岐分析</strong>
+      <p>
+        <strong>年次利益黒字化:</strong> 2030+（予想ランレートで年〜¥13.9M）<br>
+        <strong>累計損益分岐:</strong> ~2031（累計赤字¥7.4Mを¥13.9M/年のランレートで回収）<br>
+        <strong>投資期間:</strong> 2026–2029（4年間、最大累計投資〜¥21.3M in 2029）
+      </p>
+    </div>
+
     <div class="pnl-assumptions">
       <h4>主要前提（全数値要検証）</h4>
       <ul>
@@ -1578,6 +1605,39 @@
         <li><strong>損益分岐:</strong> 年次利益は2030+年に黒字化（〜¥13.9M/年）。累計投資は〜2031年に回収（予想ランレート）。</li>
         <li><strong>含まず:</strong> OD動画4倍増による収益（間接）、既存人件費（埋没コスト）、4テナント超のSaaS拡張。</li>
       </ul>
+    </div>
+
+    <div class="method-section">
+      <h3>売上計算の内訳</h3>
+      <table class="pnl-table">
+        <thead>
+          <tr><th>年</th><th>AIハーネスクライアント(累計)</th><th>新規実装</th><th>リテーナー月数</th><th>SaaSテナント</th><th>売上計算</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2026</td><td>0</td><td>0</td><td>0</td><td>0</td><td>¥0</td></tr>
+          <tr><td>2027</td><td>0</td><td>0</td><td>0</td><td>0</td><td>¥0</td></tr>
+          <tr><td>2028</td><td>1</td><td>1 × ¥3M = ¥3M</td><td>3mo × ¥300K = ¥0.9M</td><td>0</td><td>¥3.9M</td></tr>
+          <tr><td>2029</td><td>2</td><td>1 × ¥3M = ¥3M</td><td>12mo × 2 × ¥300K = ¥7.2M</td><td>1 (6mo × ¥100K + ¥200K setup) = ¥0.8M</td><td>¥11.5M</td></tr>
+          <tr><td>2030+</td><td>4</td><td>2 × ¥3M = ¥6M</td><td>12mo × 4 × ¥300K = ¥14.4M</td><td>4 (12mo × ¥100K × 4 + 3 × ¥200K) = ¥5.4M</td><td>¥27.3M</td></tr>
+        </tbody>
+      </table>
+      <div class="method-note">トレーニング収益: 2029: 1トレーニング × ¥500K = ¥0.5M | 2030+: 3トレーニング × ¥500K = ¥1.5M</div>
+    </div>
+
+    <div class="method-section">
+      <h3>費用計算の内訳</h3>
+      <table class="pnl-table">
+        <thead>
+          <tr><th>年</th><th>新規採用数</th><th>給与計算</th><th>AI HW</th><th>AWS/年</th><th>OD削減/年</th><th>Zendesk削減/年</th><th>純費用</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2026</td><td>1 (4ヶ月)</td><td>4 × ¥450K = ¥1.8M</td><td>¥1.2M</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥3.0M</td></tr>
+          <tr><td>2027</td><td>2 (12+9ヶ月)</td><td>21 × ¥450K = ¥9.45M</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>¥0</td><td>¥6.81M</td></tr>
+          <tr><td>2028</td><td>3 (全員通年)</td><td>36 × ¥450K = ¥16.2M</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>-¥0.072M</td><td>¥13.49M</td></tr>
+          <tr><td>2029</td><td>3 (全員通年)</td><td>36 × ¥450K = ¥16.2M</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>-¥0.144M</td><td>¥13.42M</td></tr>
+          <tr><td>2030+</td><td>3 (全員通年)</td><td>36 × ¥450K = ¥16.2M</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>-¥0.18M</td><td>¥13.38M</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
@@ -1669,7 +1729,7 @@
       <h3>なぜこの3名、なぜこの時期か</h3>
       <p><span class="highlight">採用 #1 — 2026年9月:</span> 9〜12月は5つのアクティブプロジェクトで約3名が必要。既存3名に加えてこの採用がラップアップすれば対応可能。この採用は予約/ナレッジプラットフォーム作業を担当し、シニア開発者はコアAI基盤に集中。</p>
       <p><span class="highlight">採用 #2 — 2027年4月:</span> 2027年1〜6月は5つのアクティブプロジェクトで約4名が必要（顧客向けAI、共有ハンドラー、バックエンド分離の3つの大規模プロジェクト含む）。2人目の採用がガバナンス/スタッフビルダー支援を吸収し、既存開発者が分離プログラムに集中できるように。</p>
-      <p><span class="highlight">採用 #3 — 2028年1月:</span> 2028年7〜12月はSaaS基盤とCorporate Bohr SaaSが進行中の分離作業に追加 — 6プロジェクトで約5名が必要。3人目がSaaS基盤を担当し、チームがバックエンド分離を継続。</p>
+      <p><span class="highlight">採用 #3 — 2028年1月:</span> 2028年7〜12月はSaaS基盤が進行中の分離作業に追加 — 5プロジェクトで約5名が必要。3人目がSaaS基盤を担当し、チームがバックエンド分離を継続。</p>
       <p style="margin-top:10px;"><span class="highlight">スケジュール調整:</span> 4プロジェクトの開始（PLAT-01、APP-SEP-01、GOV-01、IAGPT-04）を2026年12月→2027年1月に延期し、採用ペースに合わせる。影響は最小 — 数年規模のプロジェクトで1ヶ月の遅延、意思決定ゲートは2月→4月に移動。</p>
       <p style="margin-top:6px;"><span class="highlight">なぜ1名ずつか:</span> マネージャーがトレーニングの大部分を担当。各採用は約2ヶ月で立ち上がる。段階的採用はトレーニング過負荷を防ぎ、プロジェクトスケジュールの自然なランプアップに一致。</p>
 
