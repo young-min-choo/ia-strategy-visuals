@@ -1060,12 +1060,12 @@
 <div class="section-frame">
   <div class="section-label">セクション5 — 採用計画: いつ誰を</div>
   <div class="hiring-section">
-    <h2>人員タイムライン — 18ヶ月間で3名を段階的に採用</h2>
-    <div class="desc">現状: 開発3名 + マネージャー1名。目標: 開発6名 + マネージャー1名。トレーニング負荷を考慮し1名ずつ段階的に採用。マネージャーは軽作業で0.5開発者相当を貢献。</div>
+    <h2>人員計画 — 18ヶ月間で3名を段階的に採用</h2>
+    <div class="desc">現状: 開発者3名 + マネージャー1名（トレーニング/管理専任、コード記述なし）。目標: 開発者6名 + マネージャー1名。トレーニング負荷を考慮し1名ずつ段階的に採用。<strong>4プロジェクトの開始を2026年12月→2027年1月に延期</strong>し、採用ペースに合わせる。</div>
 
     <!-- Period header -->
     <div class="hiring-timeline">
-      <div class="label-col">採用 / キャパシティ</div>
+      <div class="label-col">採用 / 作業量</div>
       <div class="period-col year-marker">'26 H1</div>
       <div class="period-col">'26 H2</div>
       <div class="period-col year-marker">'27 H1</div>
@@ -1079,7 +1079,7 @@
 
     <!-- Hire markers row -->
     <div class="hiring-row">
-      <div class="hiring-row-label">📅 採用</div>
+      <div class="hiring-row-label">📅 新規採用</div>
       <div class="hiring-track">
         <div class="hire-bar hire-1" style="grid-column: 2 / 3;">
           <div class="hire-when">2026年9月</div>
@@ -1103,37 +1103,37 @@
     <div class="hiring-row">
       <div class="hiring-row-label">👥 チーム規模</div>
       <div class="hiring-track">
-        <div class="capacity-bar capacity-ok" style="grid-column: 1 / 3;">開発3名 + マネージャー1</div>
-        <div class="capacity-bar capacity-ok" style="grid-column: 3 / 5;">開発4名 + マネージャー1</div>
-        <div class="capacity-bar capacity-comfortable" style="grid-column: 5 / 7;">開発5名 + マネージャー1</div>
-        <div class="capacity-bar capacity-comfortable" style="grid-column: 7 / 10;">開発6名 + マネージャー1</div>
+        <div class="capacity-bar capacity-ok" style="grid-column: 1 / 3;">開発者3名</div>
+        <div class="capacity-bar capacity-ok" style="grid-column: 3 / 5;">開発者4名</div>
+        <div class="capacity-bar capacity-comfortable" style="grid-column: 5 / 7;">開発者5名</div>
+        <div class="capacity-bar capacity-comfortable" style="grid-column: 7 / 10;">開発者6名</div>
       </div>
     </div>
 
-    <!-- Dev-load vs capacity row -->
+    <!-- Workload vs team row -->
     <div class="hiring-row">
-      <div class="hiring-row-label">📊 開発負荷 vs キャパシティ</div>
+      <div class="hiring-row-label">📊 作業量 vs チーム</div>
       <div class="hiring-track">
         <div class="capacity-bar capacity-ok" style="grid-column: 1 / 3;">
-          負荷2.2 vs 容量3.5<br><span style="font-size:8px;opacity:0.8">✅ OK</span>
+          必要~2名、保有3名<br><span style="font-size:8px;opacity:0.8">✅ OK</span>
         </div>
-        <div class="capacity-bar capacity-critical" style="grid-column: 2 / 3;">
-          6.0 vs 4.5<br><span style="font-size:8px;opacity:0.8">🔴 採用しても厳しい</span>
+        <div class="capacity-bar capacity-ok" style="grid-column: 2 / 3;">
+          必要~3名、保有3+1ᵃ<br><span style="font-size:8px;opacity:0.8">✅ OK（採用ラップアップ中）</span>
         </div>
         <div class="capacity-bar capacity-ok" style="grid-column: 3 / 5;">
-          4.0 vs 4.5<br><span style="font-size:8px;opacity:0.8">✅ カバー</span>
+          必要~4名、保有4名<br><span style="font-size:8px;opacity:0.8">✅ カバー</span>
         </div>
         <div class="capacity-bar capacity-ok" style="grid-column: 4 / 5;">
-          2.5 vs 4.5<br><span style="font-size:8px;opacity:0.8">✅ 余裕</span>
+          必要~3名、保有4名<br><span style="font-size:8px;opacity:0.8">✅ 余裕</span>
         </div>
         <div class="capacity-bar capacity-ok" style="grid-column: 5 / 6;">
-          4.0 vs 5.5<br><span style="font-size:8px;opacity:0.8">✅ カバー</span>
+          必要~4名、保有5名<br><span style="font-size:8px;opacity:0.8">✅ カバー</span>
         </div>
         <div class="capacity-bar capacity-tight" style="grid-column: 6 / 7;">
-          5.0 vs 5.5<br><span style="font-size:8px;opacity:0.8">⚠ 厳しいがOK</span>
+          必要~5名、保有5名<br><span style="font-size:8px;opacity:0.8">⚠ 厳しい — 採用#3準備中</span>
         </div>
         <div class="capacity-bar capacity-comfortable" style="grid-column: 7 / 10;">
-          3.5–4.0 vs 6.5<br><span style="font-size:8px;opacity:0.8">✅ 余裕</span>
+          必要~4名、保有6名<br><span style="font-size:8px;opacity:0.8">✅ 余裕</span>
         </div>
       </div>
     </div>
@@ -1141,31 +1141,32 @@
     <!-- Summary -->
     <div class="hiring-summary">
       <h3>なぜこの3名、なぜこの時期か</h3>
-      <p><span class="highlight">採用 #1 — 2026年9月:</span> 26H2が崖。9つの同時プロジェクトで開発負荷が6.0に急増。この採用なしではPLAT-01またはAPP-SEP-01が開始前に停滞する。予約/ナレッジプラットフォーム作業を吸収し、シニア開発者をアーキテクチャプログラムに解放。</p>
-      <p><span class="highlight">採用 #2 — 2027年4月:</span> 27H1は重いプロジェクト3件（IAGPT-04、PLAT-01、APP-SEP-01）に加えDEVAI-01が立ち上がり。2人目の採用がガバナンス/スタッフビルダー支援を吸収し、既存開発者がバックエンド分離に集中できるように。</p>
-      <p><span class="highlight">採用 #3 — 2028年1月:</span> 28H2はTENANT-01とBOHRCORP-01が進行中のPLAT-01 + APP-SEP-01に追加。開発負荷が5.0に到達。3人目がSaaS基盤を担当し、チームが分離プログラムを継続。</p>
-      <p style="margin-top:10px;"><span class="highlight">なぜ1名ずつか:</span> マネージャーがトレーニングの大部分を担当。各採用には〜2ヶ月のラップアップが必要。段階的採用がスケジュールのランプアップパターンに一致し、トレーニング過負荷を防止。</p>
+      <p><span class="highlight">採用 #1 — 2026年9月:</span> 9〜12月は5つのアクティブプロジェクトで約3名が必要。既存3名に加えてこの採用がラップアップすれば対応可能。この採用は予約/ナレッジプラットフォーム作業を担当し、シニア開発者はコアAI基盤に集中。</p>
+      <p><span class="highlight">採用 #2 — 2027年4月:</span> 2027年1〜6月は5つのアクティブプロジェクトで約4名が必要（顧客向けAI、共有ハンドラー、バックエンド分離の3つの大規模プロジェクト含む）。2人目の採用がガバナンス/スタッフビルダー支援を吸収し、既存開発者が分離プログラムに集中できるように。</p>
+      <p><span class="highlight">採用 #3 — 2028年1月:</span> 2028年7〜12月はSaaS基盤とCorporate Bohr SaaSが進行中の分離作業に追加 — 6プロジェクトで約5名が必要。3人目がSaaS基盤を担当し、チームがバックエンド分離を継続。</p>
+      <p style="margin-top:10px;"><span class="highlight">スケジュール調整:</span> 4プロジェクトの開始（PLAT-01、APP-SEP-01、GOV-01、IAGPT-04）を2026年12月→2027年1月に延期し、採用ペースに合わせる。影響は最小 — 数年規模のプロジェクトで1ヶ月の遅延、意思決定ゲートは2月→4月に移動。</p>
+      <p style="margin-top:6px;"><span class="highlight">なぜ1名ずつか:</span> マネージャーがトレーニングの大部分を担当。各採用は約2ヶ月で立ち上がる。段階的採用はトレーニング過負荷を防ぎ、プロジェクトスケジュールの自然なランプアップに一致。</p>
 
       <div class="hiring-profile">
         <div class="hiring-profile-card">
           <h4>✅ 採用基準</h4>
           <ul>
             <li class="do">確かな開発基礎 — コードを読める、デバッグできる、テストを書ける</li>
-            <li class="do">Git/PRワークフローの理解（GOV-01がこの文化に依存）</li>
-            <li class="do">コミュニケーション力 — 部門間調整が多い</li>
-            <li class="do">学習意欲 — あなたのスタック、あなたの規約</li>
+            <li class="do">Git/PRワークフローの理解（ガバナンスがこの文化に依存）</li>
+            <li class="do">コミュニケーション力 — 部門間調整が頻繁</li>
+            <li class="do">当社のスタックと規約を学ぶ意欲</li>
             <li class="do">フルスタック対応 — バックエンド（Django/Go）+ フロントエンド（Vue）</li>
-            <li class="do">理想: 2-4年の経験、2ヶ月のラップアップ後に独立して作業可能</li>
+            <li class="do">理想: 2-4年の経験、2ヶ月のトレーニング後に独立して作業可能</li>
           </ul>
         </div>
         <div class="hiring-profile-card">
           <h4>❌ 不要なスキル</h4>
           <ul>
             <li class="dont">AI/ML専門知識 — 社内で構築中</li>
-            <li class="dont">Kubernetes/マイクロサービス経験 — ARCH-01が定義</li>
-            <li class="dont">SaaSプラットフォーム経験 — TENANT-01は新規構築</li>
+            <li class="dont">Kubernetes/マイクロサービス経験 — 当社が独自に定義</li>
+            <li class="dont">SaaSプラットフォーム経験 — SaaS基盤は新規構築</li>
             <li class="dont">シニアアーキテクト級 — アーキテクチャはマネージャーが設定</li>
-            <li class="dont">教育業界のドメイン専門知識 — 仕事で教えられる</li>
+            <li class="dont">教育業界の知識 — 仕事で教えられる</li>
           </ul>
         </div>
       </div>
