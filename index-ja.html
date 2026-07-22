@@ -616,7 +616,7 @@
           <div class="arch-box app">Kikuichimonji</div>
         </div>
 
-        <!-- Two paths: Bohr Ind separate, other 5 shared -->
+        <!-- Two paths: Bohr Ind separate, other 5 shared — ONE shared Database -->
         <div class="arch-before-split" style="margin-top: 10px;">
           <!-- Left column: Bohr Ind -->
           <div class="arch-before-col">
@@ -625,9 +625,7 @@
             <div class="arch-vspace"></div>
             <div class="arch-box backend-go">Bohr Ind<br>バックエンド (Go)</div>
             <div class="arch-vspace"></div>
-            <div class="arch-arrow">↓</div>
-            <div class="arch-vspace"></div>
-            <div class="arch-box db">データベース</div>
+            <div class="arch-arrow" style="font-size: 20px;">↘</div>
           </div>
 
           <!-- Right column: 5 shared apps -->
@@ -638,11 +636,14 @@
             <div class="arch-vspace"></div>
             <div class="arch-box monolith-shared">member/backend (共有)</div>
             <div class="arch-vspace"></div>
-            <div class="arch-arrow">↓</div>
-            <div class="arch-arrow-label">データ保存/取得</div>
-            <div class="arch-vspace"></div>
-            <div class="arch-box db">データベース</div>
+            <div class="arch-arrow" style="font-size: 20px;">↙</div>
           </div>
+        </div>
+
+        <!-- ONE shared Database at bottom center — both paths converge -->
+        <div class="arch-vspace"></div>
+        <div class="arch-layer">
+          <div class="arch-box db">データベース<br><span style="font-size:7px;font-weight:600;">(共有)</span></div>
         </div>
       </div>
     </div>
@@ -1255,15 +1256,15 @@
           <div class="pname">境界ディスカバリ</div>
           <div class="pdep">⊢ PLAT-01, APP-SEP</div>
         </div>
-        <div class="project-bar cat-architecture" style="grid-column: 2 / 7; grid-row: 2; opacity:0.85;">
+        <div class="project-bar cat-architecture" style="grid-column: 2 / 6; grid-row: 2; opacity:0.85;">
           <div class="pid">PLAT-01</div>
           <div class="pname">共有ハンドラー（ファイル/コンテンツ/イベント/DB）</div>
           <div class="pdep">→ ARCH-01 · ⊢ APP-SEP, TENANT</div>
         </div>
-        <div class="project-bar cat-architecture" style="grid-column: 2 / 10; grid-row: 3; opacity:0.75;">
+        <div class="project-bar cat-architecture" style="grid-column: 2 / 7; grid-row: 3; opacity:0.75;">
           <div class="pid">APP-SEP-01</div>
           <div class="pname">バックエンド分離（Zan → Corp IAHP → Ind IAHP → Kiku）</div>
-          <div class="pdep">→ ARCH-01, PLAT-01 · ⊢ 全SaaS</div>
+          <div class="pdep">→ ARCH-01, PLAT-01 · ⊢ SaaS</div>
         </div>
       </div>
     </div>
@@ -1375,7 +1376,7 @@
     </div>
 
     <!-- Phase 2 -->
-    <div class="chain-phase-label" style="color:#e65100;">フェーズ2 — アーキテクチャ & 分離 (2026–2029+)</div>
+    <div class="chain-phase-label" style="color:#e65100;">フェーズ2 — アーキテクチャ & 分離 (2026–H2 2028)</div>
     <div class="chain-flow">
       <div class="chain-node cat-architecture">
         <div class="step">STEP 5</div>
@@ -1392,7 +1393,7 @@
       <div class="chain-node cat-architecture" style="opacity:0.8;">
         <div class="step">STEP 7</div>
         <div class="name">APP-SEP-01<br>バックエンド分離</div>
-        <div class="detail">5バックエンドを分離: Zan→IAHP→Kiku。</div>
+        <div class="detail">5バックエンドを分離: CorpBohr→Zan→IAHP→Kiku（Bohr Ind完了）。</div>
       </div>
     </div>
 
@@ -1501,28 +1502,35 @@
       <!-- SaaS -->
       <div class="cust-card saas">
         <h3>📦 SaaS / BaaSプロダクト</h3>
-        <p>クライアントはカスタマイズ可能なLMS / 顧客管理プラットフォームを取得 — 社内アプリ（Zan、Kikuichimonji）をベースにした完成済みプロダクト、組織に合わせて設定。</p>
+        <p>社内アプリ（Zan、Kikuichimonji）をベースにした2つの完成済みプラットフォーム — Zan（CRM/営業管理）とKikuichimonji（運用/管理）。クライアントごとに設定、マルチテナント。</p>
         <div class="cust-diagram">
           <div class="cust-dept-row">
             <div class="cust-dept-box client">クライアント<br>企業</div>
           </div>
-          <div class="cust-arrow">↓ 設定済みテナントを取得 ↓</div>
-          <div class="cust-central">SaaSプラットフォーム（LMS + CRM + 管理）</div>
-          <div class="cust-arrow">↓ ニーズに合わせてカスタマイズ ↓</div>
-          <div class="cust-dept-row">
-            <div class="cust-app-box saas">ブランド<br>LMS</div>
-            <div class="cust-app-box saas">顧客<br>管理</div>
-            <div class="cust-app-box saas">管理<br>設定</div>
+          <div class="cust-arrow">↓ 設定済みプラットフォームを取得 ↓</div>
+          <div class="cust-dept-row" style="gap: 16px;">
+            <div class="cust-app-box saas" style="width: 160px; height: 60px;">Zan<br>CRM / 営業管理</div>
+            <div class="cust-app-box saas" style="width: 160px; height: 60px;">Kikuichimonji<br>運用 / 管理</div>
+          </div>
+          <div class="cust-arrow">↓ 各プラットフォームの機能 ↓</div>
+          <div style="display: flex; gap: 16px; justify-content: center;">
+            <div style="width: 160px; font-size: 8px; line-height: 1.5; color: #7b1fa2; text-align: center;">
+              <strong>Zan:</strong> 顧客管理<br>交渉追跡<br>営業分析<br>リマインダー<br>Excel入出力
+            </div>
+            <div style="width: 160px; font-size: 8px; line-height: 1.5; color: #7b1fa2; text-align: center;">
+              <strong>Kikuichimonji:</strong> 顧客管理<br>スタッフ管理<br>契約・支払い<br>スケジュール・試験<br>分析・レポート
+            </div>
           </div>
         </div>
         <div class="cust-feature-list">
           <strong>クライアントができること:</strong>
           <ul>
-            <li>実績のあるLMSプラットフォームを使用 — ブランド化・設定済み</li>
-            <li>スクラッチ開発なしで学生/顧客を管理</li>
-            <li>定義された境界内で機能カスタマイズ（テナント設定）</li>
-            <li>マルチテナント分離 — データは他クライアントと分離</li>
-            <li>月額サブスクリプション — クライアント側に開発コストなし</li>
+            <li><strong>Zan:</strong> CRM/営業管理 — 教育業界だけでなくB2B営業のある全業種向け</li>
+            <li><strong>Kikuichimonji:</strong> 運用/管理 — 顧客ライフサイクル、スタッフ、契約、スケジュール</li>
+            <li>両方とも定義された境界内でカスタマイズ可能（テナント設定）</li>
+            <li>マルチテナント分離 — クライアントごとにデータ分離</li>
+            <li>月額サブスクリプション — クライアント側に開発コスト不要</li>
+            <li>各クライアント組織に合わせてブランド化・設定</li>
           </ul>
         </div>
       </div>
