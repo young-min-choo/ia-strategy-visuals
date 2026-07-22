@@ -553,6 +553,31 @@
   .cust-feature-list ul { padding-left: 18px; }
   .cust-feature-list li { margin-bottom: 4px; }
 
+  /* ===== NEW: Bohr Ind separated + breakeven + methodology ===== */
+  .arch-box.app-separated { border-color: #2e7d32; background: #e8f5e9; color: #2e7d32; }
+  .arch-box.backend-go { width: 140px; height: 50px; background: #e8f5e9; border-color: #2e7d32; }
+  .arch-box.monolith-shared { width: 240px; height: 55px; background: #fff3e0; border-color: #ff9800; }
+  .arch-before-split { display: flex; gap: 40px; justify-content: center; align-items: flex-start; width: 100%; }
+  .arch-before-col { display: flex; flex-direction: column; align-items: center; gap: 0; flex: 1; }
+  .arch-before-col-label { font-size: 10px; font-weight: 700; color: #616161; margin-bottom: 6px; }
+  .arch-app-group { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
+  .arch-app-group .arch-box.app { width: 100px; height: 44px; font-size: 9px; }
+  .arch-box.app-separated-inline { border-color: #2e7d32; background: #e8f5e9; color: #2e7d32; width: 100px; height: 44px; font-size: 9px; }
+
+  .breakeven-callout { margin-top: 12px; padding: 14px 20px; background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-radius: 6px; border-left: 4px solid #2e7d32; }
+  .breakeven-callout strong { font-size: 13px; color: #2e7d32; }
+  .breakeven-callout p { font-size: 11px; color: #424242; margin-top: 6px; line-height: 1.6; }
+  .method-section { margin-top: 20px; }
+  .method-section h3 { font-size: 14px; font-weight: 700; color: #1a237e; margin-bottom: 8px; }
+  .method-note { font-size: 10px; color: #616161; margin-top: 6px; font-style: italic; }
+
+  /* AI Harness use-case boxes */
+  .harness-usecase-row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .harness-usecase-box { border: 2px solid #2e7d32; border-radius: 6px; padding: 8px 10px; text-align: center; font-size: 8px; font-weight: 700; background: #e8f5e9; color: #2e7d32; width: 120px; line-height: 1.4; }
+  .harness-central-box { border: 3px solid #1a237e; border-radius: 8px; padding: 10px 16px; text-align: center; font-size: 10px; font-weight: 700; background: #e8eaf6; color: #1a237e; }
+  .harness-subtitle { font-size: 8px; font-weight: 600; color: #424242; margin-top: 2px; }
+  .harness-footer { font-size: 8px; color: #616161; text-align: center; margin-top: 4px; line-height: 1.5; max-width: 400px; }
+
   @media print {
     @page { size: A4 landscape; }
     .canvas { width: auto; background: #fff; padding: 10px; }
@@ -575,30 +600,50 @@
 <div class="section-frame">
   <div class="section-label">1 — CURRENT SITUATION</div>
   <div class="arch-section">
-    <h2>The Current System: One Shared Backend, No Source Control, No AI Capability</h2>
-    <div class="desc">Today all six applications share a single backend and a single database. Reservation forms live in production only. Support knowledge is locked in Zendesk. There is no local AI infrastructure and no multi-tenant/SaaS foundation.</div>
+    <h2>The Current System: One Shared Backend (5 apps), Bohr Ind Already Separated, No AI Capability</h2>
+    <div class="desc">Bohr Individual has been separated (Go backend, 2025). The remaining 5 apps still share one backend and a single database. Reservation forms live in production only. Support knowledge is locked in Zendesk. There is no local AI infrastructure and no multi-tenant/SaaS foundation.</div>
 
     <!-- BEFORE -->
     <div class="arch-sub-frame">
       <div class="arch-label">BEFORE — Current Architecture</div>
       <div class="arch-diagram">
         <div class="arch-layer tight">
-          <div class="arch-box app">Bohr Ind</div>
+          <div class="arch-box app app-separated">Bohr Ind<br><span style="font-size:7px;font-weight:600;">(own Go backend ✓)</span></div>
           <div class="arch-box app">Bohr Corp</div>
           <div class="arch-box app">Ind IAHP</div>
           <div class="arch-box app">Corp IAHP</div>
           <div class="arch-box app">Zan</div>
           <div class="arch-box app">Kikuichimonji</div>
         </div>
-        <div class="arch-arrow">↓ ↓ ↓ ↓ ↓ ↓</div>
-        <div class="arch-arrow-label">Requests</div>
-        <div class="arch-vspace"></div>
-        <div class="arch-box monolith">member/backend (shared)</div>
-        <div class="arch-vspace"></div>
-        <div class="arch-arrow">↓</div>
-        <div class="arch-arrow-label">Store/retrieve Data</div>
-        <div class="arch-vspace"></div>
-        <div class="arch-box db">Database</div>
+
+        <!-- Two paths: Bohr Ind separate, other 5 shared -->
+        <div class="arch-before-split" style="margin-top: 10px;">
+          <!-- Left column: Bohr Ind -->
+          <div class="arch-before-col">
+            <div class="arch-before-col-label" style="color:#2e7d32;">Bohr Ind (separated)</div>
+            <div class="arch-arrow">↓</div>
+            <div class="arch-vspace"></div>
+            <div class="arch-box backend-go">Bohr Ind<br>Backend (Go)</div>
+            <div class="arch-vspace"></div>
+            <div class="arch-arrow">↓</div>
+            <div class="arch-vspace"></div>
+            <div class="arch-box db">Database</div>
+          </div>
+
+          <!-- Right column: 5 shared apps -->
+          <div class="arch-before-col">
+            <div class="arch-before-col-label" style="color:#e65100;">5 apps (shared backend)</div>
+            <div class="arch-arrow">↓ ↓ ↓ ↓ ↓</div>
+            <div class="arch-arrow-label">Requests</div>
+            <div class="arch-vspace"></div>
+            <div class="arch-box monolith-shared">member/backend (shared)</div>
+            <div class="arch-vspace"></div>
+            <div class="arch-arrow">↓</div>
+            <div class="arch-arrow-label">Store/retrieve Data</div>
+            <div class="arch-vspace"></div>
+            <div class="arch-box db">Database</div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -608,7 +653,7 @@
         <tr><th>Problem</th><th>Impact</th></tr>
       </thead>
       <tbody>
-        <tr><td>All apps share one backend</td><td>One bug affects everything. Can't deploy independently. Can't scale one product without touching all.</td></tr>
+        <tr><td>5 apps still share one backend</td><td>One bug affects everything. Can't deploy independently. Can't scale one product without touching all. (Bohr Ind already separated with Go backend.)</td></tr>
         <tr><td>No source control on reservation forms</td><td>Production-only risk. No rollback. Marketing/Design can't review changes safely.</td></tr>
         <tr><td>Support knowledge is vendor-hosted (Zendesk)</td><td>Can't reuse in AI workflows. Vendor dependency. Can't ground answers in our own curriculum.</td></tr>
         <tr><td>OD video production is 10h per lesson</td><td>Capacity ~6/month vs desired ~24. Manual bottleneck limits curriculum refresh speed.</td></tr>
@@ -634,7 +679,7 @@
       <div class="goal-card goal-2">
         <div class="icon">📦</div>
         <h3>SaaS / BaaS Products</h3>
-        <p>Separate all six app backends, build shared handlers, then SaaSify Corporate Bohr → Zan → Kikuichimonji as <strong>multi-tenant sellable platforms</strong>.</p>
+        <p>Separate all six app backends, build shared handlers, then SaaSify Zan → Kikuichimonji as <strong>multi-tenant sellable platforms</strong>.</p>
         <div class="year-badge">First MVP: H2 2028 · GTM: 2029+</div>
       </div>
       <div class="goal-card goal-3">
@@ -734,9 +779,8 @@
         <!-- SaaS layer (dashed) -->
         <div class="arch-dashed-box">
           <div class="arch-dashed-label">Multi-Tenant SaaS Layer (added 2028+)</div>
-          <div class="arch-layer" style="gap: 10px;">
+          <div class="arch-layer" style="gap: 14px;">
             <div class="arch-col"><div class="arch-box" style="width: 95px; height: 38px; border-color: #c62828; background: #ffebee; font-size: 8px;">Tenant Model<br>Auth / Roles</div><div class="project-tag tag-tenant" style="font-size: 7px;">TENANT-01</div></div>
-            <div class="arch-col"><div class="arch-box" style="width: 95px; height: 38px; border-color: #c62828; background: #ffebee; font-size: 8px;">Corp Bohr<br>SaaS</div><div class="project-tag tag-saas" style="font-size: 7px;">BOHRCORP-01</div></div>
             <div class="arch-col"><div class="arch-box" style="width: 95px; height: 38px; border-color: #c62828; background: #ffebee; font-size: 8px;">Zan<br>SaaS</div><div class="project-tag tag-saas" style="font-size: 7px;">ZAN-01</div></div>
             <div class="arch-col"><div class="arch-box" style="width: 95px; height: 38px; border-color: #c62828; background: #ffebee; font-size: 8px;">Kiku<br>SaaS</div><div class="project-tag tag-saas" style="font-size: 7px;">KIKU-01</div></div>
           </div>
@@ -778,9 +822,8 @@
       <div class="arch-map-card">
         <h4 style="color:#c62828;">SaaS / BaaS (2028+)</h4>
         <div>• <strong>TENANT-01</strong> — Multi-tenant model, auth, data isolation</div>
-        <div>• <strong>BOHRCORP-01</strong> — Corp Bohr as first SaaS product</div>
-        <div>• <strong>ZAN-01</strong> — Zan as second SaaS candidate</div>
-        <div>• <strong>KIKU-01</strong> — Kikuichimonji as third SaaS candidate</div>
+        <div>• <strong>ZAN-01</strong> — Zan as first SaaS candidate</div>
+        <div>• <strong>KIKU-01</strong> — Kikuichimonji as second SaaS candidate</div>
       </div>
     </div>
 
@@ -795,7 +838,7 @@
         <tr><td>Vendor-hosted knowledge</td><td>IAGPT-02, IAGPT-03</td><td>Support + curriculum knowledge moves into IA-controlled knowledge base.</td></tr>
         <tr><td>OD video bottleneck</td><td>AI-01, AI-02</td><td>Local AI hardware + automated OD pipeline. 6→24 lessons/month.</td></tr>
         <tr><td>No local AI / staff tools</td><td>AI-01, DEVAI-01, GOV-01</td><td>Local hardware + staff app builder + PR governance. Staff build tools, engineers review.</td></tr>
-        <tr><td>No SaaS foundation</td><td>TENANT-01, BOHRCORP-01, ZAN-01, KIKU-01</td><td>Multi-tenant model + per-product SaaSification. Sellable platforms, not one-off forks.</td></tr>
+        <tr><td>No SaaS foundation</td><td>TENANT-01, ZAN-01, KIKU-01</td><td>Multi-tenant model + per-product SaaSification. Sellable platforms, not one-off forks.</td></tr>
       </tbody>
     </table>
   </div>
@@ -1444,38 +1487,36 @@
   <div class="section-label">5 — WHAT THE CUSTOMER GETS</div>
   <div class="cust-section">
     <h2>Client Experience: AI Harness vs SaaS/BaaS</h2>
-    <div class="desc">Two different offerings for client companies. The AI Harness gives each department a custom AI-powered app. SaaS gives a customizable platform (LMS/customer management). Both are built from our internal engineering work.</div>
+    <div class="desc">Two different offerings for client companies. The AI Harness gives the company a private, tuned AI tool. SaaS gives a ready-to-use CRM/operations platform (based on Zan and Kikuichimonji). Both are built from our internal engineering work.</div>
 
     <div class="cust-grid">
       <!-- AI Harness -->
       <div class="cust-card harness">
         <h3>🤖 AI Harness Service</h3>
-        <p>The client rents our AI development method + tools + governance. Each department gets a representative who works with our harness to build department-specific AI apps — using the client's own data.</p>
+        <p>A tuned, private version of AI tools like ChatGPT or Claude — built on the client's own data, running on their own infrastructure, with governance controls. Everyone in the company uses the same product, each for their own needs.</p>
         <div class="cust-diagram">
-          <div class="cust-dept-row">
-            <div class="cust-dept-box client">Sales<br>Rep</div>
-            <div class="cust-dept-box client">Marketing<br>Rep</div>
-            <div class="cust-dept-box client">Support<br>Rep</div>
-            <div class="cust-dept-box client">Ops<br>Rep</div>
+          <div class="harness-usecase-row">
+            <div class="harness-usecase-box">Sales<br><span style="font-weight:400;font-size:7px;">Draft proposals, analyze client data, generate quotes</span></div>
+            <div class="harness-usecase-box">Support<br><span style="font-weight:400;font-size:7px;">Look up approved answers, draft responses, escalate to staff</span></div>
           </div>
-          <div class="cust-arrow">↓ Each dept uses the harness ↓</div>
-          <div class="cust-dept-row">
-            <div class="cust-app-box harness">Sales AI<br>App</div>
-            <div class="cust-app-box harness">Marketing AI<br>App</div>
-            <div class="cust-app-box harness">Support AI<br>App</div>
-            <div class="cust-app-box harness">Ops AI<br>App</div>
+          <div class="cust-arrow">↓ ↓</div>
+          <div class="harness-central-box">AI Harness<div class="harness-subtitle">Company data + AI + governance</div></div>
+          <div class="cust-arrow">↓ ↑</div>
+          <div class="harness-usecase-row">
+            <div class="harness-usecase-box">Operations<br><span style="font-weight:400;font-size:7px;">Automate workflows, manage schedules, generate reports</span></div>
+            <div class="harness-usecase-box">Management<br><span style="font-weight:400;font-size:7px;">Analytics, summaries, decision support</span></div>
           </div>
-          <div class="cust-arrow">↓ All powered by ↓</div>
-          <div class="cust-central">AI Harness (codebase + data + governance + PR review)</div>
+          <div class="harness-footer">Powered by company data (documents, policies, support history, curriculum, sales data) + local AI hardware + PR governance</div>
         </div>
         <div class="cust-feature-list">
-          <strong>What the client can do:</strong>
+          <strong>What the client gets:</strong>
           <ul>
-            <li>Each department builds its own AI-assisted tools using company data</li>
-            <li>Non-engineering staff create apps → push PRs → engineering reviews</li>
-            <li>Apps can be separate pages per dept or a combined portal</li>
-            <li>Governance ensures quality: review gates, CI, ownership rules</li>
-            <li>Training included: workshops, manager briefings, playbooks</li>
+            <li>Everyone uses the same AI product — each department for their own needs</li>
+            <li>Better than public AI tools: grounded in company data, privacy-controlled, governance built-in</li>
+            <li>Uses whatever data the company has — no special data preparation required</li>
+            <li>Acts like a tuned, easier-to-use version of ChatGPT/Claude/Gemini</li>
+            <li>Runs on company-controlled hardware — data never leaves the organization</li>
+            <li>Training included: workshops, manager briefings, governance playbooks</li>
           </ul>
         </div>
       </div>
@@ -1483,7 +1524,7 @@
       <!-- SaaS -->
       <div class="cust-card saas">
         <h3>📦 SaaS / BaaS Product</h3>
-        <p>The client gets a customizable LMS / customer management platform — a ready-to-use product based on our internal apps (Corporate Bohr, Zan, Kikuichimonji), configured for their organization.</p>
+        <p>The client gets a customizable LMS / customer management platform — a ready-to-use product based on our internal apps (Zan, Kikuichimonji), configured for their organization.</p>
         <div class="cust-diagram">
           <div class="cust-dept-row">
             <div class="cust-dept-box client">Client<br>Company</div>
@@ -1511,7 +1552,7 @@
     </div>
 
     <div class="cust-feature-list" style="background: #f5f5f5; padding: 14px 18px; border-radius: 6px; border-left: 4px solid #1a237e;">
-      <strong style="color: #1a237e;">Key difference:</strong> AI Harness = the client learns to build their own AI tools with our method. SaaS = the client uses our finished product. Both come from the same internal engineering work — the harness is the capability, SaaS is the product.
+      <strong style="color: #1a237e;">Key difference:</strong> AI Harness = a private, tuned AI tool for the client's whole company. SaaS = a ready-to-use CRM/operations platform. Both from the same internal engineering work.
     </div>
   </div>
 </div>
@@ -1566,6 +1607,15 @@
       </tbody>
     </table>
 
+    <div class="breakeven-callout">
+      <strong>📈 Break-even Analysis</strong>
+      <p>
+        <strong>Annual profit positive:</strong> 2030+ (~¥13.9M/year at projected run rate)<br>
+        <strong>Cumulative break-even:</strong> ~2031 (cumulative deficit of ¥7.4M recovered at ¥13.9M/year run rate)<br>
+        <strong>Investment period:</strong> 2026–2029 (4 years, peak cumulative investment ~¥21.3M in 2029)
+      </p>
+    </div>
+
     <div class="pnl-assumptions">
       <h4>Key Assumptions (all figures need validation)</h4>
       <ul>
@@ -1578,6 +1628,39 @@
         <li><strong>Break-even:</strong> Annual profit turns positive in 2030+ (~¥13.9M/yr). Cumulative investment recovers ~2031 at projected run rate.</li>
         <li><strong>Not included:</strong> Revenue from 4x more OD content (indirect), existing payroll (sunk cost), potential SaaS expansion beyond 4 tenants.</li>
       </ul>
+    </div>
+
+    <div class="method-section">
+      <h3>Revenue Calculation Methodology</h3>
+      <table class="pnl-table">
+        <thead>
+          <tr><th>Year</th><th>AI Harness clients (cumulative)</th><th>New implementations</th><th>Retainer months</th><th>SaaS tenants</th><th>Revenue calc</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2026</td><td>0</td><td>0</td><td>0</td><td>0</td><td>¥0</td></tr>
+          <tr><td>2027</td><td>0</td><td>0</td><td>0</td><td>0</td><td>¥0</td></tr>
+          <tr><td>2028</td><td>1</td><td>1 × ¥3M = ¥3M</td><td>3mo × ¥300K = ¥0.9M</td><td>0</td><td>¥3.9M</td></tr>
+          <tr><td>2029</td><td>2</td><td>1 × ¥3M = ¥3M</td><td>12mo × 2 × ¥300K = ¥7.2M</td><td>1 (6mo × ¥100K + ¥200K setup) = ¥0.8M</td><td>¥11.5M</td></tr>
+          <tr><td>2030+</td><td>4</td><td>2 × ¥3M = ¥6M</td><td>12mo × 4 × ¥300K = ¥14.4M</td><td>4 (12mo × ¥100K × 4 + 3 × ¥200K) = ¥5.4M</td><td>¥27.3M</td></tr>
+        </tbody>
+      </table>
+      <div class="method-note">Training revenue: 2029: 1 training × ¥500K = ¥0.5M | 2030+: 3 trainings × ¥500K = ¥1.5M</div>
+    </div>
+
+    <div class="method-section">
+      <h3>Cost Calculation Methodology</h3>
+      <table class="pnl-table">
+        <thead>
+          <tr><th>Year</th><th>New hires active</th><th>Salary calc</th><th>AI HW</th><th>AWS/yr</th><th>OD savings/yr</th><th>Zendesk savings/yr</th><th>Net cost</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2026</td><td>1 (4 months)</td><td>4 × ¥450K = ¥1.8M</td><td>¥1.2M</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥3.0M</td></tr>
+          <tr><td>2027</td><td>2 (12+9 months)</td><td>21 × ¥450K = ¥9.45M</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>¥0</td><td>¥6.81M</td></tr>
+          <tr><td>2028</td><td>3 (all full year)</td><td>36 × ¥450K = ¥16.2M</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>-¥0.072M</td><td>¥13.49M</td></tr>
+          <tr><td>2029</td><td>3 (all full year)</td><td>36 × ¥450K = ¥16.2M</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>-¥0.144M</td><td>¥13.42M</td></tr>
+          <tr><td>2030+</td><td>3 (all full year)</td><td>36 × ¥450K = ¥16.2M</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>-¥0.18M</td><td>¥13.38M</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
