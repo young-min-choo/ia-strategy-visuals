@@ -1628,15 +1628,21 @@
         <tr class="cost-row"><td>Net New Costs</td><td>¥3,000,000</td><td>¥6,810,000</td><td>¥13,488,000</td><td>¥13,416,000</td><td>¥13,380,000</td></tr>
         <tr class="profit-row"><td>Annual Profit / (Loss)</td><td class="pnl-negative">-¥3,000,000</td><td class="pnl-negative">-¥6,810,000</td><td class="pnl-negative">-¥9,588,000</td><td class="pnl-negative">-¥1,916,000</td><td class="pnl-positive">¥13,920,000</td></tr>
         <tr class="cumulative-row"><td>Cumulative</td><td class="pnl-negative">-¥3,000,000</td><td class="pnl-negative">-¥9,810,000</td><td class="pnl-negative">-¥19,398,000</td><td class="pnl-negative">-¥21,314,000</td><td class="pnl-negative">-¥7,394,000</td></tr>
+        <tr class="savings-row"><td>Time savings (recurring)</td><td>¥0</td><td>¥4,950,000</td><td>¥15,340,000</td><td>¥15,340,000</td><td>¥14,540,000</td></tr>
+        <tr class="profit-row"><td>Adjusted annual profit (w/ time savings)</td><td class="pnl-negative">-¥3,000,000</td><td class="pnl-negative">-¥1,860,000</td><td class="pnl-positive">¥5,740,000</td><td class="pnl-positive">¥13,440,000</td><td class="pnl-positive">¥28,440,000</td></tr>
+        <tr class="cumulative-row"><td>Adjusted cumulative (w/ time savings)</td><td class="pnl-negative">-¥3,000,000</td><td class="pnl-negative">-¥4,860,000</td><td class="pnl-positive">¥880,000</td><td class="pnl-positive">¥14,320,000</td><td class="pnl-positive">¥42,760,000</td></tr>
       </tbody>
     </table>
 
     <div class="breakeven-callout">
-      <strong>📈 Break-even Analysis</strong>
+      <strong>📈 Break-even Analysis — Two Scenarios</strong>
       <p>
-        <strong>Annual profit positive:</strong> 2030+ (~¥13.9M/year at projected run rate)<br>
-        <strong>Cumulative break-even:</strong> ~2031 (cumulative deficit of ¥7.4M recovered at ¥13.9M/year run rate)<br>
-        <strong>Investment period:</strong> 2026–2029 (4 years, peak cumulative investment ~¥21.3M in 2029)
+        <strong>Without time savings (revenue only):</strong><br>
+        Annual profit positive: 2030+ (~¥13.9M/year at projected run rate) · Cumulative break-even: ~2031 (cumulative deficit of ¥7.4M recovered at ¥13.9M/year run rate) · Investment period: 2026–2029 (4 years, peak cumulative investment ~¥21.3M in 2029)
+      </p>
+      <p style="margin-top:8px;">
+        <strong>With time savings (architecture + self-service):</strong><br>
+        Annual profit positive: 2028 (~¥5.7M) — 2 years earlier than without! · Cumulative break-even: 2028 (cumulative turns positive at ¥0.88M) · Investment period: 2026–2027 (only 2 years of net investment, peak ~¥4.9M) · Adjusted cumulative reaches ~¥42.8M by 2030+
       </p>
     </div>
 
@@ -1651,6 +1657,9 @@
         <li><strong>Zendesk reduction:</strong> IAGPT-02/03 gradually reduce Zendesk dependency — 20% by 2028, 40% by 2029, 50% by 2030+. Current Zendesk ~¥300K/mo.</li>
         <li><strong>Break-even:</strong> Annual profit turns positive in 2030+ (~¥13.9M/yr). Cumulative investment recovers ~2031 at projected run rate.</li>
         <li><strong>Not included:</strong> Revenue from 4x more OD content (indirect), existing payroll (sunk cost), potential SaaS expansion beyond 4 tenants.</li>
+        <li><strong>Staff cost (context):</strong> Existing team: 3 developers + 1 manager = ¥153.6M/year (sunk cost, shown for context). New hires phased: ¥3.84M (2026, 4mo), ¥20.16M (2027, 21mo), ¥34.56M (2028+, 36mo/yr). Total staff cost grows ¥157.4M → ¥188.2M.</li>
+        <li><strong>Time savings (architecture):</strong> ~14h/week reclaimed at ¥20K/h ≈ ¥14.5M/year recurring by 2029. Categories: dev discussion (5h/wk, H2 2027), form review (3h/wk, H1 2027), data requests (2h/wk, H1 2028), staff self-service via IAGPT (4h/wk, H1 2028), onboarding (¥0.8M × 3 hires one-time).</li>
+        <li><strong>Break-even (with time savings):</strong> Annual profit positive 2028 (~¥5.7M, 2 years earlier), cumulative positive 2028 (~¥0.88M), adjusted cumulative ~¥42.8M by 2030+.</li>
       </ul>
     </div>
 
@@ -1685,6 +1694,59 @@
           <tr><td>2030+</td><td>3 (all full year)</td><td>36 × ¥450K = ¥16.2M</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>-¥0.18M</td><td>¥13.38M</td></tr>
         </tbody>
       </table>
+    </div>
+
+    <div class="method-section">
+      <h3>Staff Cost &amp; Time Savings</h3>
+      <p class="method-note" style="font-style: normal; color: #424242; margin-bottom: 16px; line-height: 1.6;">Full staff costs (existing + new hires) and time savings from architecture improvements. Time savings represent reclaimed staff hours — currently invisible costs that become visible as the platform reduces coordination overhead, one-off requests, and onboarding friction.</p>
+
+      <h4 style="font-size: 13px; font-weight: 700; color: #1a237e; margin: 12px 0 6px;">Full Staff Costs (current rates, for context)</h4>
+      <table class="pnl-table">
+        <thead>
+          <tr><th>Role</th><th>People</th><th>Monthly cost</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th><th>2030+</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Existing developers</td><td>3</td><td>¥9.6M</td><td>¥115.2M</td><td>¥115.2M</td><td>¥115.2M</td><td>¥115.2M</td><td>¥115.2M</td></tr>
+          <tr><td>Manager</td><td>1</td><td>¥3.2M</td><td>¥38.4M</td><td>¥38.4M</td><td>¥38.4M</td><td>¥38.4M</td><td>¥38.4M</td></tr>
+          <tr><td>New hires (phased)</td><td>1→3</td><td>varies</td><td>¥3.84M (4mo)</td><td>¥20.16M (21mo)</td><td>¥34.56M (36mo)</td><td>¥34.56M</td><td>¥34.56M</td></tr>
+          <tr class="total-row"><td>Total staff cost</td><td>4→7</td><td></td><td>¥157.4M</td><td>¥173.8M</td><td>¥188.2M</td><td>¥188.2M</td><td>¥188.2M</td></tr>
+        </tbody>
+      </table>
+      <div class="pnl-assumptions" style="margin-top: 8px;">
+        <p>Existing staff costs are already being paid — shown for context. New hire costs are the incremental investment.</p>
+      </div>
+
+      <h4 style="font-size: 13px; font-weight: 700; color: #1a237e; margin: 16px 0 6px;">Time Savings Breakdown</h4>
+      <table class="pnl-table">
+        <thead>
+          <tr><th>Time Savings Category</th><th>Hours saved/week</th><th>Rate</th><th>Annual savings</th><th>Starts</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Dev discussion time (separated backends)</td><td>5h/week</td><td>¥20,000/h</td><td>¥5.2M/year</td><td>H2 2027</td></tr>
+          <tr><td>Data requests (developer time freed)</td><td>2h/week</td><td>¥20,000/h</td><td>¥2.08M/year</td><td>H1 2028</td></tr>
+          <tr><td>Staff self-service (IAGPT answers)</td><td>4h/week</td><td>¥20,000/h</td><td>¥4.16M/year</td><td>H1 2028</td></tr>
+          <tr><td>Onboarding time (clear boundaries)</td><td>40h per new hire</td><td>¥20,000/h</td><td>¥2.4M one-time</td><td>2026–2028</td></tr>
+          <tr><td>Form review (source-controlled)</td><td>3h/week</td><td>¥20,000/h</td><td>¥3.1M/year</td><td>H1 2027</td></tr>
+          <tr class="total-row"><td>Total recurring savings</td><td>~14h/week</td><td></td><td>¥14.5M/year</td><td>Full by 2029</td></tr>
+        </tbody>
+      </table>
+
+      <h4 style="font-size: 13px; font-weight: 700; color: #1a237e; margin: 16px 0 6px;">Time Savings by Year</h4>
+      <table class="pnl-table">
+        <thead>
+          <tr><th>Year</th><th>Dev discussion</th><th>Data requests</th><th>Staff self-service</th><th>Form review</th><th>Onboarding</th><th>Total savings</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2026</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td></tr>
+          <tr><td>2027</td><td>¥2.6M (half year)</td><td>¥0</td><td>¥0</td><td>¥1.55M (half year)</td><td>¥0.8M</td><td>¥4.95M</td></tr>
+          <tr><td>2028</td><td>¥5.2M</td><td>¥2.08M</td><td>¥4.16M</td><td>¥3.1M</td><td>¥0.8M</td><td>¥15.34M</td></tr>
+          <tr><td>2029</td><td>¥5.2M</td><td>¥2.08M</td><td>¥4.16M</td><td>¥3.1M</td><td>¥0.8M</td><td>¥15.34M</td></tr>
+          <tr class="total-row"><td>2030+</td><td>¥5.2M</td><td>¥2.08M</td><td>¥4.16M</td><td>¥3.1M</td><td>¥0</td><td>¥14.54M</td></tr>
+        </tbody>
+      </table>
+      <div class="pnl-assumptions" style="margin-top: 8px;">
+        <p>Onboarding savings are one-time (¥0.8M per hire × 3 hires = ¥2.4M total, spread 2026–2028). Recurring savings reach ~¥14.5M/year by 2029.</p>
+      </div>
     </div>
   </div>
 </div>
