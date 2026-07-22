@@ -608,45 +608,45 @@
     <div class="arch-sub-frame">
       <div class="arch-label">BEFORE — 現在のアーキテクチャ</div>
       <div class="arch-diagram">
-        <div class="arch-layer tight">
-          <div class="arch-box app app-separated">Bohr Ind<br><span style="font-size:7px;font-weight:600;">(独自Goバックエンド ✓)</span></div>
-          <div style="width: 40px;"></div>
-          <div class="arch-box app">Bohr Corp</div>
-          <div class="arch-box app">Ind IAHP</div>
-          <div class="arch-box app">Corp IAHP</div>
-          <div class="arch-box app">Zan</div>
-          <div class="arch-box app">Kikuichimonji</div>
-        </div>
+        <!-- Two-column layout: Bohr Ind on left, 5 apps on right, shared DB at bottom -->
+        <div style="display: flex; gap: 60px; justify-content: center; align-items: flex-start;">
 
-        <!-- Two paths: Bohr Ind separate, other 5 shared — ONE shared Database -->
-        <div class="arch-before-split" style="margin-top: 10px;">
-          <!-- Left column: Bohr Ind -->
-          <div class="arch-before-col">
-            <div class="arch-before-col-label" style="color:#2e7d32;">Bohr Ind (分離済み)</div>
-            <div class="arch-arrow">↓</div>
-            <div class="arch-vspace-tall"></div>
-            <div class="arch-box backend-go">Bohr Ind<br>バックエンド (Go)</div>
-            <div class="arch-vspace-tall"></div>
-            <div class="arch-arrow" style="font-size: 20px;">↘</div>
-            <div class="arch-vspace-tall"></div>
+          <!-- Left: Bohr Ind (separated) -->
+          <div style="display: flex; flex-direction: column; align-items: center; width: 130px;">
+            <div class="arch-box app app-separated" style="width: 120px;">Bohr Ind<br><span style="font-size:7px;font-weight:600;">(独自Goバックエンド ✓)</span></div>
+            <div style="height: 8px;"></div>
+            <div style="font-size: 10px; font-weight: 700; color: #2e7d32;">Bohr Ind (分離済み)</div>
+            <div style="font-size: 16px; color: #757575; line-height: 1.5;">↓</div>
+            <div style="height: 50px;"></div>
+            <div class="arch-box backend-go" style="width: 120px;">Bohr Ind<br>バックエンド (Go)</div>
+            <div style="height: 50px;"></div>
+            <div style="font-size: 20px; color: #757575; line-height: 1.5;">↘</div>
+            <div style="height: 50px;"></div>
           </div>
 
-          <!-- Right column: 5 shared apps -->
-          <div class="arch-before-col">
-            <div class="arch-before-col-label" style="color:#e65100;">5アプリ (共有バックエンド)</div>
-            <div class="arch-arrow">↓ ↓ ↓ ↓ ↓</div>
-            <div class="arch-arrow-label">リクエスト</div>
-            <div class="arch-vspace-tall"></div>
-            <div class="arch-box monolith-shared">member/backend (共有)</div>
-            <div class="arch-vspace-tall"></div>
-            <div class="arch-arrow" style="font-size: 20px;">↙</div>
-            <div class="arch-vspace-tall"></div>
+          <!-- Right: 5 shared apps -->
+          <div style="display: flex; flex-direction: column; align-items: center; width: 400px;">
+            <div style="display: flex; gap: 4px; justify-content: center;">
+              <div class="arch-box app" style="width: 72px; font-size: 9px;">Bohr Corp</div>
+              <div class="arch-box app" style="width: 72px; font-size: 9px;">Ind IAHP</div>
+              <div class="arch-box app" style="width: 72px; font-size: 9px;">Corp IAHP</div>
+              <div class="arch-box app" style="width: 72px; font-size: 9px;">Zan</div>
+              <div class="arch-box app" style="width: 72px; font-size: 9px;">Kiku</div>
+            </div>
+            <div style="height: 8px;"></div>
+            <div style="font-size: 10px; font-weight: 700; color: #e65100;">5アプリ (共有バックエンド)</div>
+            <div style="font-size: 16px; color: #757575; line-height: 1.5;">↓ ↓ ↓ ↓ ↓</div>
+            <div style="font-size: 8px; color: #757575;">リクエスト</div>
+            <div style="height: 50px;"></div>
+            <div class="arch-box monolith-shared" style="width: 200px;">member/backend (共有)</div>
+            <div style="height: 50px;"></div>
+            <div style="font-size: 20px; color: #757575; line-height: 1.5;">↙</div>
+            <div style="height: 50px;"></div>
           </div>
         </div>
 
         <!-- ONE shared Database at bottom center — both paths converge -->
-        <div class="arch-vspace"></div>
-        <div class="arch-layer">
+        <div style="display: flex; justify-content: center;">
           <div class="arch-box db">データベース<br><span style="font-size:7px;font-weight:600;">(共有)</span></div>
         </div>
       </div>
