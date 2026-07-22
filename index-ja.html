@@ -494,6 +494,65 @@
   .dept-card ul { font-size: 10px; color: #424242; line-height: 1.5; padding-left: 16px; }
   .dept-card li { margin-bottom: 4px; }
 
+  /* ===== P&L / FINANCIAL SECTION ===== */
+  .pnl-section { padding: 24px 28px; }
+  .pnl-section h2 {
+    font-size: 20px; font-weight: 800; color: #1a237e;
+    margin-bottom: 6px; border-bottom: 2px solid #1a237e; padding-bottom: 6px;
+  }
+  .pnl-section .desc { font-size: 12px; color: #616161; margin-bottom: 16px; }
+  .pnl-section h3 {
+    font-size: 14px; font-weight: 700; color: #1a237e; margin-top: 16px; margin-bottom: 8px;
+  }
+  .pnl-table { width: 100%; border-collapse: collapse; font-size: 10px; margin-bottom: 16px; }
+  .pnl-table th { background: #1a237e; color: #fff; padding: 8px 8px; text-align: center; font-weight: 700; font-size: 10px; white-space: nowrap; }
+  .pnl-table th:first-child { text-align: left; width: 22%; }
+  .pnl-table td { padding: 7px 8px; border-bottom: 1px solid #e0e0e0; text-align: right; font-size: 10px; font-weight: 600; }
+  .pnl-table td:first-child { text-align: left; font-weight: 700; color: #424242; }
+  .pnl-table tr.revenue-row td { background: #e8f5e9; }
+  .pnl-table tr.cost-row td { background: #ffebee; }
+  .pnl-table tr.savings-row td { background: #e3f2fd; color: #1565c0; }
+  .pnl-table tr.total-row td { font-weight: 800; font-size: 11px; border-top: 2px solid #1a237e; }
+  .pnl-table tr.profit-row td { background: #e8eaf6; font-weight: 800; }
+  .pnl-table tr.cumulative-row td { background: #fff9c4; font-weight: 800; }
+  .pnl-positive { color: #2e7d32; }
+  .pnl-negative { color: #c62828; }
+  .pnl-assumptions {
+    background: #f5f5f5; border-radius: 6px; padding: 14px 18px; margin-top: 16px;
+    font-size: 10px; color: #616161; line-height: 1.6;
+  }
+  .pnl-assumptions h4 { font-size: 12px; font-weight: 700; color: #424242; margin-bottom: 6px; }
+  .pnl-assumptions ul { padding-left: 18px; }
+  .pnl-assumptions li { margin-bottom: 3px; }
+
+  /* ===== CUSTOMER EXPERIENCE SECTION ===== */
+  .cust-section { padding: 24px 28px; }
+  .cust-section h2 {
+    font-size: 20px; font-weight: 800; color: #1a237e;
+    margin-bottom: 6px; border-bottom: 2px solid #1a237e; padding-bottom: 6px;
+  }
+  .cust-section .desc { font-size: 12px; color: #616161; margin-bottom: 16px; }
+  .cust-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 16px; }
+  .cust-card { border: 2px solid #e0e0e0; border-radius: 8px; padding: 18px; background: #fff; }
+  .cust-card.harness { border-color: #2e7d32; }
+  .cust-card.saas { border-color: #7b1fa2; }
+  .cust-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .cust-card.harness h3 { color: #2e7d32; }
+  .cust-card.saas h3 { color: #7b1fa2; }
+  .cust-card p { font-size: 11px; color: #616161; line-height: 1.5; margin-bottom: 12px; }
+  .cust-diagram { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px 0; }
+  .cust-dept-row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .cust-dept-box { border: 2px solid; border-radius: 6px; padding: 8px 10px; text-align: center; font-size: 9px; font-weight: 700; width: 80px; }
+  .cust-dept-box.client { border-color: #9e9e9e; background: #fafafa; color: #424242; }
+  .cust-arrow { font-size: 14px; color: #757575; }
+  .cust-app-box { border: 2px solid; border-radius: 6px; padding: 8px 10px; text-align: center; font-size: 9px; font-weight: 700; }
+  .cust-app-box.harness { border-color: #2e7d32; background: #e8f5e9; color: #2e7d32; }
+  .cust-app-box.saas { border-color: #7b1fa2; background: #f3e5f5; color: #7b1fa2; }
+  .cust-central { border: 3px solid #1a237e; border-radius: 8px; padding: 10px 16px; text-align: center; font-size: 10px; font-weight: 700; background: #e8eaf6; color: #1a237e; }
+  .cust-feature-list { font-size: 10px; color: #424242; line-height: 1.6; margin-top: 10px; }
+  .cust-feature-list ul { padding-left: 18px; }
+  .cust-feature-list li { margin-bottom: 4px; }
+
   @media print {
     @page { size: A4 landscape; }
     .canvas { width: auto; background: #fff; padding: 10px; }
@@ -1380,9 +1439,152 @@
   </div>
 </div>
 
-<!-- ===== SECTION 5: HIRING PLAN ===== -->
+<!-- ===== SECTION 5: WHAT THE CUSTOMER GETS ===== -->
 <div class="section-frame">
-  <div class="section-label">5 — 採用計画: いつ誰を</div>
+  <div class="section-label">5 — お客様に提供するもの</div>
+  <div class="cust-section">
+    <h2>クライアント体験: AIハーネス vs SaaS/BaaS</h2>
+    <div class="desc">クライアント企業向けの2つの異なる提供物。AIハーネスは各部門にカスタムAIアプリを提供。SaaSはカスタマイズ可能なプラットフォーム（LMS/顧客管理）を提供。どちらも社内エンジニアリング作業から構築。</div>
+
+    <div class="cust-grid">
+      <!-- AI Harness -->
+      <div class="cust-card harness">
+        <h3>🤖 AIハーネスサービス</h3>
+        <p>クライアントは当社のAI開発メソッド + ツール + ガバナンスをレンタル。各部門に代表者が配置され、ハーネスを使用してクライアントのデータで部門固有のAIアプリを構築。</p>
+        <div class="cust-diagram">
+          <div class="cust-dept-row">
+            <div class="cust-dept-box client">営業<br>代表</div>
+            <div class="cust-dept-box client">マーケティング<br>代表</div>
+            <div class="cust-dept-box client">サポート<br>代表</div>
+            <div class="cust-dept-box client">運用<br>代表</div>
+          </div>
+          <div class="cust-arrow">↓ 各部門がハーネスを使用 ↓</div>
+          <div class="cust-dept-row">
+            <div class="cust-app-box harness">営業AI<br>アプリ</div>
+            <div class="cust-app-box harness">マーケティングAI<br>アプリ</div>
+            <div class="cust-app-box harness">サポートAI<br>アプリ</div>
+            <div class="cust-app-box harness">運用AI<br>アプリ</div>
+          </div>
+          <div class="cust-arrow">↓ すべて駆動するのは ↓</div>
+          <div class="cust-central">AIハーネス（コードベース + データ + ガバナンス + PRレビュー）</div>
+        </div>
+        <div class="cust-feature-list">
+          <strong>クライアントができること:</strong>
+          <ul>
+            <li>各部門が自社データでAI支援ツールを構築</li>
+            <li>非エンジニアスタッフがアプリ作成 → PR → エンジニアがレビュー</li>
+            <li>アプリは部門別ページまたは統合ポータル</li>
+            <li>ガバナンスが品質を保証: レビューゲート、CI、権限ルール</li>
+            <li>トレーニング含む: ワークショップ、マネージャーブリーフィング、プレイブック</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SaaS -->
+      <div class="cust-card saas">
+        <h3>📦 SaaS / BaaSプロダクト</h3>
+        <p>クライアントはカスタマイズ可能なLMS / 顧客管理プラットフォームを取得 — 社内アプリ（Corporate Bohr、Zan、Kikuichimonji）をベースにした完成済みプロダクト、組織に合わせて設定。</p>
+        <div class="cust-diagram">
+          <div class="cust-dept-row">
+            <div class="cust-dept-box client">クライアント<br>企業</div>
+          </div>
+          <div class="cust-arrow">↓ 設定済みテナントを取得 ↓</div>
+          <div class="cust-central">SaaSプラットフォーム（LMS + CRM + 管理）</div>
+          <div class="cust-arrow">↓ ニーズに合わせてカスタマイズ ↓</div>
+          <div class="cust-dept-row">
+            <div class="cust-app-box saas">ブランド<br>LMS</div>
+            <div class="cust-app-box saas">顧客<br>管理</div>
+            <div class="cust-app-box saas">管理<br>設定</div>
+          </div>
+        </div>
+        <div class="cust-feature-list">
+          <strong>クライアントができること:</strong>
+          <ul>
+            <li>実績のあるLMSプラットフォームを使用 — ブランド化・設定済み</li>
+            <li>スクラッチ開発なしで学生/顧客を管理</li>
+            <li>定義された境界内で機能カスタマイズ（テナント設定）</li>
+            <li>マルチテナント分離 — データは他クライアントと分離</li>
+            <li>月額サブスクリプション — クライアント側に開発コストなし</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="cust-feature-list" style="background: #f5f5f5; padding: 14px 18px; border-radius: 6px; border-left: 4px solid #1a237e;">
+      <strong style="color: #1a237e;">主な違い:</strong> AIハーネス = クライアントが当社のメソッドで自社AIツールを構築することを学ぶ。SaaS = クライアントが当社の完成プロダクトを使用。どちらも同じ社内エンジニアリング作業から生まれる — ハーネスは能力、SaaSはプロダクト。
+    </div>
+  </div>
+</div>
+
+<!-- ===== SECTION 6: FINANCIAL SIMULATION ===== -->
+<div class="section-frame">
+  <div class="section-label">6 — 財務シミュレーション (P&L)</div>
+  <div class="pnl-section">
+    <h2>売上・費用・利益予測 (2026–2030+)</h2>
+    <div class="desc">提案価格（市場検証が必要）、開発者給与¥450K/月、OD動画コスト削減、推定AWSインフラに基づくシミュレーション。全額JPY。これは計画ツール — 実際の数値はビジネスケース承認で精査。</div>
+
+    <h3>売上予測</h3>
+    <table class="pnl-table">
+      <thead>
+        <tr><th>売上源</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th><th>2030+</th></tr>
+      </thead>
+      <tbody>
+        <tr class="revenue-row"><td>AIハーネス — 実装</td><td>¥0</td><td>¥0</td><td>¥3,000,000</td><td>¥3,000,000</td><td>¥6,000,000</td></tr>
+        <tr class="revenue-row"><td>AIハーネス — 月額リテーナー</td><td>¥0</td><td>¥0</td><td>¥900,000</td><td>¥7,200,000</td><td>¥14,400,000</td></tr>
+        <tr class="revenue-row"><td>AIハーネス — トレーニング</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥500,000</td><td>¥1,500,000</td></tr>
+        <tr class="revenue-row"><td>SaaS — セットアップ費</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥200,000</td><td>¥600,000</td></tr>
+        <tr class="revenue-row"><td>SaaS — 月額サブスク</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥600,000</td><td>¥4,800,000</td></tr>
+        <tr class="total-row revenue-row"><td>売上合計</td><td>¥0</td><td>¥0</td><td>¥3,900,000</td><td>¥11,500,000</td><td>¥27,300,000</td></tr>
+      </tbody>
+    </table>
+
+    <h3>費用予測（新規費用のみ — 既存人件費含まず）</h3>
+    <table class="pnl-table">
+      <thead>
+        <tr><th>費用項目</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th><th>2030+</th></tr>
+      </thead>
+      <tbody>
+        <tr class="cost-row"><td>新規開発者給与</td><td>¥1,800,000</td><td>¥9,450,000</td><td>¥16,200,000</td><td>¥16,200,000</td><td>¥16,200,000</td></tr>
+        <tr class="cost-row"><td>AIハードウェア（一時）</td><td>¥1,200,000</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td></tr>
+        <tr class="cost-row"><td>AWSインフラ（追加）</td><td>¥0</td><td>¥240,000</td><td>¥240,000</td><td>¥240,000</td><td>¥240,000</td></tr>
+        <tr class="savings-row"><td>OD動画コスト削減 (AI-02)</td><td>-¥0</td><td>-¥2,880,000</td><td>-¥2,880,000</td><td>-¥2,880,000</td><td>-¥2,880,000</td></tr>
+        <tr class="savings-row"><td>Zendesk依存削減</td><td>-¥0</td><td>-¥0</td><td>-¥72,000</td><td>-¥144,000</td><td>-¥180,000</td></tr>
+        <tr class="total-row cost-row"><td>純新規費用</td><td>¥3,000,000</td><td>¥6,810,000</td><td>¥13,488,000</td><td>¥13,416,000</td><td>¥13,380,000</td></tr>
+      </tbody>
+    </table>
+
+    <h3>利益シミュレーション</h3>
+    <table class="pnl-table">
+      <thead>
+        <tr><th>サマリー</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th><th>2030+</th></tr>
+      </thead>
+      <tbody>
+        <tr class="revenue-row"><td>売上合計</td><td>¥0</td><td>¥0</td><td>¥3,900,000</td><td>¥11,500,000</td><td>¥27,300,000</td></tr>
+        <tr class="cost-row"><td>純新規費用</td><td>¥3,000,000</td><td>¥6,810,000</td><td>¥13,488,000</td><td>¥13,416,000</td><td>¥13,380,000</td></tr>
+        <tr class="profit-row"><td>年次利益 / (損失)</td><td class="pnl-negative">-¥3,000,000</td><td class="pnl-negative">-¥6,810,000</td><td class="pnl-negative">-¥9,588,000</td><td class="pnl-negative">-¥1,916,000</td><td class="pnl-positive">¥13,920,000</td></tr>
+        <tr class="cumulative-row"><td>累計</td><td class="pnl-negative">-¥3,000,000</td><td class="pnl-negative">-¥9,810,000</td><td class="pnl-negative">-¥19,398,000</td><td class="pnl-negative">-¥21,314,000</td><td class="pnl-negative">-¥7,394,000</td></tr>
+      </tbody>
+    </table>
+
+    <div class="pnl-assumptions">
+      <h4>主要前提（全数値要検証）</h4>
+      <ul>
+        <li><strong>開発者給与:</strong> ¥450,000/月（¥5.4M/年）。3名採用: 2026年9月、2027年4月、2028年1月。</li>
+        <li><strong>AIハーネス価格:</strong> ¥3M実装費/クライアント + ¥300K/月リテーナー + ¥500K/トレーニング。最初のクライアント2028年下半期。</li>
+        <li><strong>SaaS価格:</strong> ¥200Kセットアップ + ¥100K/月/テナント。最初のテナント2029年。</li>
+        <li><strong>OD動画削減:</strong> 現行: 10h × 6レッスン/月 × ¥20K/h = ¥1.2M/月。AI-02導入後: 2h × 24レッスン/月 = ¥960K/月。年間削減¥2.88M（2026年10月〜）。</li>
+        <li><strong>AWS追加:</strong> S3、RDS、SaaSインフラ追加で〜¥20K/月（2027年〜）。現行インフラ〜¥35K/月。</li>
+        <li><strong>Zendesk削減:</strong> IAGPT-02/03が段階的にZendesk依存を削減 — 2028年20%、2029年40%、2030+年50%。現行Zendesk〜¥300K/月。</li>
+        <li><strong>損益分岐:</strong> 年次利益は2030+年に黒字化（〜¥13.9M/年）。累計投資は〜2031年に回収（予想ランレート）。</li>
+        <li><strong>含まず:</strong> OD動画4倍増による収益（間接）、既存人件費（埋没コスト）、4テナント超のSaaS拡張。</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SECTION 7: HIRING PLAN ===== -->
+<div class="section-frame">
+  <div class="section-label">7 — 採用計画: いつ誰を</div>
   <div class="hiring-section">
 <h2>人員計画 — 18ヶ月間で3名を段階的に採用</h2>
     <div class="desc">現状: 開発者3名 + マネージャー1名（トレーニング/管理専任、コード記述なし）。目標: 開発者6名 + マネージャー1名。トレーニング負荷を考慮し1名ずつ段階的に採用。<strong>4プロジェクトの開始を2026年12月→2027年1月に延期</strong>し、採用ペースに合わせる。</div>
