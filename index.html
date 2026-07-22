@@ -616,7 +616,7 @@
           <div class="arch-box app">Kikuichimonji</div>
         </div>
 
-        <!-- Two paths: Bohr Ind separate, other 5 shared -->
+        <!-- Two paths: Bohr Ind separate, other 5 shared — ONE shared Database -->
         <div class="arch-before-split" style="margin-top: 10px;">
           <!-- Left column: Bohr Ind -->
           <div class="arch-before-col">
@@ -625,9 +625,7 @@
             <div class="arch-vspace"></div>
             <div class="arch-box backend-go">Bohr Ind<br>Backend (Go)</div>
             <div class="arch-vspace"></div>
-            <div class="arch-arrow">↓</div>
-            <div class="arch-vspace"></div>
-            <div class="arch-box db">Database</div>
+            <div class="arch-arrow" style="font-size: 20px;">↘</div>
           </div>
 
           <!-- Right column: 5 shared apps -->
@@ -638,11 +636,14 @@
             <div class="arch-vspace"></div>
             <div class="arch-box monolith-shared">member/backend (shared)</div>
             <div class="arch-vspace"></div>
-            <div class="arch-arrow">↓</div>
-            <div class="arch-arrow-label">Store/retrieve Data</div>
-            <div class="arch-vspace"></div>
-            <div class="arch-box db">Database</div>
+            <div class="arch-arrow" style="font-size: 20px;">↙</div>
           </div>
+        </div>
+
+        <!-- ONE shared Database at bottom center — both paths converge -->
+        <div class="arch-vspace"></div>
+        <div class="arch-layer">
+          <div class="arch-box db">Database<br><span style="font-size:7px;font-weight:600;">(shared)</span></div>
         </div>
       </div>
     </div>
@@ -1267,15 +1268,15 @@
           <div class="pname">Boundary Discovery</div>
           <div class="pdep">⊢ PLAT-01, APP-SEP</div>
         </div>
-        <div class="project-bar cat-architecture" style="grid-column: 2 / 7; grid-row: 2; opacity:0.85;">
+        <div class="project-bar cat-architecture" style="grid-column: 2 / 6; grid-row: 2; opacity:0.85;">
           <div class="pid">PLAT-01</div>
           <div class="pname">Shared Handlers (File / Content / Event / DB)</div>
           <div class="pdep">→ ARCH-01 · ⊢ APP-SEP, TENANT</div>
         </div>
-        <div class="project-bar cat-architecture" style="grid-column: 2 / 10; grid-row: 3; opacity:0.75;">
+        <div class="project-bar cat-architecture" style="grid-column: 2 / 7; grid-row: 3; opacity:0.75;">
           <div class="pid">APP-SEP-01</div>
           <div class="pname">Backend Separation (Corp Bohr → Zan → Corp IAHP → Ind IAHP → Kiku)</div>
-          <div class="pdep">→ ARCH-01, PLAT-01 · ⊢ all SaaS</div>
+          <div class="pdep">→ ARCH-01, PLAT-01 · ⊢ SaaS</div>
         </div>
       </div>
     </div>
@@ -1392,7 +1393,7 @@
     </div>
 
     <!-- Phase 2 -->
-    <div class="chain-phase-label" style="color:#e65100;">PHASE 2 — Architecture & Separation (2026–2029+)</div>
+    <div class="chain-phase-label" style="color:#e65100;">PHASE 2 — Architecture & Separation (2026–H2 2028)</div>
     <div class="chain-flow">
       <div class="chain-node cat-architecture">
         <div class="step">STEP 5</div>
@@ -1409,7 +1410,7 @@
       <div class="chain-node cat-architecture" style="opacity:0.8;">
         <div class="step">STEP 7</div>
         <div class="name">APP-SEP-01<br>Backend Separation</div>
-        <div class="detail">Separate 6 backends: CorpBohr→Zan→IAHP→Kiku.</div>
+        <div class="detail">Separate 5 backends: CorpBohr→Zan→IAHP→Kiku (Bohr Ind done).</div>
       </div>
     </div>
 
@@ -1524,28 +1525,35 @@
       <!-- SaaS -->
       <div class="cust-card saas">
         <h3>📦 SaaS / BaaS Product</h3>
-        <p>The client gets a customizable LMS / customer management platform — a ready-to-use product based on our internal apps (Zan, Kikuichimonji), configured for their organization.</p>
+        <p>Two ready-to-use platforms based on our internal apps — Zan (CRM/Sales Management) and Kikuichimonji (Operations/Admin). Configured per client, multi-tenant.</p>
         <div class="cust-diagram">
           <div class="cust-dept-row">
             <div class="cust-dept-box client">Client<br>Company</div>
           </div>
-          <div class="cust-arrow">↓ Gets a configured tenant ↓</div>
-          <div class="cust-central">SaaS Platform (LMS + CRM + Admin)</div>
-          <div class="cust-arrow">↓ Customized for their needs ↓</div>
-          <div class="cust-dept-row">
-            <div class="cust-app-box saas">Branded<br>LMS</div>
-            <div class="cust-app-box saas">Customer<br>Management</div>
-            <div class="cust-app-box saas">Admin<br>Config</div>
+          <div class="cust-arrow">↓ Gets configured platforms ↓</div>
+          <div class="cust-dept-row" style="gap: 16px;">
+            <div class="cust-app-box saas" style="width: 160px; height: 60px;">Zan<br>CRM / Sales Management</div>
+            <div class="cust-app-box saas" style="width: 160px; height: 60px;">Kikuichimonji<br>Operations / Admin</div>
+          </div>
+          <div class="cust-arrow">↓ Each platform provides ↓</div>
+          <div style="display: flex; gap: 16px; justify-content: center;">
+            <div style="width: 160px; font-size: 8px; line-height: 1.5; color: #7b1fa2; text-align: center;">
+              <strong>Zan:</strong> Client management<br>Negotiation tracking<br>Sales analytics<br>Reminders<br>Excel import/export
+            </div>
+            <div style="width: 160px; font-size: 8px; line-height: 1.5; color: #7b1fa2; text-align: center;">
+              <strong>Kikuichimonji:</strong> Customer management<br>Staff management<br>Contracts & payments<br>Scheduling & exams<br>Analytics & reporting
+            </div>
           </div>
         </div>
         <div class="cust-feature-list">
           <strong>What the client can do:</strong>
           <ul>
-            <li>Use a proven LMS platform — branded and configured for their company</li>
-            <li>Manage students/customers without building from scratch</li>
-            <li>Customize features within defined boundaries (tenant config)</li>
-            <li>Multi-tenant isolation — their data is separate from other clients</li>
+            <li><strong>Zan:</strong> CRM/Sales Management — for any industry with B2B sales, not just education</li>
+            <li><strong>Kikuichimonji:</strong> Operations/Admin — customer lifecycle, staff, contracts, scheduling</li>
+            <li>Both customizable within defined boundaries (tenant config)</li>
+            <li>Multi-tenant isolation — data separate per client</li>
             <li>Monthly subscription — no development cost on their side</li>
+            <li>Branded and configured for each client organization</li>
           </ul>
         </div>
       </div>
