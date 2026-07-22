@@ -434,6 +434,44 @@
   .hiring-profile-card .do { color: #2e7d32; }
   .hiring-profile-card .dont { color: #c62828; }
 
+  /* ===== ARCHITECTURE DIAGRAM SECTION ===== */
+  .arch-section { padding: 24px 28px; }
+  .arch-section h2 {
+    font-size: 20px; font-weight: 800; color: #1a237e;
+    margin-bottom: 6px; border-bottom: 2px solid #1a237e; padding-bottom: 6px;
+  }
+  .arch-section .desc { font-size: 12px; color: #616161; margin-bottom: 16px; }
+  .arch-sub-frame { border: 2px solid #e0e0e0; border-radius: 6px; background: #fff; padding: 20px; margin-bottom: 16px; }
+  .arch-sub-frame .arch-label { font-size: 13px; font-weight: 700; color: #1a237e; margin-bottom: 10px; }
+  .arch-diagram { display: flex; flex-direction: column; align-items: center; gap: 0; padding: 16px 0; }
+  .arch-layer { display: flex; gap: 12px; justify-content: center; align-items: flex-end; }
+  .arch-layer.tight { gap: 6px; }
+  .arch-box { border: 3px solid #757575; border-radius: 6px; background: #fff; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: #1e1e1e; text-align: center; }
+  .arch-box.app { width: 120px; height: 50px; }
+  .arch-box.backend { width: 130px; height: 50px; background: #e8f5e9; border-color: #66bb6a; }
+  .arch-box.handler { width: 125px; height: 42px; background: #fff3e0; border-color: #ff9800; }
+  .arch-box.knowledge { width: 125px; height: 42px; background: #f3e5f5; border-color: #9c27b0; }
+  .arch-box.db { width: 90px; height: 90px; border-radius: 50%; background: #fff9c4; border-color: #fbc02d; font-size: 9px; }
+  .arch-box.staff { width: 120px; height: 50px; background: #e3f2fd; border-color: #42a5f5; }
+  .arch-box.customer { width: 100px; height: 45px; background: #fafafa; border-color: #9e9e9e; }
+  .arch-box.ai-hw { width: 110px; height: 42px; background: #e8eaf6; border-color: #5c6bc0; }
+  .arch-box.monolith { width: 200px; height: 55px; background: #e8f5e9; border-color: #66bb6a; }
+  .arch-arrow { font-size: 16px; color: #757575; text-align: center; line-height: 26px; }
+  .arch-arrow-label { font-size: 8px; color: #757575; text-align: center; }
+  .arch-vspace { height: 8px; }
+  .arch-col { display: flex; flex-direction: column; align-items: center; gap: 0; }
+  .arch-label-text { font-size: 9px; color: #616161; text-align: center; margin-top: 2px; }
+  .arch-track-label { font-size: 11px; font-weight: 700; margin-bottom: 6px; text-align: center; }
+  .arch-dashed-box { border: 3px dashed #c62828; border-radius: 8px; padding: 14px; margin-top: 12px; text-align: center; }
+  .arch-dashed-label { font-size: 10px; color: #c62828; font-weight: 700; margin-bottom: 8px; }
+  .arch-legend { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 12px; padding: 10px 14px; background: #f5f5f5; border-radius: 5px; }
+  .arch-legend-item { display: flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 600; color: #424242; }
+  .arch-legend-swatch { width: 18px; height: 12px; border-radius: 3px; border: 2px solid; }
+  .arch-mapping { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 11px; margin-top: 16px; }
+  .arch-map-card { background: #f5f5f5; padding: 12px 14px; border-radius: 6px; }
+  .arch-map-card h4 { font-size: 12px; font-weight: 700; margin-bottom: 6px; }
+  .arch-map-card div { font-size: 10px; color: #424242; line-height: 1.5; }
+
   @media print {
     @page { size: A4 landscape; }
     .canvas { width: auto; background: #fff; padding: 10px; }
@@ -668,9 +706,176 @@
   </div>
 </div>
 
-<!-- ===== SECTION 3: HOW EACH PROJECT MOVES US CLOSER ===== -->
+<!-- ===== SECTION 3: SYSTEM ARCHITECTURE ===== -->
 <div class="section-frame">
-  <div class="section-label">3 — GOAL CHAIN: How Each Project Moves Us Forward</div>
+  <div class="section-label">3 — SYSTEM ARCHITECTURE: What Changes</div>
+  <div class="arch-section">
+    <h2>Before & After: From Monolith to Separated Services + Knowledge Platform</h2>
+    <div class="desc">The current system has all apps sharing one backend and one database. The target separates each app, adds shared handlers, builds a knowledge/AI layer alongside, and wraps everything in a multi-tenant SaaS layer (2028+). Colored tags show which project builds each part.</div>
+
+    <!-- BEFORE -->
+    <div class="arch-sub-frame">
+      <div class="arch-label">BEFORE — Current Architecture</div>
+      <div class="arch-diagram">
+        <div class="arch-layer tight">
+          <div class="arch-box app">Bohr Ind</div>
+          <div class="arch-box app">Bohr Corp</div>
+          <div class="arch-box app">Ind IAHP</div>
+          <div class="arch-box app">Corp IAHP</div>
+          <div class="arch-box app">Zan</div>
+          <div class="arch-box app">Kikuichimonji</div>
+        </div>
+        <div class="arch-arrow">↓ ↓ ↓ ↓ ↓ ↓</div>
+        <div class="arch-arrow-label">Requests</div>
+        <div class="arch-vspace"></div>
+        <div class="arch-box monolith">member/backend (shared)</div>
+        <div class="arch-vspace"></div>
+        <div class="arch-arrow">↓</div>
+        <div class="arch-arrow-label">Store/retrieve Data</div>
+        <div class="arch-vspace"></div>
+        <div class="arch-box db">Database</div>
+      </div>
+    </div>
+
+    <!-- AFTER -->
+    <div class="arch-sub-frame">
+      <div class="arch-label">AFTER — Target Architecture</div>
+      <div class="arch-diagram">
+        <!-- Customers -->
+        <div class="arch-layer">
+          <div class="arch-box customer">Customers</div>
+          <div style="width: 20px;"></div>
+          <div class="arch-box customer">Students / Clients</div>
+        </div>
+        <div class="arch-arrow">↓ Access</div>
+
+        <!-- Apps -->
+        <div class="arch-vspace"></div>
+        <div class="arch-layer tight">
+          <div class="arch-box app">Bohr Ind</div>
+          <div class="arch-box app">Bohr Corp</div>
+          <div class="arch-box app">Ind IAHP</div>
+          <div class="arch-box app">Corp IAHP</div>
+          <div class="arch-box app">Zan</div>
+          <div class="arch-box app">Kikuichimonji</div>
+        </div>
+        <div class="arch-arrow">↓ Requests</div>
+
+        <!-- Separated backends -->
+        <div class="arch-vspace"></div>
+        <div class="arch-layer tight">
+          <div class="arch-col"><div class="arch-box backend">Bohr Ind<br>Backend</div><div class="project-tag tag-sep">APP-SEP-01</div></div>
+          <div class="arch-col"><div class="arch-box backend">Bohr Corp<br>Backend</div><div class="project-tag tag-sep">APP-SEP-01</div></div>
+          <div class="arch-col"><div class="arch-box backend">Ind IAHP<br>Backend</div><div class="project-tag tag-iahp">IAHP-01</div></div>
+          <div class="arch-col"><div class="arch-box backend">Corp IAHP<br>Backend</div><div class="project-tag tag-iahp">IAHP-02</div></div>
+          <div class="arch-col"><div class="arch-box backend">Zan<br>Backend</div><div class="project-tag tag-sep">APP-SEP-01</div></div>
+          <div class="arch-col"><div class="arch-box backend">Kiku<br>Backend</div><div class="project-tag tag-sep">APP-SEP-01</div></div>
+        </div>
+        <div class="arch-arrow">↓</div>
+
+        <!-- Two tracks: handlers + knowledge -->
+        <div class="arch-vspace"></div>
+        <div class="arch-layer" style="gap: 30px; align-items: flex-start;">
+          <!-- Left: Shared handlers -->
+          <div class="arch-col">
+            <div class="arch-track-label" style="color:#e65100;">Shared Handler Layer</div>
+            <div class="arch-layer tight">
+              <div class="arch-box handler">Content<br>Handler</div>
+              <div class="arch-box handler">Event<br>Handler</div>
+            </div>
+            <div class="arch-layer tight" style="margin-top: 4px;">
+              <div class="arch-box handler">File<br>Handler</div>
+              <div class="arch-box handler">Database<br>Handler</div>
+            </div>
+            <div class="project-tag tag-plat">PLAT-01</div>
+          </div>
+          <!-- Right: Knowledge platform -->
+          <div class="arch-col">
+            <div class="arch-track-label" style="color:#6a1b9a;">Knowledge / AI Layer</div>
+            <div class="arch-box knowledge" style="width: 200px;">IAGPT Knowledge Base</div>
+            <div class="arch-vspace"></div>
+            <div class="arch-layer tight">
+              <div class="arch-col"><div class="arch-box knowledge" style="width: 90px; height: 36px; font-size: 8px;">Customer<br>AI</div><div class="project-tag tag-iagpt" style="font-size: 7px;">IAGPT-04</div></div>
+              <div class="arch-col"><div class="arch-box knowledge" style="width: 90px; height: 36px; font-size: 8px;">Digital<br>Text</div><div class="project-tag tag-iagpt" style="font-size: 7px;">IAGPT-03</div></div>
+              <div class="arch-col"><div class="arch-box knowledge" style="width: 90px; height: 36px; font-size: 8px;">Zendesk<br>Ingest</div><div class="project-tag tag-iagpt" style="font-size: 7px;">IAGPT-02</div></div>
+            </div>
+            <div class="arch-vspace"></div>
+            <div class="arch-box ai-hw" style="width: 200px;">Local AI Hardware</div>
+            <div class="project-tag tag-ai">AI-01</div>
+          </div>
+        </div>
+
+        <div class="arch-arrow">↓</div>
+        <div class="arch-arrow-label">Store/retrieve Data</div>
+
+        <!-- DB + Staff -->
+        <div class="arch-vspace"></div>
+        <div class="arch-layer" style="gap: 40px;">
+          <div class="arch-box db">Database</div>
+          <div class="arch-col">
+            <div class="arch-box staff">IA Staff<br>Input</div>
+            <div class="arch-label-text">Curriculum + Support Knowledge</div>
+          </div>
+        </div>
+
+        <!-- SaaS layer (dashed) -->
+        <div class="arch-dashed-box">
+          <div class="arch-dashed-label">Multi-Tenant SaaS Layer (added 2028+)</div>
+          <div class="arch-layer" style="gap: 10px;">
+            <div class="arch-col"><div class="arch-box" style="width: 95px; height: 38px; border-color: #c62828; background: #ffebee; font-size: 8px;">Tenant Model<br>Auth / Roles</div><div class="project-tag tag-tenant" style="font-size: 7px;">TENANT-01</div></div>
+            <div class="arch-col"><div class="arch-box" style="width: 95px; height: 38px; border-color: #c62828; background: #ffebee; font-size: 8px;">Corp Bohr<br>SaaS</div><div class="project-tag tag-saas" style="font-size: 7px;">BOHRCORP-01</div></div>
+            <div class="arch-col"><div class="arch-box" style="width: 95px; height: 38px; border-color: #c62828; background: #ffebee; font-size: 8px;">Zan<br>SaaS</div><div class="project-tag tag-saas" style="font-size: 7px;">ZAN-01</div></div>
+            <div class="arch-col"><div class="arch-box" style="width: 95px; height: 38px; border-color: #c62828; background: #ffebee; font-size: 8px;">Kiku<br>SaaS</div><div class="project-tag tag-saas" style="font-size: 7px;">KIKU-01</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="arch-legend">
+        <div class="arch-legend-item"><div class="arch-legend-swatch" style="background:#fff;border-color:#757575;"></div> App (frontend)</div>
+        <div class="arch-legend-item"><div class="arch-legend-swatch" style="background:#e8f5e9;border-color:#66bb6a;"></div> Separated backend</div>
+        <div class="arch-legend-item"><div class="arch-legend-swatch" style="background:#fff3e0;border-color:#ff9800;"></div> Shared handler</div>
+        <div class="arch-legend-item"><div class="arch-legend-swatch" style="background:#f3e5f5;border-color:#9c27b0;"></div> Knowledge / AI</div>
+        <div class="arch-legend-item"><div class="arch-legend-swatch" style="background:#e8eaf6;border-color:#5c6bc0;"></div> AI hardware</div>
+        <div class="arch-legend-item"><div class="arch-legend-swatch" style="background:#fff9c4;border-color:#fbc02d;"></div> Database</div>
+        <div class="arch-legend-item"><div class="arch-legend-swatch" style="background:#ffebee;border-color:#c62828; border-style:dashed;"></div> SaaS layer (2028+)</div>
+      </div>
+    </div>
+
+    <!-- Project mapping -->
+    <div class="arch-mapping">
+      <div class="arch-map-card">
+        <h4 style="color:#e65100;">Architecture & Separation</h4>
+        <div>• <strong>ARCH-01</strong> — Defines the boundaries (this diagram is the output)</div>
+        <div>• <strong>PLAT-01</strong> — Builds the shared handler layer (Content, Event, File, DB)</div>
+        <div>• <strong>APP-SEP-01</strong> — Separates each app backend (Corp Bohr → Zan → ...)</div>
+      </div>
+      <div class="arch-map-card">
+        <h4 style="color:#00838f;">Reservation Migration</h4>
+        <div>• <strong>IAHP-01</strong> — Migrates Ind IAHP form into source control</div>
+        <div>• <strong>IAHP-02</strong> — Migrates Corp IAHP form into source control</div>
+      </div>
+      <div class="arch-map-card">
+        <h4 style="color:#6a1b9a;">Knowledge / AI Platform</h4>
+        <div>• <strong>AI-01</strong> — Local AI hardware (powers the knowledge layer)</div>
+        <div>• <strong>AI-02</strong> — OD video automation (first AI pipeline on hardware)</div>
+        <div>• <strong>IAGPT-02</strong> — Ingests Zendesk support knowledge</div>
+        <div>• <strong>IAGPT-03</strong> — Ingests digital text / curriculum content</div>
+        <div>• <strong>IAGPT-04</strong> — Customer-facing AI (students → escalation to staff)</div>
+      </div>
+      <div class="arch-map-card">
+        <h4 style="color:#c62828;">SaaS / BaaS (2028+)</h4>
+        <div>• <strong>TENANT-01</strong> — Multi-tenant model, auth, data isolation</div>
+        <div>• <strong>BOHRCORP-01</strong> — Corp Bohr as first SaaS product</div>
+        <div>• <strong>ZAN-01</strong> — Zan as second SaaS candidate</div>
+        <div>• <strong>KIKU-01</strong> — Kikuichimonji as third SaaS candidate</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SECTION 4: HOW EACH PROJECT MOVES US CLOSER ===== -->
+<div class="section-frame">
+  <div class="section-label">4 — GOAL CHAIN: How Each Project Moves Us Forward</div>
   <div class="chain-section">
     <h2>Dependency Chain: Foundation → Internal Capability → External Revenue</h2>
     <div class="desc">Read left to right. Each phase produces the foundation that the next depends on. The chain splits into two revenue paths that converge at GTM.</div>
@@ -795,7 +1000,7 @@
 
 <!-- ===== SECTION 4: DEPARTMENT BENEFIT MATRIX ===== -->
 <div class="section-frame">
-  <div class="section-label">4 — DEPARTMENT BENEFITS</div>
+  <div class="section-label">5 — DEPARTMENT BENEFITS</div>
   <div class="benefit-section">
     <h2>What Each Project Does for Each Department</h2>
     <div class="desc">Green = strong/direct · Yellow = moderate · Blue = indirect · Gray = no direct benefit</div>
@@ -1058,7 +1263,7 @@
 
 <!-- ===== SECTION 5: HIRING PLAN ===== -->
 <div class="section-frame">
-  <div class="section-label">5 — HIRING PLAN: When and Who</div>
+  <div class="section-label">6 — HIRING PLAN: When and Who</div>
   <div class="hiring-section">
     <h2>Staffing Plan — 3 Hires Staggered Across 18 Months</h2>
     <div class="desc">Current team: 3 developers + 1 manager (training/management, not coding). Target: 6 developers + 1 manager. Hires staggered 1-at-a-time for training bandwidth. <strong>4 project starts pushed from Dec 2026 → Jan 2027</strong> to match the pace of hiring.</div>
