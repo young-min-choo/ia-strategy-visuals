@@ -1605,15 +1605,21 @@
         <tr class="cost-row"><td>純新規費用</td><td>¥3,000,000</td><td>¥6,810,000</td><td>¥13,488,000</td><td>¥13,416,000</td><td>¥13,380,000</td></tr>
         <tr class="profit-row"><td>年次利益 / (損失)</td><td class="pnl-negative">-¥3,000,000</td><td class="pnl-negative">-¥6,810,000</td><td class="pnl-negative">-¥9,588,000</td><td class="pnl-negative">-¥1,916,000</td><td class="pnl-positive">¥13,920,000</td></tr>
         <tr class="cumulative-row"><td>累計</td><td class="pnl-negative">-¥3,000,000</td><td class="pnl-negative">-¥9,810,000</td><td class="pnl-negative">-¥19,398,000</td><td class="pnl-negative">-¥21,314,000</td><td class="pnl-negative">-¥7,394,000</td></tr>
+        <tr class="savings-row"><td>時間削減（継続）</td><td>¥0</td><td>¥4,950,000</td><td>¥15,340,000</td><td>¥15,340,000</td><td>¥14,540,000</td></tr>
+        <tr class="profit-row"><td>調整後年次利益</td><td class="pnl-negative">-¥3,000,000</td><td class="pnl-negative">-¥1,860,000</td><td class="pnl-positive">¥5,740,000</td><td class="pnl-positive">¥13,440,000</td><td class="pnl-positive">¥28,440,000</td></tr>
+        <tr class="cumulative-row"><td>調整後累計</td><td class="pnl-negative">-¥3,000,000</td><td class="pnl-negative">-¥4,860,000</td><td class="pnl-positive">¥880,000</td><td class="pnl-positive">¥14,320,000</td><td class="pnl-positive">¥42,760,000</td></tr>
       </tbody>
     </table>
 
     <div class="breakeven-callout">
-      <strong>📈 損益分岐分析</strong>
+      <strong>📈 損益分岐分析 — 2つのシナリオ</strong>
       <p>
-        <strong>年次利益黒字化:</strong> 2030+（予想ランレートで年〜¥13.9M）<br>
-        <strong>累計損益分岐:</strong> ~2031（累計赤字¥7.4Mを¥13.9M/年のランレートで回収）<br>
-        <strong>投資期間:</strong> 2026–2029（4年間、最大累計投資〜¥21.3M in 2029）
+        <strong>時間削減なし（売上のみ）:</strong><br>
+        年次利益黒字化: 2030+（〜¥13.9M/年） · 累計損益分岐: ~2031（累計赤字¥7.4Mを¥13.9M/年のランレートで回収） · 投資期間: 2026–2029（4年間、最大累計投資〜¥21.3M in 2029）
+      </p>
+      <p style="margin-top:8px;">
+        <strong>時間削減あり（アーキテクチャ + 自己解決）:</strong><br>
+        年次利益黒字化: 2028（〜¥5.7M）— 2年繰り上げ! · 累計損益分岐: 2028（累計¥0.88Mで黒字化） · 投資期間: 2026–2027（純投資は2年のみ、最大〜¥4.9M） · 調整後累計は2030+に〜¥42.8Mに到達
       </p>
     </div>
 
@@ -1628,6 +1634,9 @@
         <li><strong>Zendesk削減:</strong> IAGPT-02/03が段階的にZendesk依存を削減 — 2028年20%、2029年40%、2030+年50%。現行Zendesk〜¥300K/月。</li>
         <li><strong>損益分岐:</strong> 年次利益は2030+年に黒字化（〜¥13.9M/年）。累計投資は〜2031年に回収（予想ランレート）。</li>
         <li><strong>含まず:</strong> OD動画4倍増による収益（間接）、既存人件費（埋没コスト）、4テナント超のSaaS拡張。</li>
+        <li><strong>スタッフコスト:</strong> 既存3開発者 + マネージャー = ¥153.6M/年。新規3名は段階的に追加。</li>
+        <li><strong>時間削減カテゴリ:</strong> 開発議論(5h/週)、データリクエスト(2h/週)、スタッフ自己解決(4h/週)、フォームレビュー(3h/週)、オンボーディング(40h/人)</li>
+        <li><strong>時間削減ありの損益分岐:</strong> 2028年に年次黒字化、累計も黒字化。投資期間は実質2年。</li>
       </ul>
     </div>
 
@@ -1662,6 +1671,59 @@
           <tr><td>2030+</td><td>3 (全員通年)</td><td>36 × ¥450K = ¥16.2M</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>-¥0.18M</td><td>¥13.38M</td></tr>
         </tbody>
       </table>
+    </div>
+
+    <div class="method-section">
+      <h3>スタッフコスト &amp; 時間削減</h3>
+      <p class="method-note" style="font-style: normal; color: #424242; margin-bottom: 16px; line-height: 1.6;">全スタッフコスト（既存 + 新規採用）とアーキテクチャ改善による時間削減。時間削減は取り戻されたスタッフ時間を表す — 現在は見えないコストが、プラットフォームが調整オーバーヘッド、一回きりのリクエスト、オンボーディングの摩擦を削減することで可視化される。</p>
+
+      <h4 style="font-size: 13px; font-weight: 700; color: #1a237e; margin: 12px 0 6px;">スタッフコスト合計（現行レート、参考用）</h4>
+      <table class="pnl-table">
+        <thead>
+          <tr><th>役割</th><th>人数</th><th>月額</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th><th>2030+</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>既存開発者</td><td>3名</td><td>¥9.6M</td><td>¥115.2M</td><td>¥115.2M</td><td>¥115.2M</td><td>¥115.2M</td><td>¥115.2M</td></tr>
+          <tr><td>マネージャー</td><td>1名</td><td>¥3.2M</td><td>¥38.4M</td><td>¥38.4M</td><td>¥38.4M</td><td>¥38.4M</td><td>¥38.4M</td></tr>
+          <tr><td>新規採用（段階的）</td><td>1→3名</td><td>変動</td><td>¥3.84M (4ヶ月)</td><td>¥20.16M (21ヶ月)</td><td>¥34.56M (36ヶ月)</td><td>¥34.56M</td><td>¥34.56M</td></tr>
+          <tr class="total-row"><td>スタッフコスト合計</td><td>4→7名</td><td></td><td>¥157.4M</td><td>¥173.8M</td><td>¥188.2M</td><td>¥188.2M</td><td>¥188.2M</td></tr>
+        </tbody>
+      </table>
+      <div class="pnl-assumptions" style="margin-top: 8px;">
+        <p>既存スタッフコストは既に支払済み — 参考用。新規採用コストが増分投資。</p>
+      </div>
+
+      <h4 style="font-size: 13px; font-weight: 700; color: #1a237e; margin: 16px 0 6px;">時間削減の内訳</h4>
+      <table class="pnl-table">
+        <thead>
+          <tr><th>時間削減カテゴリ</th><th>削減時間/週</th><th>単価</th><th>年間削減額</th><th>開始時期</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>開発議論時間（バックエンド分離）</td><td>5h/週</td><td>¥20,000/h</td><td>¥5.2M/年</td><td>2027年下半期</td></tr>
+          <tr><td>データリクエスト（開発者時間解放）</td><td>2h/週</td><td>¥20,000/h</td><td>¥2.08M/年</td><td>2028年上半期</td></tr>
+          <tr><td>スタッフ自己解決（IAGPT回答）</td><td>4h/週</td><td>¥20,000/h</td><td>¥4.16M/年</td><td>2028年上半期</td></tr>
+          <tr><td>オンボーディング時間（明確な境界）</td><td>新規採用1人あたり40h</td><td>¥20,000/h</td><td>¥2.4M 一時</td><td>2026–2028</td></tr>
+          <tr><td>フォームレビュー（ソース管理）</td><td>3h/週</td><td>¥20,000/h</td><td>¥3.1M/年</td><td>2027年上半期</td></tr>
+          <tr class="total-row"><td>継続削減合計</td><td>~14h/週</td><td></td><td>~¥14.5M/年</td><td>2029年に完全達成</td></tr>
+        </tbody>
+      </table>
+
+      <h4 style="font-size: 13px; font-weight: 700; color: #1a237e; margin: 16px 0 6px;">年別時間削減</h4>
+      <table class="pnl-table">
+        <thead>
+          <tr><th>年</th><th>開発議論</th><th>データリクエスト</th><th>スタッフ自己解決</th><th>フォームレビュー</th><th>オンボーディング</th><th>削減合計</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2026</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td></tr>
+          <tr><td>2027</td><td>¥2.6M (半年)</td><td>¥0</td><td>¥0</td><td>¥1.55M (半年)</td><td>¥0.8M</td><td>¥4.95M</td></tr>
+          <tr><td>2028</td><td>¥5.2M</td><td>¥2.08M</td><td>¥4.16M</td><td>¥3.1M</td><td>¥0.8M</td><td>¥15.34M</td></tr>
+          <tr><td>2029</td><td>¥5.2M</td><td>¥2.08M</td><td>¥4.16M</td><td>¥3.1M</td><td>¥0.8M</td><td>¥15.34M</td></tr>
+          <tr class="total-row"><td>2030+</td><td>¥5.2M</td><td>¥2.08M</td><td>¥4.16M</td><td>¥3.1M</td><td>¥0</td><td>¥14.54M</td></tr>
+        </tbody>
+      </table>
+      <div class="pnl-assumptions" style="margin-top: 8px;">
+        <p>オンボーディング削減は一時的（1人あたり¥0.8M × 3名 = ¥2.4M合計、2026–2028に分散）。継続削減は2029年までに~¥14.5M/年に達する。</p>
+      </div>
     </div>
   </div>
 </div>
