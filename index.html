@@ -526,6 +526,13 @@
   .pnl-assumptions ul { padding-left: 18px; }
   .pnl-assumptions li { margin-bottom: 3px; }
 
+  /* Growth tables — 10 year columns, smaller font to fit */
+  .pnl-table.growth { font-size: 9px; }
+  .pnl-table.growth th { font-size: 9px; padding: 6px 4px; }
+  .pnl-table.growth td { padding: 5px 4px; font-size: 9px; }
+  .pnl-table.growth th:first-child { width: 16%; }
+  .pnl-table.growth td:first-child { font-size: 9px; }
+
   /* ===== CUSTOMER EXPERIENCE SECTION ===== */
   .cust-section { padding: 24px 28px; }
   .cust-section h2 {
@@ -1585,52 +1592,54 @@
 <div class="section-frame">
   <div class="section-label">6 — FINANCIAL SIMULATION (P&L)</div>
   <div class="pnl-section">
-    <h2>Revenue, Cost, and Profit Projection (2026–2030+)</h2>
-    <div class="desc">Simulation based on project-hour investment (¥20K/h), realistic revenue timelines, OD video cost savings, and estimated AWS infrastructure. All figures in JPY. This is a planning tool — actual numbers will be refined with business case approval.</div>
+    <h2>Revenue, Cost, and Profit Projection (2026–2035)</h2>
+    <div class="desc">Simulation based on project-hour investment (¥20K/h), realistic revenue timelines, OD video cost savings, and estimated AWS infrastructure. Growth model extends to 2035 with +1 AI Harness client/year and +2 SaaS tenants/year. All figures in JPY. This is a planning tool — actual numbers will be refined with business case approval.</div>
 
-    <h3>Revenue Projection</h3>
-    <table class="pnl-table">
+    <h3>Revenue Projection (¥M)</h3>
+    <table class="pnl-table growth">
       <thead>
-        <tr><th>Revenue Source</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th><th>2030+</th></tr>
+        <tr><th>Revenue Source</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th><th>2030</th><th>2031</th><th>2032</th><th>2033</th><th>2034</th><th>2035</th></tr>
       </thead>
       <tbody>
-        <tr class="revenue-row"><td>AI Harness — Implementation</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥3,000,000</td></tr>
-        <tr class="revenue-row"><td>AI Harness — Retainer</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥3,600,000</td></tr>
-        <tr class="revenue-row"><td>AI Harness — Training</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥500,000</td></tr>
-        <tr class="revenue-row"><td>SaaS — Setup</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥200,000</td><td>¥400,000</td></tr>
-        <tr class="revenue-row"><td>SaaS — Monthly</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥600,000</td><td>¥3,600,000</td></tr>
-        <tr class="total-row revenue-row"><td>Total Revenue</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥800,000</td><td>¥11,100,000</td></tr>
+        <tr class="revenue-row"><td>AI Harness — Implementation</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥3.0M</td><td>¥4.0M</td><td>¥4.0M</td><td>¥4.0M</td><td>¥5.0M</td><td>¥5.0M</td></tr>
+        <tr class="revenue-row"><td>AI Harness — Support retainer</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0.9M</td><td>¥3.6M</td><td>¥5.4M</td><td>¥7.2M</td><td>¥9.0M</td><td>¥10.8M</td></tr>
+        <tr class="revenue-row"><td>AI Harness — Training (IA Instructors)</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0.5M</td><td>¥1.5M</td><td>¥2.0M</td><td>¥2.5M</td><td>¥3.0M</td><td>¥3.5M</td></tr>
+        <tr class="revenue-row"><td>SaaS — Setup</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0.2M</td><td>¥0.4M</td><td>¥0.4M</td><td>¥0.4M</td><td>¥0.4M</td><td>¥0.4M</td><td>¥0.4M</td></tr>
+        <tr class="revenue-row"><td>SaaS — Monthly</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0.6M</td><td>¥1.8M</td><td>¥6.0M</td><td>¥8.4M</td><td>¥10.8M</td><td>¥13.2M</td><td>¥15.6M</td></tr>
+        <tr class="total-row revenue-row"><td>Total Revenue</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0.8M</td><td>¥6.6M</td><td>¥15.5M</td><td>¥20.2M</td><td>¥24.9M</td><td>¥30.6M</td><td>¥35.3M</td></tr>
       </tbody>
     </table>
+    <div class="method-note">AI Harness clients (cumul.): 0, 0, 0, 0, 1, 2, 3, 4, 5, 6 · SaaS tenants (cumul.): 0, 0, 0, 1, 3, 5, 7, 9, 11, 13 · Training engagements: 0, 0, 0, 0, 1, 2, 2, 2, 3, 3</div>
 
-    <h3>Cost Projection (project investment + infrastructure — existing payroll not included)</h3>
-    <table class="pnl-table">
+    <h3>Cost Projection (¥M — project investment + infrastructure — existing payroll not included)</h3>
+    <table class="pnl-table growth">
       <thead>
-        <tr><th>Cost Item</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th><th>2030+</th></tr>
+        <tr><th>Cost Item</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th><th>2030</th><th>2031</th><th>2032</th><th>2033</th><th>2034</th><th>2035</th></tr>
       </thead>
       <tbody>
-        <tr class="cost-row"><td>Project investment (dev hours × ¥20K/h)</td><td>¥10,000,000</td><td>¥22,000,000</td><td>¥24,000,000</td><td>¥16,000,000</td><td>¥11,000,000</td></tr>
-        <tr class="cost-row"><td>AI Hardware (one-time)</td><td>¥1,200,000</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td></tr>
-        <tr class="cost-row"><td>AWS infrastructure (additional)</td><td>¥0</td><td>¥240,000</td><td>¥240,000</td><td>¥240,000</td><td>¥240,000</td></tr>
-        <tr class="savings-row"><td>OD Video cost savings (AI-02)</td><td>-¥0</td><td>-¥2,880,000</td><td>-¥2,880,000</td><td>-¥2,880,000</td><td>-¥2,880,000</td></tr>
-        <tr class="savings-row"><td>Zendesk dependency reduction</td><td>-¥0</td><td>-¥0</td><td>-¥72,000</td><td>-¥144,000</td><td>-¥180,000</td></tr>
-        <tr class="total-row cost-row"><td>Net New Costs</td><td>¥11,200,000</td><td>¥19,360,000</td><td>¥21,288,000</td><td>¥13,216,000</td><td>¥8,180,000</td></tr>
+        <tr class="cost-row"><td>Project investment (dev hours × ¥20K/h)</td><td>¥10.0M</td><td>¥22.0M</td><td>¥24.0M</td><td>¥16.0M</td><td>¥11.0M</td><td>¥8.0M</td><td>¥8.0M</td><td>¥8.0M</td><td>¥8.0M</td><td>¥8.0M</td></tr>
+        <tr class="cost-row"><td>AI Hardware (one-time)</td><td>¥1.2M</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td></tr>
+        <tr class="cost-row"><td>AWS infrastructure (additional)</td><td>¥0</td><td>¥0.24M</td><td>¥0.24M</td><td>¥0.24M</td><td>¥0.24M</td><td>¥0.24M</td><td>¥0.24M</td><td>¥0.24M</td><td>¥0.24M</td><td>¥0.24M</td></tr>
+        <tr class="savings-row"><td>OD Video cost savings (AI-02)</td><td>-¥0</td><td>-¥2.88M</td><td>-¥2.88M</td><td>-¥2.88M</td><td>-¥2.88M</td><td>-¥2.88M</td><td>-¥2.88M</td><td>-¥2.88M</td><td>-¥2.88M</td><td>-¥2.88M</td></tr>
+        <tr class="savings-row"><td>Zendesk dependency reduction</td><td>-¥0</td><td>-¥0</td><td>-¥0.072M</td><td>-¥0.144M</td><td>-¥0.18M</td><td>-¥0.18M</td><td>-¥0.18M</td><td>-¥0.18M</td><td>-¥0.18M</td><td>-¥0.18M</td></tr>
+        <tr class="total-row cost-row"><td>Net New Costs</td><td>¥11.2M</td><td>¥19.36M</td><td>¥21.29M</td><td>¥13.22M</td><td>¥8.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td></tr>
       </tbody>
     </table>
+    <div class="method-note">Project hours drop to ~400h/year (¥8.0M) from 2031 as 18 projects complete — only GTM + maintenance + small feature work remains. Net cost 2031+: ¥8.0M + ¥0.24M − ¥2.88M − ¥0.18M = ¥5.18M/year.</div>
 
-    <h3>Profit Simulation</h3>
-    <table class="pnl-table">
+    <h3>Profit Simulation (¥M)</h3>
+    <table class="pnl-table growth">
       <thead>
-        <tr><th>Summary</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th><th>2030+</th></tr>
+        <tr><th>Summary</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th><th>2030</th><th>2031</th><th>2032</th><th>2033</th><th>2034</th><th>2035</th></tr>
       </thead>
       <tbody>
-        <tr class="revenue-row"><td>Total Revenue</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥800,000</td><td>¥11,100,000</td></tr>
-        <tr class="cost-row"><td>Net New Costs</td><td>¥11,200,000</td><td>¥19,360,000</td><td>¥21,290,000</td><td>¥13,220,000</td><td>¥8,180,000</td></tr>
-        <tr class="profit-row"><td>Annual Profit / (Loss)</td><td class="pnl-negative">-¥11,200,000</td><td class="pnl-negative">-¥19,360,000</td><td class="pnl-negative">-¥21,290,000</td><td class="pnl-negative">-¥12,420,000</td><td class="pnl-positive">¥2,920,000</td></tr>
-        <tr class="cumulative-row"><td>Cumulative</td><td class="pnl-negative">-¥11,200,000</td><td class="pnl-negative">-¥30,560,000</td><td class="pnl-negative">-¥51,850,000</td><td class="pnl-negative">-¥64,270,000</td><td class="pnl-negative">-¥61,350,000</td></tr>
-        <tr class="savings-row"><td>Time savings (recurring)</td><td>¥0</td><td>¥4,950,000</td><td>¥15,340,000</td><td>¥15,340,000</td><td>¥14,540,000</td></tr>
-        <tr class="profit-row"><td>Adjusted annual profit (w/ time savings)</td><td class="pnl-negative">-¥11,200,000</td><td class="pnl-negative">-¥14,410,000</td><td class="pnl-negative">-¥5,950,000</td><td class="pnl-positive">¥2,920,000</td><td class="pnl-positive">¥17,460,000</td></tr>
-        <tr class="cumulative-row"><td>Adjusted cumulative (w/ time savings)</td><td class="pnl-negative">-¥11,200,000</td><td class="pnl-negative">-¥25,610,000</td><td class="pnl-negative">-¥31,560,000</td><td class="pnl-negative">-¥28,640,000</td><td class="pnl-negative">-¥11,180,000</td></tr>
+        <tr class="revenue-row"><td>Total Revenue</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0.8M</td><td>¥6.6M</td><td>¥15.5M</td><td>¥20.2M</td><td>¥24.9M</td><td>¥30.6M</td><td>¥35.3M</td></tr>
+        <tr class="cost-row"><td>Net New Costs</td><td>¥11.2M</td><td>¥19.36M</td><td>¥21.29M</td><td>¥13.22M</td><td>¥8.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td></tr>
+        <tr class="profit-row"><td>Annual Profit / (Loss)</td><td class="pnl-negative">-¥11.2M</td><td class="pnl-negative">-¥19.36M</td><td class="pnl-negative">-¥21.29M</td><td class="pnl-negative">-¥12.42M</td><td class="pnl-negative">-¥1.58M</td><td class="pnl-positive">+¥10.32M</td><td class="pnl-positive">+¥15.02M</td><td class="pnl-positive">+¥19.72M</td><td class="pnl-positive">+¥25.42M</td><td class="pnl-positive">+¥30.12M</td></tr>
+        <tr class="cumulative-row"><td>Cumulative</td><td class="pnl-negative">-¥11.2M</td><td class="pnl-negative">-¥30.56M</td><td class="pnl-negative">-¥51.85M</td><td class="pnl-negative">-¥64.27M</td><td class="pnl-negative">-¥65.85M</td><td class="pnl-negative">-¥55.53M</td><td class="pnl-negative">-¥40.51M</td><td class="pnl-negative">-¥20.79M</td><td class="pnl-positive">+¥4.63M</td><td class="pnl-positive">+¥34.75M</td></tr>
+        <tr class="savings-row"><td>Time savings (recurring)</td><td>¥0</td><td>¥4.95M</td><td>¥15.34M</td><td>¥15.34M</td><td>¥14.54M</td><td>¥14.54M</td><td>¥14.54M</td><td>¥14.54M</td><td>¥14.54M</td><td>¥14.54M</td></tr>
+        <tr class="profit-row"><td>Adjusted annual profit (w/ time savings)</td><td class="pnl-negative">-¥11.2M</td><td class="pnl-negative">-¥14.41M</td><td class="pnl-negative">-¥5.95M</td><td class="pnl-positive">+¥2.92M</td><td class="pnl-positive">+¥12.96M</td><td class="pnl-positive">+¥24.86M</td><td class="pnl-positive">+¥29.56M</td><td class="pnl-positive">+¥34.26M</td><td class="pnl-positive">+¥39.96M</td><td class="pnl-positive">+¥44.66M</td></tr>
+        <tr class="cumulative-row"><td>Adjusted cumulative (w/ time savings)</td><td class="pnl-negative">-¥11.2M</td><td class="pnl-negative">-¥25.61M</td><td class="pnl-negative">-¥31.56M</td><td class="pnl-negative">-¥28.64M</td><td class="pnl-negative">-¥15.68M</td><td class="pnl-positive">+¥9.18M</td><td class="pnl-positive">+¥38.74M</td><td class="pnl-positive">+¥73.0M</td><td class="pnl-positive">+¥112.96M</td><td class="pnl-positive">+¥157.62M</td></tr>
       </tbody>
     </table>
 
@@ -1638,51 +1647,58 @@
       <strong>📈 Break-even Analysis — Two Scenarios</strong>
       <p>
         <strong>Without time savings (revenue only):</strong><br>
-        Annual profit positive: 2030+ (~¥2.9M/year) — first year of revenue · Cumulative break-even: ~2033+ (at ¥2.9M/year run rate, ¥61.4M deficit recovers slowly) · Investment period: 2026–2029 (4 years of pure investment before first revenue, peak cumulative deficit ~¥64.3M in 2029)
+        Annual profit positive: <strong>2031</strong> (+¥10.3M) — revenue exceeds flat maintenance costs · Cumulative break-even: <strong>2034</strong> (cumulative turns positive at +¥4.6M) · Investment period: 2026–2030 (5 years of investment, peak cumulative deficit −¥65.9M in 2030)
       </p>
       <p style="margin-top:8px;">
         <strong>With time savings (architecture + self-service):</strong><br>
-        Annual profit positive: 2029 (~¥2.9M) — time savings offset most costs · Cumulative break-even: ~2032 (adjusted cumulative deficit of ¥28.6M recovers at ~¥17.5M/year by 2030+) · Investment period: 2026–2028 (3 years of net investment, 2029 turns positive with time savings) · 2030+ adjusted annual profit: ~¥17.5M/year
+        Annual profit positive: <strong>2029</strong> (+¥2.9M) — time savings offset most costs · Cumulative break-even: <strong>2031</strong> (cumulative turns positive at +¥9.2M) · Investment period: 2026–2028 (3 years of net investment, 2029 turns positive with time savings) · 2030+ adjusted annual profit: ¥13M → ¥45M/year as client base grows
       </p>
     </div>
 
     <div class="pnl-assumptions">
       <h4>Key Assumptions (all figures need validation)</h4>
       <ul>
-        <li><strong>Project investment:</strong> ~4,150h total across 18 projects × ¥20K/h ≈ ¥83M. Hours consumed per year based on 60% capacity allocation to strategy projects.</li>
-        <li><strong>Team capacity:</strong> 3 devs (2026) → 6 devs (2028+). At 60% allocation: 288h/mo (3 devs) → 576h/mo (6 devs). Remaining 40%: 15% maintenance, 20% new requests, 5% buffer.</li>
-        <li><strong>Revenue timeline (realistic):</strong> No external revenue until 2029. First SaaS tenant in 2029 (¥0.8M). First AI Harness client in 2030+ (¥7.1M). Full run rate ~¥11.1M/year by 2030+.</li>
-        <li><strong>AI Harness readiness:</strong> HARNESS-01 (service packaging) completes 2029, TRAIN-01 (teaching materials) completes 2030+. First paying client realistic in 2030+.</li>
-        <li><strong>AI Harness pricing:</strong> ¥3M implementation fee per client + ¥300K/month retainer + ¥500K per training engagement.</li>
+        <li><strong>Revenue growth:</strong> +1 AI Harness client/year from 2030. +2 SaaS tenants/year from 2029. Training delivered by IA Corporate Instructors (¥500K–1M per engagement, 2–3×/year per client).</li>
+        <li><strong>AI Harness pricing:</strong> ¥3–5M implementation (one-time) + ¥150K/month support retainer + ¥500K–1M per training engagement. All services provided by IA — engineering does implementation/support, Corporate Instructors do training.</li>
         <li><strong>SaaS pricing:</strong> ¥200K setup + ¥100K/month per tenant.</li>
+        <li><strong>Cumulative break-even:</strong> 2034 without time savings, 2031 with time savings.</li>
+        <li><strong>Growth model:</strong> Assumes steady client acquisition. Faster sales cycles would accelerate break-even. +1 AI Harness client/year from 2030, +2 SaaS tenants/year from 2029.</li>
+        <li><strong>Project investment:</strong> ~4,150h total across 18 projects × ¥20K/h ≈ ¥83M. Hours consumed per year based on 60% capacity allocation to strategy projects. Drops to ~400h/year (¥8.0M) from 2031 as 18 projects complete — only GTM + maintenance + small feature work remains.</li>
+        <li><strong>Team capacity:</strong> 3 devs (2026) → 6 devs (2028+). At 60% allocation: 288h/mo (3 devs) → 576h/mo (6 devs). Remaining 40%: 15% maintenance, 20% new requests, 5% buffer.</li>
+        <li><strong>AI Harness readiness:</strong> HARNESS-01 (service packaging) completes 2029, TRAIN-01 (teaching materials) completes 2030. First paying client realistic in 2030 (partial year — 6 months).</li>
         <li><strong>OD Video savings:</strong> Current: 10h × 6 lessons/mo × ¥20K/h = ¥1.2M/mo. With AI-02: 2h × 24 lessons/mo = ¥960K/mo. Annual savings ¥2.88M (from Oct 2026).</li>
         <li><strong>AWS additional:</strong> ~¥20K/month for additional services (S3, RDS, SaaS infra) starting 2027. Current infra ~¥35K/mo.</li>
         <li><strong>Zendesk reduction:</strong> IAGPT-02/03 gradually reduce Zendesk dependency — 20% by 2028, 40% by 2029, 50% by 2030+. Current Zendesk ~¥300K/mo.</li>
-        <li><strong>Not included:</strong> Revenue from 4x more OD content (indirect), existing payroll (sunk cost), potential SaaS expansion beyond 3 tenants.</li>
+        <li><strong>Not included:</strong> Revenue from 4× more OD content (indirect), existing payroll (sunk cost), potential SaaS expansion beyond modeled tenants.</li>
         <li><strong>Time savings (architecture):</strong> ~14h/week reclaimed at ¥20K/h ≈ ¥14.5M/year recurring by 2029. Categories: dev discussion (5h/wk, H2 2027), form review (3h/wk, H1 2027), data requests (2h/wk, H1 2028), staff self-service via IAGPT (4h/wk, H1 2028), onboarding (¥0.8M × 3 hires one-time).</li>
       </ul>
     </div>
 
     <div class="method-section">
       <h3>Revenue Calculation Methodology</h3>
-      <table class="pnl-table">
+      <table class="pnl-table growth">
         <thead>
-          <tr><th>Year</th><th>AI Harness clients</th><th>New implementations</th><th>Retainer months</th><th>SaaS tenants</th><th>Revenue calc</th></tr>
+          <tr><th>Year</th><th>AI Harness clients (cumul.)</th><th>New implementations</th><th>SaaS tenants (cumul.)</th><th>New SaaS tenants</th><th>Training engagements</th><th>Revenue calc</th></tr>
         </thead>
         <tbody>
-          <tr><td>2026</td><td>0</td><td>0</td><td>0</td><td>0</td><td>¥0</td></tr>
-          <tr><td>2027</td><td>0</td><td>0</td><td>0</td><td>0</td><td>¥0</td></tr>
-          <tr><td>2028</td><td>0</td><td>0</td><td>0</td><td>0</td><td>¥0 (HARNESS-01 + TRAIN-01 not complete)</td></tr>
-          <tr><td>2029</td><td>0</td><td>0</td><td>0</td><td>1 (6mo × ¥100K + ¥200K setup)</td><td>¥0.8M</td></tr>
-          <tr><td>2030+</td><td>1</td><td>1 × ¥3M = ¥3M</td><td>12mo × ¥300K = ¥3.6M</td><td>3 (12mo × ¥100K × 3 + 2 × ¥200K) = ¥4M</td><td>¥11.1M</td></tr>
+          <tr><td>2026</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>¥0</td></tr>
+          <tr><td>2027</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>¥0</td></tr>
+          <tr><td>2028</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>¥0 (HARNESS-01 + TRAIN-01 not complete)</td></tr>
+          <tr><td>2029</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>¥0.8M (1 SaaS: 6mo × ¥0.1M + ¥0.2M setup)</td></tr>
+          <tr><td>2030</td><td>1</td><td>1 × ¥3M</td><td>3</td><td>2</td><td>1</td><td>¥6.6M (impl + retainer 6mo + training + 3 SaaS × 6mo)</td></tr>
+          <tr><td>2031</td><td>2</td><td>1 × ¥4M</td><td>5</td><td>2</td><td>2</td><td>¥15.5M</td></tr>
+          <tr><td>2032</td><td>3</td><td>1 × ¥4M</td><td>7</td><td>2</td><td>2</td><td>¥20.2M</td></tr>
+          <tr><td>2033</td><td>4</td><td>1 × ¥4M</td><td>9</td><td>2</td><td>2</td><td>¥24.9M</td></tr>
+          <tr><td>2034</td><td>5</td><td>1 × ¥5M</td><td>11</td><td>2</td><td>3</td><td>¥30.6M</td></tr>
+          <tr><td>2035</td><td>6</td><td>1 × ¥5M</td><td>13</td><td>2</td><td>3</td><td>¥35.3M</td></tr>
         </tbody>
       </table>
-      <div class="method-note">Training revenue: 2030+: 1 training × ¥500K = ¥0.5M</div>
+      <div class="method-note">AI Harness: ¥3–5M implementation (one-time) + ¥150K/mo support retainer + ¥500K–1M per training engagement (IA Corporate Instructors deliver training). SaaS: ¥200K setup + ¥100K/month per tenant. First AI Harness client in 2030 (partial year — 6 months). 2029: first SaaS tenant only (6 months).</div>
     </div>
 
     <div class="method-section">
       <h3>Cost Calculation Methodology</h3>
-      <table class="pnl-table">
+      <table class="pnl-table growth">
         <thead>
           <tr><th>Year</th><th>Project hours</th><th>Hourly rate</th><th>AI HW</th><th>AWS/yr</th><th>OD savings/yr</th><th>Zendesk savings/yr</th><th>Net cost</th></tr>
         </thead>
@@ -1691,9 +1707,15 @@
           <tr><td>2027</td><td>~1,100h × ¥20K = ¥22.0M</td><td>¥20K</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>¥0</td><td>¥19.36M</td></tr>
           <tr><td>2028</td><td>~1,200h × ¥20K = ¥24.0M</td><td>¥20K</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>-¥0.072M</td><td>¥21.29M</td></tr>
           <tr><td>2029</td><td>~800h × ¥20K = ¥16.0M</td><td>¥20K</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>-¥0.144M</td><td>¥13.22M</td></tr>
-          <tr><td>2030+</td><td>~550h × ¥20K = ¥11.0M</td><td>¥20K</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>-¥0.18M</td><td>¥8.18M</td></tr>
+          <tr><td>2030</td><td>~550h × ¥20K = ¥11.0M</td><td>¥20K</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>-¥0.18M</td><td>¥8.18M</td></tr>
+          <tr><td>2031</td><td>~400h × ¥20K = ¥8.0M</td><td>¥20K</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>-¥0.18M</td><td>¥5.18M</td></tr>
+          <tr><td>2032</td><td>~400h × ¥20K = ¥8.0M</td><td>¥20K</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>-¥0.18M</td><td>¥5.18M</td></tr>
+          <tr><td>2033</td><td>~400h × ¥20K = ¥8.0M</td><td>¥20K</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>-¥0.18M</td><td>¥5.18M</td></tr>
+          <tr><td>2034</td><td>~400h × ¥20K = ¥8.0M</td><td>¥20K</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>-¥0.18M</td><td>¥5.18M</td></tr>
+          <tr><td>2035</td><td>~400h × ¥20K = ¥8.0M</td><td>¥20K</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>-¥0.18M</td><td>¥5.18M</td></tr>
         </tbody>
       </table>
+      <div class="method-note">Project hours drop to ~400h/year (¥8.0M) from 2031 as 18 projects complete — only maintenance and small feature work remains.</div>
     </div>
 
     <div class="method-section">
