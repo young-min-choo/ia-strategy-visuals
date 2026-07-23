@@ -601,7 +601,7 @@
 <div class="title-block">
   <h1>IA System Development Strategy — Visual Roadmap 2026–2029+</h1>
   <div class="subtitle">In-house AI Harness → External Service + SaaS/BaaS Product Lines</div>
-  <div class="meta">18 projects across 6 strategic categories · Prepared for company-wide presentation</div>
+  <div class="meta">19 projects across 6 strategic categories · Prepared for company-wide presentation</div>
 </div>
 
 <!-- ===== SECTION 1: CURRENT SITUATION ===== -->
@@ -683,6 +683,7 @@
         <tr><td>OD video production is 10h per lesson</td><td>Capacity ~6/month vs desired ~24. Manual bottleneck limits curriculum refresh speed.</td></tr>
         <tr><td>No local AI capability</td><td>Every AI workload depends on external APIs or personal machines. No staff-built tools. No customer-facing AI.</td></tr>
         <tr><td>No SaaS/multi-tenant foundation</td><td>Can't sell products as platforms. Every customer-specific request is a one-off fork.</td></tr>
+        <tr><td>Staff rely on spreadsheets and manual data entry</td><td>Many consistent processes not yet built into apps. Manual work is slow, error-prone, and creates data silos outside Zan/Kikuichimonji.</td></tr>
       </tbody>
     </table>
   </div>
@@ -863,6 +864,7 @@
         <tr><td>OD video bottleneck</td><td>AI-01, AI-02</td><td>Local AI hardware + automated OD pipeline. 6→24 lessons/month.</td></tr>
         <tr><td>No local AI / staff tools</td><td>AI-01, DEVAI-01, GOV-01</td><td>Local hardware + staff app builder + PR governance. Staff build tools, engineers review.</td></tr>
         <tr><td>No SaaS foundation</td><td>TENANT-01, ZAN-01, KIKU-01</td><td>Multi-tenant model + per-product SaaSification. Sellable platforms, not one-off forks.</td></tr>
+        <tr><td>Manual spreadsheet processes</td><td>PROCESS-01</td><td>Interview all departments → prioritize → build automations into Zan/Kikuichimonji before backend separation.</td></tr>
       </tbody>
     </table>
   </div>
@@ -1186,6 +1188,18 @@
           <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
           <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>Product packaging</span></td>
         </tr>
+        <tr>
+          <td><span class="benefit-dot dot-strong"></span>PROCESS-01 Process Auto.</td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>Feature stabilization before separation</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>Manual processes automated</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>Spreadsheet → app workflows</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>Manual data entry eliminated</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>Process automation across all ops</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>Visibility into department processes</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>Staff trained on new workflows</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>Feature-complete apps before SaaS</span></td>
+        </tr>
       </tbody>
     </table>
   
@@ -1331,6 +1345,11 @@
           <div class="pname">Teaching / Enablement</div>
           <div class="pdep">→ HARNESS</div>
         </div>
+        <div class="project-bar cat-ai-first" style="grid-column: 2 / 5; grid-row: 5; opacity:0.55;">
+          <div class="pid">PROCESS-01</div>
+          <div class="pname">Process Automation</div>
+          <div class="pdep">→ Interviews · ⊢ APP-SEP</div>
+        </div>
       </div>
     </div>
 
@@ -1412,6 +1431,16 @@
         <div class="step">STEP 4</div>
         <div class="name">IAHP-01→02<br>Reservation Mig.</div>
         <div class="detail">Source-controlled forms. Same URLs, less risk.</div>
+      </div>
+    </div>
+
+    <!-- Bridge: PROCESS-01 between Phase 1 and Phase 2 -->
+    <div class="chain-phase-label" style="color:#2e7d32;">BRIDGE — Process Automation (H2 2026 → H2 2027)</div>
+    <div class="chain-flow">
+      <div class="chain-node cat-ai-first">
+        <div class="step">STEP 4b</div>
+        <div class="name">PROCESS-01<br>Process Auto.</div>
+        <div class="detail">Interview → prioritize → build automations</div>
       </div>
     </div>
 
@@ -1617,15 +1646,15 @@
         <tr><th>Cost Item</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th><th>2030</th><th>2031</th><th>2032</th><th>2033</th><th>2034</th><th>2035</th></tr>
       </thead>
       <tbody>
-        <tr class="cost-row"><td>Project investment (dev hours × ¥20K/h)</td><td>¥10.0M</td><td>¥22.0M</td><td>¥24.0M</td><td>¥16.0M</td><td>¥11.0M</td><td>¥8.0M</td><td>¥8.0M</td><td>¥8.0M</td><td>¥8.0M</td><td>¥8.0M</td></tr>
+        <tr class="cost-row"><td>Project investment (dev hours × ¥20K/h)</td><td>¥13.0M</td><td>¥31.0M</td><td>¥24.0M</td><td>¥16.0M</td><td>¥11.0M</td><td>¥8.0M</td><td>¥8.0M</td><td>¥8.0M</td><td>¥8.0M</td><td>¥8.0M</td></tr>
         <tr class="cost-row"><td>AI Hardware (one-time)</td><td>¥1.2M</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td></tr>
         <tr class="cost-row"><td>AWS infrastructure (additional)</td><td>¥0</td><td>¥0.24M</td><td>¥0.24M</td><td>¥0.24M</td><td>¥0.24M</td><td>¥0.24M</td><td>¥0.24M</td><td>¥0.24M</td><td>¥0.24M</td><td>¥0.24M</td></tr>
         <tr class="savings-row"><td>OD Video cost savings (AI-02)</td><td>-¥0</td><td>-¥2.88M</td><td>-¥2.88M</td><td>-¥2.88M</td><td>-¥2.88M</td><td>-¥2.88M</td><td>-¥2.88M</td><td>-¥2.88M</td><td>-¥2.88M</td><td>-¥2.88M</td></tr>
         <tr class="savings-row"><td>Zendesk dependency reduction</td><td>-¥0</td><td>-¥0</td><td>-¥0.072M</td><td>-¥0.144M</td><td>-¥0.18M</td><td>-¥0.18M</td><td>-¥0.18M</td><td>-¥0.18M</td><td>-¥0.18M</td><td>-¥0.18M</td></tr>
-        <tr class="total-row cost-row"><td>Net New Costs</td><td>¥11.2M</td><td>¥19.36M</td><td>¥21.29M</td><td>¥13.22M</td><td>¥8.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td></tr>
+        <tr class="total-row cost-row"><td>Net New Costs</td><td>¥14.2M</td><td>¥28.36M</td><td>¥21.29M</td><td>¥13.22M</td><td>¥8.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td></tr>
       </tbody>
     </table>
-    <div class="method-note">Project hours drop to ~400h/year (¥8.0M) from 2031 as 18 projects complete — only GTM + maintenance + small feature work remains. Net cost 2031+: ¥8.0M + ¥0.24M − ¥2.88M − ¥0.18M = ¥5.18M/year.</div>
+    <div class="method-note">Project hours drop to ~400h/year (¥8.0M) from 2031 as 19 projects complete — only GTM + maintenance + small feature work remains. Net cost 2031+: ¥8.0M + ¥0.24M − ¥2.88M − ¥0.18M = ¥5.18M/year.</div>
 
     <h3>Profit Simulation (¥M)</h3>
     <table class="pnl-table growth">
@@ -1634,12 +1663,12 @@
       </thead>
       <tbody>
         <tr class="revenue-row"><td>Total Revenue</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0.8M</td><td>¥6.6M</td><td>¥15.5M</td><td>¥20.2M</td><td>¥24.9M</td><td>¥30.6M</td><td>¥35.3M</td></tr>
-        <tr class="cost-row"><td>Net New Costs</td><td>¥11.2M</td><td>¥19.36M</td><td>¥21.29M</td><td>¥13.22M</td><td>¥8.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td></tr>
-        <tr class="profit-row"><td>Annual Profit / (Loss)</td><td class="pnl-negative">-¥11.2M</td><td class="pnl-negative">-¥19.36M</td><td class="pnl-negative">-¥21.29M</td><td class="pnl-negative">-¥12.42M</td><td class="pnl-negative">-¥1.58M</td><td class="pnl-positive">+¥10.32M</td><td class="pnl-positive">+¥15.02M</td><td class="pnl-positive">+¥19.72M</td><td class="pnl-positive">+¥25.42M</td><td class="pnl-positive">+¥30.12M</td></tr>
-        <tr class="cumulative-row"><td>Cumulative</td><td class="pnl-negative">-¥11.2M</td><td class="pnl-negative">-¥30.56M</td><td class="pnl-negative">-¥51.85M</td><td class="pnl-negative">-¥64.27M</td><td class="pnl-negative">-¥65.85M</td><td class="pnl-negative">-¥55.53M</td><td class="pnl-negative">-¥40.51M</td><td class="pnl-negative">-¥20.79M</td><td class="pnl-positive">+¥4.63M</td><td class="pnl-positive">+¥34.75M</td></tr>
+        <tr class="cost-row"><td>Net New Costs</td><td>¥14.2M</td><td>¥28.36M</td><td>¥21.29M</td><td>¥13.22M</td><td>¥8.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td></tr>
+        <tr class="profit-row"><td>Annual Profit / (Loss)</td><td class="pnl-negative">-¥14.2M</td><td class="pnl-negative">-¥28.36M</td><td class="pnl-negative">-¥21.29M</td><td class="pnl-negative">-¥12.42M</td><td class="pnl-negative">-¥1.58M</td><td class="pnl-positive">+¥10.32M</td><td class="pnl-positive">+¥15.02M</td><td class="pnl-positive">+¥19.72M</td><td class="pnl-positive">+¥25.42M</td><td class="pnl-positive">+¥30.12M</td></tr>
+        <tr class="cumulative-row"><td>Cumulative</td><td class="pnl-negative">-¥14.2M</td><td class="pnl-negative">-¥42.56M</td><td class="pnl-negative">-¥63.85M</td><td class="pnl-negative">-¥76.27M</td><td class="pnl-negative">-¥77.85M</td><td class="pnl-negative">-¥67.53M</td><td class="pnl-negative">-¥52.51M</td><td class="pnl-negative">-¥32.79M</td><td class="pnl-negative">-¥7.37M</td><td class="pnl-positive">+¥22.75M</td></tr>
         <tr class="savings-row"><td>Time savings (recurring)</td><td>¥0</td><td>¥4.95M</td><td>¥15.34M</td><td>¥15.34M</td><td>¥14.54M</td><td>¥14.54M</td><td>¥14.54M</td><td>¥14.54M</td><td>¥14.54M</td><td>¥14.54M</td></tr>
-        <tr class="profit-row"><td>Adjusted annual profit (w/ time savings)</td><td class="pnl-negative">-¥11.2M</td><td class="pnl-negative">-¥14.41M</td><td class="pnl-negative">-¥5.95M</td><td class="pnl-positive">+¥2.92M</td><td class="pnl-positive">+¥12.96M</td><td class="pnl-positive">+¥24.86M</td><td class="pnl-positive">+¥29.56M</td><td class="pnl-positive">+¥34.26M</td><td class="pnl-positive">+¥39.96M</td><td class="pnl-positive">+¥44.66M</td></tr>
-        <tr class="cumulative-row"><td>Adjusted cumulative (w/ time savings)</td><td class="pnl-negative">-¥11.2M</td><td class="pnl-negative">-¥25.61M</td><td class="pnl-negative">-¥31.56M</td><td class="pnl-negative">-¥28.64M</td><td class="pnl-negative">-¥15.68M</td><td class="pnl-positive">+¥9.18M</td><td class="pnl-positive">+¥38.74M</td><td class="pnl-positive">+¥73.0M</td><td class="pnl-positive">+¥112.96M</td><td class="pnl-positive">+¥157.62M</td></tr>
+        <tr class="profit-row"><td>Adjusted annual profit (w/ time savings)</td><td class="pnl-negative">-¥14.2M</td><td class="pnl-negative">-¥23.41M</td><td class="pnl-negative">-¥5.95M</td><td class="pnl-positive">+¥2.92M</td><td class="pnl-positive">+¥12.96M</td><td class="pnl-positive">+¥24.86M</td><td class="pnl-positive">+¥29.56M</td><td class="pnl-positive">+¥34.26M</td><td class="pnl-positive">+¥39.96M</td><td class="pnl-positive">+¥44.66M</td></tr>
+        <tr class="cumulative-row"><td>Adjusted cumulative (w/ time savings)</td><td class="pnl-negative">-¥14.2M</td><td class="pnl-negative">-¥37.61M</td><td class="pnl-negative">-¥43.56M</td><td class="pnl-negative">-¥40.64M</td><td class="pnl-negative">-¥27.68M</td><td class="pnl-negative">-¥2.82M</td><td class="pnl-positive">+¥26.74M</td><td class="pnl-positive">+¥61.0M</td><td class="pnl-positive">+¥100.96M</td><td class="pnl-positive">+¥145.62M</td></tr>
       </tbody>
     </table>
 
@@ -1647,11 +1676,11 @@
       <strong>📈 Break-even Analysis — Two Scenarios</strong>
       <p>
         <strong>Without time savings (revenue only):</strong><br>
-        Annual profit positive: <strong>2031</strong> (+¥10.3M) — revenue exceeds flat maintenance costs · Cumulative break-even: <strong>2034</strong> (cumulative turns positive at +¥4.6M) · Investment period: 2026–2030 (5 years of investment, peak cumulative deficit −¥65.9M in 2030)
+        Annual profit positive: <strong>2031</strong> (+¥10.3M) — revenue exceeds flat maintenance costs · Cumulative break-even: <strong>2035</strong> (cumulative turns positive at +¥22.8M) · Investment period: 2026–2030 (5 years of investment, peak cumulative deficit −¥77.9M in 2030)
       </p>
       <p style="margin-top:8px;">
         <strong>With time savings (architecture + self-service):</strong><br>
-        Annual profit positive: <strong>2029</strong> (+¥2.9M) — time savings offset most costs · Cumulative break-even: <strong>2031</strong> (cumulative turns positive at +¥9.2M) · Investment period: 2026–2028 (3 years of net investment, 2029 turns positive with time savings) · 2030+ adjusted annual profit: ¥13M → ¥45M/year as client base grows
+        Annual profit positive: <strong>2029</strong> (+¥2.9M) — time savings offset most costs · Cumulative break-even: <strong>2032</strong> (cumulative turns positive at +¥26.7M) · Investment period: 2026–2028 (3 years of net investment, 2029 turns positive with time savings) · 2030+ adjusted annual profit: ¥13M → ¥45M/year as client base grows
       </p>
     </div>
 
@@ -1661,9 +1690,9 @@
         <li><strong>Revenue growth:</strong> +1 AI Harness client/year from 2030. +2 SaaS tenants/year from 2029. Training delivered by IA Corporate Instructors (¥500K–1M per engagement, 2–3×/year per client).</li>
         <li><strong>AI Harness pricing:</strong> ¥3–5M implementation (one-time) + ¥150K/month support retainer + ¥500K–1M per training engagement. All services provided by IA — engineering does implementation/support, Corporate Instructors do training.</li>
         <li><strong>SaaS pricing:</strong> ¥200K setup + ¥100K/month per tenant.</li>
-        <li><strong>Cumulative break-even:</strong> 2034 without time savings, 2031 with time savings.</li>
+        <li><strong>Cumulative break-even:</strong> 2035 without time savings, 2032 with time savings.</li>
         <li><strong>Growth model:</strong> Assumes steady client acquisition. Faster sales cycles would accelerate break-even. +1 AI Harness client/year from 2030, +2 SaaS tenants/year from 2029.</li>
-        <li><strong>Project investment:</strong> ~4,150h total across 18 projects × ¥20K/h ≈ ¥83M. Hours consumed per year based on 60% capacity allocation to strategy projects. Drops to ~400h/year (¥8.0M) from 2031 as 18 projects complete — only GTM + maintenance + small feature work remains.</li>
+        <li><strong>Project investment:</strong> ~4,750h total across 19 projects × ¥20K/h ≈ ¥95M. Hours consumed per year based on 60% capacity allocation to strategy projects. Drops to ~400h/year (¥8.0M) from 2031 as 19 projects complete — only GTM + maintenance + small feature work remains.</li>
         <li><strong>Team capacity:</strong> 3 devs (2026) → 6 devs (2028+). At 60% allocation: 288h/mo (3 devs) → 576h/mo (6 devs). Remaining 40%: 15% maintenance, 20% new requests, 5% buffer.</li>
         <li><strong>AI Harness readiness:</strong> HARNESS-01 (service packaging) completes 2029, TRAIN-01 (teaching materials) completes 2030. First paying client realistic in 2030 (partial year — 6 months).</li>
         <li><strong>OD Video savings:</strong> Current: 10h × 6 lessons/mo × ¥20K/h = ¥1.2M/mo. With AI-02: 2h × 24 lessons/mo = ¥960K/mo. Annual savings ¥2.88M (from Oct 2026).</li>
@@ -1703,8 +1732,8 @@
           <tr><th>Year</th><th>Project hours</th><th>Hourly rate</th><th>AI HW</th><th>AWS/yr</th><th>OD savings/yr</th><th>Zendesk savings/yr</th><th>Net cost</th></tr>
         </thead>
         <tbody>
-          <tr><td>2026</td><td>~500h × ¥20K = ¥10.0M</td><td>¥20K</td><td>¥1.2M</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥11.2M</td></tr>
-          <tr><td>2027</td><td>~1,100h × ¥20K = ¥22.0M</td><td>¥20K</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>¥0</td><td>¥19.36M</td></tr>
+          <tr><td>2026</td><td>~650h × ¥20K = ¥13.0M</td><td>¥20K</td><td>¥1.2M</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥14.2M</td></tr>
+          <tr><td>2027</td><td>~1,550h × ¥20K = ¥31.0M</td><td>¥20K</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>¥0</td><td>¥28.36M</td></tr>
           <tr><td>2028</td><td>~1,200h × ¥20K = ¥24.0M</td><td>¥20K</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>-¥0.072M</td><td>¥21.29M</td></tr>
           <tr><td>2029</td><td>~800h × ¥20K = ¥16.0M</td><td>¥20K</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>-¥0.144M</td><td>¥13.22M</td></tr>
           <tr><td>2030</td><td>~550h × ¥20K = ¥11.0M</td><td>¥20K</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>-¥0.18M</td><td>¥8.18M</td></tr>
@@ -1715,7 +1744,7 @@
           <tr><td>2035</td><td>~400h × ¥20K = ¥8.0M</td><td>¥20K</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>-¥0.18M</td><td>¥5.18M</td></tr>
         </tbody>
       </table>
-      <div class="method-note">Project hours drop to ~400h/year (¥8.0M) from 2031 as 18 projects complete — only maintenance and small feature work remains.</div>
+      <div class="method-note">Project hours drop to ~400h/year (¥8.0M) from 2031 as 19 projects complete — only maintenance and small feature work remains.</div>
     </div>
 
     <div class="method-section">
@@ -1739,14 +1768,15 @@
           <tr><td>DEVAI-01 (Staff Builder)</td><td>Tooling</td><td>200h</td></tr>
           <tr><td>HARNESS-01 (Service Pkg)</td><td>Documentation</td><td>150h</td></tr>
           <tr><td>TRAIN-01 (Teaching)</td><td>Training dev</td><td>120h</td></tr>
+          <tr><td>PROCESS-01 (Process Automation)</td><td>Department automation</td><td>600h</td></tr>
           <tr><td>TENANT-01 (SaaS Foundation)</td><td>Infrastructure</td><td>300h</td></tr>
           <tr><td>ZAN-01 (Zan SaaS)</td><td>SaaSification</td><td>250h</td></tr>
           <tr><td>KIKU-01 (Kiku SaaS)</td><td>SaaSification</td><td>350h</td></tr>
           <tr><td>MARKET-01 (GTM)</td><td>Business</td><td>100h</td></tr>
-          <tr class="total-row"><td>Total</td><td></td><td>~4,150h</td></tr>
+          <tr class="total-row"><td>Total</td><td></td><td>~4,750h</td></tr>
         </tbody>
       </table>
-      <div class="method-note">Total project investment: ~4,150h × ¥20K/h ≈ ¥83M. Allocation: 60% main quest, 15% maintenance, 20% new requests, 5% buffer.</div>
+      <div class="method-note">Total project investment: ~4,750h × ¥20K/h ≈ ¥95M. Allocation: 60% main quest, 15% maintenance, 20% new requests, 5% buffer.</div>
     </div>
 
     <div class="method-section">
