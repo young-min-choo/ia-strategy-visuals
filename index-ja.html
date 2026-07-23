@@ -601,7 +601,7 @@
 <div class="title-block">
   <h1>IAシステム開発戦略 — ビジュアルロードマップ 2026–2029+</h1>
   <div class="subtitle">社内AIハーネス → 外部サービス + SaaS/BaaS製品ライン</div>
-  <div class="meta">6つの戦略カテゴリにわたる18プロジェクト · 全社向けプレゼン用</div>
+  <div class="meta">6つの戦略カテゴリにわたる19プロジェクト · 全社向けプレゼン用</div>
 </div>
 
 <!-- ===== SECTION 1: CURRENT SITUATION ===== -->
@@ -683,6 +683,7 @@
         <tr><td>OD動画制作が1レッスン10時間</td><td>月~6本 vs 目標~24本。手作業のボトルネックがカリキュラム更新速度を制限。</td></tr>
         <tr><td>ローカルAI能力なし</td><td>全AIワークロードが外部API或いは個人PCに依存。スタッフ構築ツールなし。顧客向けAIなし。</td></tr>
         <tr><td>SaaS/マルチテナント基盤なし</td><td>プラットフォームとして販売不可。顧客固有の要求は毎回個別フォーク。</td></tr>
+        <tr><td>スタッフがスプレッドシートと手作業データ入力に依存</td><td>多くの定型プロセスがまだアプリに組み込まれていない。手作業は遅く、エラーが発生しやすく、Zan/Kikuichimonji外にデータサイロを作る。</td></tr>
       </tbody>
     </table>
   </div>
@@ -863,6 +864,7 @@
         <tr><td>OD動画ボトルネック</td><td>AI-01, AI-02</td><td>ローカルAIハードウェア + 自動ODパイプライン。月6→24レッスン。</td></tr>
         <tr><td>ローカルAI/スタッフツールなし</td><td>AI-01, DEVAI-01, GOV-01</td><td>ローカルハードウェア + スタッフアプリビルダー + PRガバナンス。スタッフがビルド、エンジニアがレビュー。</td></tr>
         <tr><td>SaaS基盤なし</td><td>TENANT-01, ZAN-01, KIKU-01</td><td>マルチテナントモデル + 製品別SaaS化。売れるプラットフォーム、個別フォークではない。</td></tr>
+        <tr><td>手作業スプレッドシートプロセス</td><td>PROCESS-01</td><td>全部門をインタビュー → 優先順位付け → バックエンド分離前にZan/Kikuichimonjiに自動化を構築。</td></tr>
       </tbody>
     </table>
   </div>
@@ -1174,10 +1176,22 @@
           <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
           <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>プロダクトパッケージング</span></td>
         </tr>
+        <tr>
+          <td><span class="benefit-dot dot-strong"></span>PROCESS-01 プロセス自動化</td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>分離前の機能安定化</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>手作業プロセスの自動化</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>スプレッドシート→アプリワークフロー</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>手作業データ入力の排除</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>全運用プロセスの自動化</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>部門プロセスの可視化</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-moderate"></span>新ワークフローのスタッフトレーニング</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-none"></span>—</span></td>
+          <td><span class="benefit-text"><span class="benefit-dot dot-strong"></span>SaaS前の機能完成アプリ</span></td>
+        </tr>
       </tbody>
     </table>
-  
   </div>
+</div>
 </div>
 
 <!-- ===== SECTION 4: HOW EACH PROJECT GETS US THERE ===== -->
@@ -1319,6 +1333,11 @@
           <div class="pname">トレーニング/イネーブルメント</div>
           <div class="pdep">→ HARNESS</div>
         </div>
+        <div class="project-bar cat-ai-first" style="grid-column: 2 / 5; grid-row: 5; opacity:0.55;">
+          <div class="pid">PROCESS-01</div>
+          <div class="pname">プロセス自動化</div>
+          <div class="pdep">→ インタビュー · ⊢ APP-SEP</div>
+        </div>
       </div>
     </div>
 
@@ -1395,6 +1414,16 @@
         <div class="step">STEP 4</div>
         <div class="name">IAHP-01→02<br>予約移行</div>
         <div class="detail">ソース管理フォーム。同一URL、低リスク。</div>
+      </div>
+    </div>
+
+    <!-- Bridge: PROCESS-01 between Phase 1 and Phase 2 -->
+    <div class="chain-phase-label" style="color:#2e7d32;">ブリッジ — プロセス自動化 (H2 2026 → H2 2027)</div>
+    <div class="chain-flow">
+      <div class="chain-node cat-ai-first">
+        <div class="step">STEP 4b</div>
+        <div class="name">PROCESS-01<br>プロセス自動化</div>
+        <div class="detail">インタビュー → 優先順位 → 自動化構築</div>
       </div>
     </div>
 
@@ -1594,15 +1623,15 @@
         <tr><th>費用項目</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th><th>2030</th><th>2031</th><th>2032</th><th>2033</th><th>2034</th><th>2035</th></tr>
       </thead>
       <tbody>
-        <tr class="cost-row"><td>プロジェクト投資（開発時間 × ¥20K/h）</td><td>¥10.0M</td><td>¥22.0M</td><td>¥24.0M</td><td>¥16.0M</td><td>¥11.0M</td><td>¥8.0M</td><td>¥8.0M</td><td>¥8.0M</td><td>¥8.0M</td><td>¥8.0M</td></tr>
+        <tr class="cost-row"><td>プロジェクト投資（開発時間 × ¥20K/h）</td><td>¥13.0M</td><td>¥31.0M</td><td>¥24.0M</td><td>¥16.0M</td><td>¥11.0M</td><td>¥8.0M</td><td>¥8.0M</td><td>¥8.0M</td><td>¥8.0M</td><td>¥8.0M</td></tr>
         <tr class="cost-row"><td>AIハードウェア（一時）</td><td>¥1.2M</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0</td></tr>
         <tr class="cost-row"><td>AWSインフラ（追加）</td><td>¥0</td><td>¥0.24M</td><td>¥0.24M</td><td>¥0.24M</td><td>¥0.24M</td><td>¥0.24M</td><td>¥0.24M</td><td>¥0.24M</td><td>¥0.24M</td><td>¥0.24M</td></tr>
         <tr class="savings-row"><td>OD動画コスト削減 (AI-02)</td><td>-¥0</td><td>-¥2.88M</td><td>-¥2.88M</td><td>-¥2.88M</td><td>-¥2.88M</td><td>-¥2.88M</td><td>-¥2.88M</td><td>-¥2.88M</td><td>-¥2.88M</td><td>-¥2.88M</td></tr>
         <tr class="savings-row"><td>Zendesk依存削減</td><td>-¥0</td><td>-¥0</td><td>-¥0.072M</td><td>-¥0.144M</td><td>-¥0.18M</td><td>-¥0.18M</td><td>-¥0.18M</td><td>-¥0.18M</td><td>-¥0.18M</td><td>-¥0.18M</td></tr>
-        <tr class="total-row cost-row"><td>純新規費用</td><td>¥11.2M</td><td>¥19.36M</td><td>¥21.29M</td><td>¥13.22M</td><td>¥8.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td></tr>
+        <tr class="total-row cost-row"><td>純新規費用</td><td>¥14.2M</td><td>¥28.36M</td><td>¥21.29M</td><td>¥13.22M</td><td>¥8.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td></tr>
       </tbody>
     </table>
-    <div class="method-note">プロジェクト時間は2031年から~400h/年（¥8.0M）に削減 — 18プロジェクト完了、GTM + メンテナンス + 小規模機能のみ残存。純費用2031年以降: ¥8.0M + ¥0.24M − ¥2.88M − ¥0.18M = ¥5.18M/年。</div>
+    <div class="method-note">プロジェクト時間は2031年から~400h/年（¥8.0M）に削減 — 19プロジェクト完了、GTM + メンテナンス + 小規模機能のみ残存。純費用2031年以降: ¥8.0M + ¥0.24M − ¥2.88M − ¥0.18M = ¥5.18M/年。</div>
 
     <h3>利益シミュレーション (¥M)</h3>
     <table class="pnl-table growth">
@@ -1611,12 +1640,12 @@
       </thead>
       <tbody>
         <tr class="revenue-row"><td>売上合計</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥0.8M</td><td>¥6.6M</td><td>¥15.5M</td><td>¥20.2M</td><td>¥24.9M</td><td>¥30.6M</td><td>¥35.3M</td></tr>
-        <tr class="cost-row"><td>純新規費用</td><td>¥11.2M</td><td>¥19.36M</td><td>¥21.29M</td><td>¥13.22M</td><td>¥8.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td></tr>
-        <tr class="profit-row"><td>年次利益 / (損失)</td><td class="pnl-negative">-¥11.2M</td><td class="pnl-negative">-¥19.36M</td><td class="pnl-negative">-¥21.29M</td><td class="pnl-negative">-¥12.42M</td><td class="pnl-negative">-¥1.58M</td><td class="pnl-positive">+¥10.32M</td><td class="pnl-positive">+¥15.02M</td><td class="pnl-positive">+¥19.72M</td><td class="pnl-positive">+¥25.42M</td><td class="pnl-positive">+¥30.12M</td></tr>
-        <tr class="cumulative-row"><td>累計</td><td class="pnl-negative">-¥11.2M</td><td class="pnl-negative">-¥30.56M</td><td class="pnl-negative">-¥51.85M</td><td class="pnl-negative">-¥64.27M</td><td class="pnl-negative">-¥65.85M</td><td class="pnl-negative">-¥55.53M</td><td class="pnl-negative">-¥40.51M</td><td class="pnl-negative">-¥20.79M</td><td class="pnl-positive">+¥4.63M</td><td class="pnl-positive">+¥34.75M</td></tr>
+        <tr class="cost-row"><td>純新規費用</td><td>¥14.2M</td><td>¥28.36M</td><td>¥21.29M</td><td>¥13.22M</td><td>¥8.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td><td>¥5.18M</td></tr>
+        <tr class="profit-row"><td>年次利益 / (損失)</td><td class="pnl-negative">-¥14.2M</td><td class="pnl-negative">-¥28.36M</td><td class="pnl-negative">-¥21.29M</td><td class="pnl-negative">-¥12.42M</td><td class="pnl-negative">-¥1.58M</td><td class="pnl-positive">+¥10.32M</td><td class="pnl-positive">+¥15.02M</td><td class="pnl-positive">+¥19.72M</td><td class="pnl-positive">+¥25.42M</td><td class="pnl-positive">+¥30.12M</td></tr>
+        <tr class="cumulative-row"><td>累計</td><td class="pnl-negative">-¥14.2M</td><td class="pnl-negative">-¥42.56M</td><td class="pnl-negative">-¥63.85M</td><td class="pnl-negative">-¥76.27M</td><td class="pnl-negative">-¥77.85M</td><td class="pnl-negative">-¥67.53M</td><td class="pnl-negative">-¥52.51M</td><td class="pnl-negative">-¥32.79M</td><td class="pnl-negative">-¥7.37M</td><td class="pnl-positive">+¥22.75M</td></tr>
         <tr class="savings-row"><td>時間削減（継続）</td><td>¥0</td><td>¥4.95M</td><td>¥15.34M</td><td>¥15.34M</td><td>¥14.54M</td><td>¥14.54M</td><td>¥14.54M</td><td>¥14.54M</td><td>¥14.54M</td><td>¥14.54M</td></tr>
-        <tr class="profit-row"><td>調整後年次利益（時間削減込み）</td><td class="pnl-negative">-¥11.2M</td><td class="pnl-negative">-¥14.41M</td><td class="pnl-negative">-¥5.95M</td><td class="pnl-positive">+¥2.92M</td><td class="pnl-positive">+¥12.96M</td><td class="pnl-positive">+¥24.86M</td><td class="pnl-positive">+¥29.56M</td><td class="pnl-positive">+¥34.26M</td><td class="pnl-positive">+¥39.96M</td><td class="pnl-positive">+¥44.66M</td></tr>
-        <tr class="cumulative-row"><td>調整後累計（時間削減込み）</td><td class="pnl-negative">-¥11.2M</td><td class="pnl-negative">-¥25.61M</td><td class="pnl-negative">-¥31.56M</td><td class="pnl-negative">-¥28.64M</td><td class="pnl-negative">-¥15.68M</td><td class="pnl-positive">+¥9.18M</td><td class="pnl-positive">+¥38.74M</td><td class="pnl-positive">+¥73.0M</td><td class="pnl-positive">+¥112.96M</td><td class="pnl-positive">+¥157.62M</td></tr>
+        <tr class="profit-row"><td>調整後年次利益（時間削減込み）</td><td class="pnl-negative">-¥14.2M</td><td class="pnl-negative">-¥23.41M</td><td class="pnl-negative">-¥5.95M</td><td class="pnl-positive">+¥2.92M</td><td class="pnl-positive">+¥12.96M</td><td class="pnl-positive">+¥24.86M</td><td class="pnl-positive">+¥29.56M</td><td class="pnl-positive">+¥34.26M</td><td class="pnl-positive">+¥39.96M</td><td class="pnl-positive">+¥44.66M</td></tr>
+        <tr class="cumulative-row"><td>調整後累計（時間削減込み）</td><td class="pnl-negative">-¥14.2M</td><td class="pnl-negative">-¥37.61M</td><td class="pnl-negative">-¥43.56M</td><td class="pnl-negative">-¥40.64M</td><td class="pnl-negative">-¥27.68M</td><td class="pnl-negative">-¥2.82M</td><td class="pnl-positive">+¥26.74M</td><td class="pnl-positive">+¥61.0M</td><td class="pnl-positive">+¥100.96M</td><td class="pnl-positive">+¥145.62M</td></tr>
       </tbody>
     </table>
 
@@ -1624,14 +1653,14 @@
       <strong>📈 損益分岐分析 — 2つのシナリオ</strong>
       <p>
         <strong>時間削減なし（売上のみ）:</strong><br>
-        年次利益黒字化: <strong>2031</strong>（+¥10.3M）— 売上が一定メンテナンス費用を上回る · 累計損益分岐: <strong>2034</strong>（累計が+¥4.6Mに転正） · 投資期間: 2026–2030（5年間の投資、最大累計赤字−¥65.9Mは2030年） · 2035年に売上¥35.3M、調整後累計+¥157.6Mに達する
+        年次利益黒字化: <strong>2031</strong>（+¥10.3M）— 売上が一定メンテナンス費用を上回る · 累計損益分岐: <strong>2035</strong>（累計が+¥22.8Mに転正） · 投資期間: 2026–2030（5年間の投資、最大累計赤字−¥77.9Mは2030年） · 2035年に売上¥35.3M、調整後累計+¥145.6Mに達する
       </p>
       <p style="margin-top:8px;">
         <strong>時間削減あり（アーキテクチャ + 自己解決）:</strong><br>
-        年次利益黒字化: <strong>2029</strong>（+¥2.9M）— 時間削減が大部分のコストを相殺 · 累計損益分岐: <strong>2031</strong>（累計が+¥9.2Mに転正） · 投資期間: 2026–2028（3年間の純投資、2029年に時間削減込みで黒字化） · 2030+ 調整後年次利益: ¥13M → ¥45M/年（クライアント基盤成長に伴い）
+        年次利益黒字化: <strong>2029</strong>（+¥2.9M）— 時間削減が大部分のコストを相殺 · 累計損益分岐: <strong>2032</strong>（累計が+¥26.7Mに転正） · 投資期間: 2026–2028（3年間の純投資、2029年に時間削減込みで黒字化） · 2030+ 調整後年次利益: ¥13M → ¥45M/年（クライアント基盤成長に伴い）
       </p>
       <p style="margin-top:8px;">
-        <strong>累計損益分岐: 2034（時間削減なし）、2031（時間削減あり）</strong>
+        <strong>累計損益分岐: 2035（時間削減なし）、2032（時間削減あり）</strong>
       </p>
     </div>
 
@@ -1641,9 +1670,9 @@
         <li><strong>成長モデル:</strong> 2030年からAIハーネスクライアント+1/年。2029年からSaaSテナント+2/年。IA企業研修講師が研修を提供（¥500K-1M/回、クライアントあたり年2-3回）。</li>
         <li><strong>AIハーネス価格:</strong> ¥3-5M実装（一時）+ ¥150K/月サポートリテーナー + ¥500K-1M/研修回。全サービスIA提供 — エンジニアリングが実装/サポート、企業研修講師が研修。</li>
         <li><strong>SaaS価格:</strong> ¥200Kセットアップ + ¥100K/月/テナント。</li>
-        <li><strong>累計損益分岐:</strong> 2034（時間削減なし）、2031（時間削減あり）。</li>
+        <li><strong>累計損益分岐:</strong> 2035（時間削減なし）、2032（時間削減あり）。</li>
         <li><strong>成長モデル:</strong> 安定したクライアント獲得を前提。売上サイクルが早ければ損益分岐は早期化。2030年からAIハーネスクライアント+1/年、2029年からSaaSテナント+2/年。</li>
-        <li><strong>プロジェクト投資:</strong> 18プロジェクト合計~4,150h × ¥20K/h ≈ ¥83M。年間消費時間は60%キャパシティ配分に基づく。2031年から~400h/年（¥8.0M）に削減 — 18プロジェクト完了、GTM + メンテナンス + 小規模機能のみ残存。</li>
+        <li><strong>プロジェクト投資:</strong> 19プロジェクト合計~4,750h × ¥20K/h ≈ ¥95M。年間消費時間は60%キャパシティ配分に基づく。2031年から~400h/年（¥8.0M）に削減 — 19プロジェクト完了、GTM + メンテナンス + 小規模機能のみ残存。</li>
         <li><strong>チームキャパシティ:</strong> 3開発者(2026) → 6開発者(2028+)。60%配分で288h/月(3名) → 576h/月(6名)。残り40%: 15%メンテナンス、20%新規リクエスト、5%バッファー。</li>
         <li><strong>AIハーネス準備状況:</strong> HARNESS-01(サービスパッケージ)は2029年完了、TRAIN-01(教材)は2030年完了。最初の有料クライアントは2030年が現実的（半年の部分年）。</li>
         <li><strong>OD動画削減:</strong> 現行: 10h × 6レッスン/月 × ¥20K/h = ¥1.2M/月。AI-02導入後: 2h × 24レッスン/月 = ¥960K/月。年間削減¥2.88M（2026年10月〜）。</li>
@@ -1683,8 +1712,8 @@
           <tr><th>年</th><th>プロジェクト時間</th><th>時間単価</th><th>AI HW</th><th>AWS/年</th><th>OD削減/年</th><th>Zendesk削減/年</th><th>純費用</th></tr>
         </thead>
         <tbody>
-          <tr><td>2026</td><td>~500h × ¥20K = ¥10.0M</td><td>¥20K</td><td>¥1.2M</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥11.2M</td></tr>
-          <tr><td>2027</td><td>~1,100h × ¥20K = ¥22.0M</td><td>¥20K</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>¥0</td><td>¥19.36M</td></tr>
+          <tr><td>2026</td><td>~650h × ¥20K = ¥13.0M</td><td>¥20K</td><td>¥1.2M</td><td>¥0</td><td>¥0</td><td>¥0</td><td>¥14.2M</td></tr>
+          <tr><td>2027</td><td>~1,550h × ¥20K = ¥31.0M</td><td>¥20K</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>¥0</td><td>¥28.36M</td></tr>
           <tr><td>2028</td><td>~1,200h × ¥20K = ¥24.0M</td><td>¥20K</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>-¥0.072M</td><td>¥21.29M</td></tr>
           <tr><td>2029</td><td>~800h × ¥20K = ¥16.0M</td><td>¥20K</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>-¥0.144M</td><td>¥13.22M</td></tr>
           <tr><td>2030</td><td>~550h × ¥20K = ¥11.0M</td><td>¥20K</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>-¥0.18M</td><td>¥8.18M</td></tr>
@@ -1695,7 +1724,7 @@
           <tr><td>2035</td><td>~400h × ¥20K = ¥8.0M</td><td>¥20K</td><td>¥0</td><td>¥0.24M</td><td>-¥2.88M</td><td>-¥0.18M</td><td>¥5.18M</td></tr>
         </tbody>
       </table>
-      <div class="method-note">プロジェクト時間は2031年から~400h/年（¥8.0M）に削減 — 18プロジェクト完了、メンテナンスと小規模機能のみ残存。</div>
+      <div class="method-note">プロジェクト時間は2031年から~400h/年（¥8.0M）に削減 — 19プロジェクト完了、メンテナンスと小規模機能のみ残存。</div>
     </div>
 
     <div class="method-section">
@@ -1719,14 +1748,15 @@
           <tr><td>DEVAI-01 (スタッフビルダー)</td><td>ツール</td><td>200h</td></tr>
           <tr><td>HARNESS-01 (サービスパッケージ)</td><td>ドキュメント</td><td>150h</td></tr>
           <tr><td>TRAIN-01 (トレーニング)</td><td>トレーニング開発</td><td>120h</td></tr>
+          <tr><td>PROCESS-01 (プロセス自動化)</td><td>部門自動化</td><td>600h</td></tr>
           <tr><td>TENANT-01 (SaaS基盤)</td><td>インフラ</td><td>300h</td></tr>
           <tr><td>ZAN-01 (Zan SaaS)</td><td>SaaS化</td><td>250h</td></tr>
           <tr><td>KIKU-01 (Kiku SaaS)</td><td>SaaS化</td><td>350h</td></tr>
           <tr><td>MARKET-01 (GTM)</td><td>ビジネス</td><td>100h</td></tr>
-          <tr class="total-row"><td>合計</td><td></td><td>~4,150h</td></tr>
+          <tr class="total-row"><td>合計</td><td></td><td>~4,750h</td></tr>
         </tbody>
       </table>
-      <div class="method-note">総プロジェクト投資: ~4,150h × ¥20K/h ≈ ¥83M。配分: 60%メインクエスト、15%メンテナンス、20%新規リクエスト、5%バッファー。</div>
+      <div class="method-note">総プロジェクト投資: ~4,750h × ¥20K/h ≈ ¥95M。配分: 60%メインクエスト、15%メンテナンス、20%新規リクエスト、5%バッファー。</div>
     </div>
 
     <div class="method-section">
